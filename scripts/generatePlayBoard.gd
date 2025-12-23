@@ -27,11 +27,15 @@ func createBoard():
 	for n in get_children():
 		n.queue_free()
 	arrayPlay = []
+	arraySelected = []
 	var file = FileAccess.open("user://nonogram.json", FileAccess.READ)
 	var json = JSON.parse_string(file.get_as_text())
 	var playBoardW = json["boardData"][0]["boardW"]
 	var playBoardH = json["boardData"][1]["boardH"]
 	arrayPlay = json["boardArray"]
+	for e in range(len(arrayPlay)):
+		for f in range(len(arrayPlay[e])):
+			arrayPlay[e][f] = int(arrayPlay[e][f])
 	print("dgruuiaduiluidzf",arrayPlay)
 	
 	aTerribleIdeaPlayX = []

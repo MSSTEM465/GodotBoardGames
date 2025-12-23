@@ -23,5 +23,10 @@ func _on_input_event(viewport, event, shape_idx):
 				PlayBoard.arraySelected[x][y] = 1
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			sprite.texture = nope
+			PlayBoard.arraySelected[x][y] = 0
+		if PlayBoard.arraySelected == PlayBoard.arrayPlay:
+			print("ya won buster")
+		
 	print(PlayBoard.arraySelected)
+	print(PlayBoard.arrayPlay)
 		
