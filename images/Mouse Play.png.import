@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg6jmjqeso4p5"
-path="res://.godot/imported/PlayButton.png-7163699d77897e3dfc38d629932a442d.ctex"
+uid="uid://0vyvfs1hg2hr"
+path="res://.godot/imported/Mouse Play.png-480faa4a72fffd30fdd9d9b3d37b9a19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayButton.png"
-dest_files=["res://.godot/imported/PlayButton.png-7163699d77897e3dfc38d629932a442d.ctex"]
+source_file="res://images/Mouse Play.png"
+dest_files=["res://.godot/imported/Mouse Play.png-480faa4a72fffd30fdd9d9b3d37b9a19.ctex"]
 
 [params]
 

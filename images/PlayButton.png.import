@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://50k1hjqc3440"
-path="res://.godot/imported/SolverButton.png-4fc0708430d49c67732998930e9acb18.ctex"
+uid="uid://bg6jmjqeso4p5"
+path="res://.godot/imported/PlayButton.png-2675480a848130718b1a3e0882660d2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SolverButton.png"
-dest_files=["res://.godot/imported/SolverButton.png-4fc0708430d49c67732998930e9acb18.ctex"]
+source_file="res://images/PlayButton.png"
+dest_files=["res://.godot/imported/PlayButton.png-2675480a848130718b1a3e0882660d2b.ctex"]
 
 [params]
 

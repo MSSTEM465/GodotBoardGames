@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jhwm4vlml0uf"
-path="res://.godot/imported/empty.png-6cfed9f1c7a7361513986ce73b0d7afa.ctex"
+uid="uid://ciiruh6l3pal7"
+path="res://.godot/imported/dunno.png-b8c621442e085ce35a60a8db3f8c013b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://empty.png"
-dest_files=["res://.godot/imported/empty.png-6cfed9f1c7a7361513986ce73b0d7afa.ctex"]
+source_file="res://images/dunno.png"
+dest_files=["res://.godot/imported/dunno.png-b8c621442e085ce35a60a8db3f8c013b.ctex"]
 
 [params]
 

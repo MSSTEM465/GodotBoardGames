@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciiruh6l3pal7"
-path="res://.godot/imported/dunno.png-b03fae3b3592ece059c8d791b31370b1.ctex"
+uid="uid://dkaynp8o4kqyj"
+path="res://.godot/imported/CreateKeybinds.png-5aeb7c95d6823a851b6dbeae7985be4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dunno.png"
-dest_files=["res://.godot/imported/dunno.png-b03fae3b3592ece059c8d791b31370b1.ctex"]
+source_file="res://images/CreateKeybinds.png"
+dest_files=["res://.godot/imported/CreateKeybinds.png-5aeb7c95d6823a851b6dbeae7985be4c.ctex"]
 
 [params]
 

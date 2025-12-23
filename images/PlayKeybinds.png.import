@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkaynp8o4kqyj"
-path="res://.godot/imported/CreateKeybinds.png-3cb8a724233fe1e3cb19f68334a793b6.ctex"
+uid="uid://bm4woiolwc1jw"
+path="res://.godot/imported/PlayKeybinds.png-9f6d00fa03f5199c0214f983466933e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CreateKeybinds.png"
-dest_files=["res://.godot/imported/CreateKeybinds.png-3cb8a724233fe1e3cb19f68334a793b6.ctex"]
+source_file="res://images/PlayKeybinds.png"
+dest_files=["res://.godot/imported/PlayKeybinds.png-9f6d00fa03f5199c0214f983466933e4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg8k45ja2kicv"
-path="res://.godot/imported/CreateButton.png-beaf889ab24433fc7b8ac08a2b7c7103.ctex"
+uid="uid://d3ij1rxii4y86"
+path="res://.godot/imported/SolverKeybinds1.png-604343653f6caecef91d92244d60d2e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CreateButton.png"
-dest_files=["res://.godot/imported/CreateButton.png-beaf889ab24433fc7b8ac08a2b7c7103.ctex"]
+source_file="res://images/SolverKeybinds1.png"
+dest_files=["res://.godot/imported/SolverKeybinds1.png-604343653f6caecef91d92244d60d2e2.ctex"]
 
 [params]
 
