@@ -10,7 +10,7 @@ func _ready() -> void:
 	pass
 	
 func _input(event) -> void:
-	print(event)
+	#print(event)
 	if event is InputEventKey and event.as_text_key_label() == "G":
 		var sizex = get_node("../CBFX").value
 		var sizey = get_node("../CBFY").value

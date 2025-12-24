@@ -4,6 +4,10 @@ var arrayPlay=[]
 var arraySelected = []
 var aTerribleIdeaPlayX = []
 var aTerribleIdeaPlayY = []
+
+var autofill = false
+var correction = false
+var penalize = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

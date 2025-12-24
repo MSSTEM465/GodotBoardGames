@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhxlays4w0cq6"]
+[gd_scene load_steps=25 format=3 uid="uid://bhxlays4w0cq6"]
 
 [ext_resource type="Script" uid="uid://by5ikcemghgn4" path="res://scripts/info.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://bsg5wl5roujnf" path="res://images/InfoButton.png" id="2_epypp"]
@@ -10,6 +10,13 @@
 [ext_resource type="Script" uid="uid://npx6bjyejhwh" path="res://scripts/create.gd" id="7_rj586"]
 [ext_resource type="Script" uid="uid://dhaagtx2a8yc1" path="res://scripts/button.gd" id="9_4d7sh"]
 [ext_resource type="Script" uid="uid://dk27tnx8ic7yx" path="res://scripts/generateCreateBoard.gd" id="10_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://vy22h0wdyq5" path="res://images/config.png" id="11_0h7mo"]
+[ext_resource type="Script" uid="uid://docyuk2ypmenk" path="res://scripts/guienter.gd" id="12_flf07"]
+[ext_resource type="Texture2D" uid="uid://duo2cvmb4ytlr" path="res://images/exit.png" id="12_nr8wp"]
+[ext_resource type="Script" uid="uid://bxsdrwps4742q" path="res://scripts/guiexit.gd" id="13_d2bti"]
+[ext_resource type="Texture2D" uid="uid://bgx8g70oot3lu" path="res://images/3524659.png" id="13_nr8wp"]
+[ext_resource type="Script" uid="uid://c62qp1ct5pfcu" path="res://scripts/settings.gd" id="14_k73cj"]
+[ext_resource type="Texture2D" uid="uid://jhwm4vlml0uf" path="res://images/empty.png" id="15_rjqkl"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_0hol4"]
 
@@ -22,7 +29,20 @@ width = 1920
 height = 1080
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(198, 98)
+size = Vector2(197, 94)
+
+[sub_resource type="Gradient" id="Gradient_ta5nu"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 0.81960785)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_flf07"]
+gradient = SubResource("Gradient_ta5nu")
+width = 1920
+height = 1080
+
+[sub_resource type="LabelSettings" id="LabelSettings_fs4d3"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -51,7 +71,7 @@ input_pickable = true
 script = ExtResource("3_kdubu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Play Button"]
-position = Vector2(99, 49)
+position = Vector2(98.5, 49)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="PlayButton" type="Sprite2D" parent="Play Button"]
@@ -59,11 +79,11 @@ position = Vector2(99, 49)
 texture = ExtResource("4_d21ai")
 
 [node name="Info" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(962, 595)
 texture = ExtResource("5_rj586")
 
 [node name="PlayBoard" type="Node2D" parent="."]
+visible = false
 position = Vector2(939, 512)
 script = ExtResource("6_kdubu")
 
@@ -109,11 +129,127 @@ offset_bottom = 396.0
 text = "TESTING BUTTON FOR TESTING"
 script = ExtResource("9_4d7sh")
 
+[node name="Settings Icon" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(3997, 67)
+input_pickable = true
+script = ExtResource("12_flf07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Settings Icon"]
+position = Vector2(-2344.25, -12)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="3524659" type="Sprite2D" parent="Settings Icon"]
+position = Vector2(-2345, -14)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("13_nr8wp")
+
 [node name="CreateBoard" type="Node2D" parent="."]
+visible = false
 position = Vector2(939, 512)
 script = ExtResource("10_ir8iy")
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+texture = SubResource("GradientTexture2D_flf07")
+
+[node name="Config" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("11_0h7mo")
+
+[node name="Correction" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(433, 464)
+input_pickable = true
+script = ExtResource("14_k73cj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Correction"]
+position = Vector2(39, 39)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="empty" type="Sprite2D" parent="Correction"]
+position = Vector2(39, 39)
+texture = ExtResource("15_rjqkl")
+
+[node name="Label" type="Label" parent="Correction"]
+offset_left = 85.0
+offset_top = 18.0
+offset_right = 190.0
+offset_bottom = 60.0
+text = "Correction"
+label_settings = SubResource("LabelSettings_fs4d3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Penalize" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(471, 542)
+input_pickable = true
+script = ExtResource("14_k73cj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penalize"]
+position = Vector2(39, 39)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="empty" type="Sprite2D" parent="Penalize"]
+position = Vector2(39, 39)
+texture = ExtResource("15_rjqkl")
+
+[node name="Label" type="Label" parent="Penalize"]
+offset_left = 85.0
+offset_top = 18.0
+offset_right = 190.0
+offset_bottom = 60.0
+text = "Penalize when Wrong"
+label_settings = SubResource("LabelSettings_fs4d3")
+metadata/_edit_use_anchors_ = true
+
+[node name="AF Button" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(433, 376)
+input_pickable = true
+script = ExtResource("14_k73cj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AF Button"]
+position = Vector2(39, 39)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="empty" type="Sprite2D" parent="AF Button"]
+position = Vector2(39, 39)
+texture = ExtResource("15_rjqkl")
+
+[node name="Label" type="Label" parent="AF Button"]
+offset_left = 85.0
+offset_top = 18.0
+offset_right = 190.0
+offset_bottom = 60.0
+text = "Autofill"
+label_settings = SubResource("LabelSettings_fs4d3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(1420, 219)
+input_pickable = true
+script = ExtResource("13_d2bti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(40.5, 39)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="exit" type="Sprite2D" parent="Exit"]
+position = Vector2(39, 39)
+texture = ExtResource("12_nr8wp")
 
 [connection signal="input_event" from="Info Button" to="Info Button" method="_on_input_event"]
 [connection signal="input_event" from="Play Button" to="Play Button" method="_on_input_event"]
 [connection signal="input_event" from="Create Button" to="Create Button" method="_on_input_event"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="input_event" from="Settings Icon" to="Settings Icon" method="_on_input_event"]
+[connection signal="input_event" from="Correction" to="Correction" method="_on_input_event"]
+[connection signal="input_event" from="Penalize" to="Penalize" method="_on_input_event"]
+[connection signal="input_event" from="AF Button" to="Info Button" method="_on_af_button_input_event"]
+[connection signal="input_event" from="AF Button" to="Info Button" method="_on_input_event"]
+[connection signal="input_event" from="AF Button" to="AF Button" method="_on_input_event"]
+[connection signal="input_event" from="Exit" to="Exit" method="_on_input_event"]
