@@ -26,23 +26,44 @@ func _input(event) -> void:
 		if event.as_text_key_label() == "Right":
 			self.position = Vector2(self.position.x+speed,self.position.y)
 		if event.as_text_key_label() == "E" and not curSizeX == null:
-			var json = JSON.new()
-			var file = FileAccess.open("user://nonogram.json", FileAccess.WRITE)
-			var createBoardJson = {
-				"boardData": [
-					{"boardW": curSizeY},
-					{"boardH": curSizeX}
-				],
-				"boardArray": array
-				}
-			if file:
-				json = JSON.stringify(createBoardJson)
-				file.store_string(json)
-				file.close()
-				print("Sucessfully saved")
-			else:
-				print("Failure to save")
-			print(createBoardJson)
+			get_node("../SaveLocation").show()
+			#var file = FileAccess.open("user://nonogram.json", FileAccess.WRITE)
+			#var createBoardJson = {
+		#		"boardData": [
+		#			{"boardW": curSizeY},
+		#			{"boardH": curSizeX}
+		#		],
+		#		"boardArray": array
+		#		}
+		#	if file:
+		#		json = JSON.stringify(createBoardJson)
+		#		file.store_string(json)
+		#		file.close()
+		#		print("Sucessfully saved")
+		#	else:
+		#		print("Failure to save")
+		#	print(createBoardJson)
+
+func continueSaving(path):
+	var json
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	var createBoardJson = {
+		"boardData": [
+			{"boardW": curSizeY},
+			{"boardH": curSizeX}
+		],
+		"boardArray": array
+		}
+	if file:
+		json = JSON.stringify(createBoardJson)
+		file.store_string(json)
+		file.close()
+		print("Sucessfully saved")
+	else:
+		print("Failure to save")
+	print(createBoardJson)
+	
+
 		
 func createBoard(size):
 	for n in get_children():

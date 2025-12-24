@@ -15,7 +15,7 @@ func _ready() -> void:
 func _input(event) -> void:
 	print(event)
 	if event is InputEventKey and event.as_text_key_label() == "G" and self.visible:
-		createBoard()
+		startCreating()
 	elif event is InputEventKey:
 		var speed = 5
 		if event.as_text_key_label() == "Up":
@@ -27,12 +27,15 @@ func _input(event) -> void:
 		if event.as_text_key_label() == "Right":
 			self.position = Vector2(self.position.x+speed,self.position.y)
 		
-func createBoard():
+func startCreating():
+	get_node("../OpenFile").show()
+
+func createBoard(path):
 	for n in get_children():
 		n.queue_free()
 	arrayPlay = []
 	arraySelected = []
-	var file = FileAccess.open("user://nonogram.json", FileAccess.READ)
+	var file = FileAccess.open(path, FileAccess.READ)
 	var json = JSON.parse_string(file.get_as_text())
 	var playBoardW = json["boardData"][0]["boardW"]
 	var playBoardH = json["boardData"][1]["boardH"]

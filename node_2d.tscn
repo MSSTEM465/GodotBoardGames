@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bhxlays4w0cq6"]
+[gd_scene load_steps=27 format=3 uid="uid://bhxlays4w0cq6"]
 
 [ext_resource type="Script" uid="uid://by5ikcemghgn4" path="res://scripts/info.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://bsg5wl5roujnf" path="res://images/InfoButton.png" id="2_epypp"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://bgx8g70oot3lu" path="res://images/3524659.png" id="13_nr8wp"]
 [ext_resource type="Script" uid="uid://c62qp1ct5pfcu" path="res://scripts/settings.gd" id="14_k73cj"]
 [ext_resource type="Texture2D" uid="uid://jhwm4vlml0uf" path="res://images/empty.png" id="15_rjqkl"]
+[ext_resource type="Script" uid="uid://dr431u2s7y0i0" path="res://scripts/saving.gd" id="18_k73cj"]
+[ext_resource type="Script" uid="uid://cvkq7adf4kkme" path="res://scripts/openFile.gd" id="18_rjqkl"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_0hol4"]
 
@@ -242,6 +244,25 @@ shape = SubResource("RectangleShape2D_q6r6c")
 position = Vector2(39, 39)
 texture = ExtResource("12_nr8wp")
 
+[node name="OpenFile" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Open a Nonogram JSON"
+initial_position = 1
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.json;JSON Files")
+script = ExtResource("18_rjqkl")
+
+[node name="SaveLocation" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Save as JSON"
+initial_position = 1
+dialog_hide_on_ok = true
+access = 2
+filters = PackedStringArray("*.json;JSON Files")
+script = ExtResource("18_k73cj")
+
 [connection signal="input_event" from="Info Button" to="Info Button" method="_on_input_event"]
 [connection signal="input_event" from="Play Button" to="Play Button" method="_on_input_event"]
 [connection signal="input_event" from="Create Button" to="Create Button" method="_on_input_event"]
@@ -253,3 +274,5 @@ texture = ExtResource("12_nr8wp")
 [connection signal="input_event" from="AF Button" to="Info Button" method="_on_input_event"]
 [connection signal="input_event" from="AF Button" to="AF Button" method="_on_input_event"]
 [connection signal="input_event" from="Exit" to="Exit" method="_on_input_event"]
+[connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
+[connection signal="file_selected" from="SaveLocation" to="SaveLocation" method="_on_file_selected"]
