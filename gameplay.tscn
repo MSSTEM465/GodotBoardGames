@@ -1,0 +1,353 @@
+[gd_scene load_steps=37 format=3 uid="uid://upps4vm7qnwk"]
+
+[ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="1_n4psk"]
+[ext_resource type="Script" uid="uid://bybcnuyf12h3f" path="res://scripts/save_file.gd" id="2_ej4tk"]
+[ext_resource type="Script" uid="uid://dktpjkwm7ofx6" path="res://scripts/open_file.gd" id="2_xuee5"]
+[ext_resource type="Script" uid="uid://bs7jtxkqiwohl" path="res://scripts/play_board.gd" id="3_oe8ih"]
+[ext_resource type="Texture2D" uid="uid://em2bknk0xvto" path="res://images/header.png" id="5_2ihbs"]
+[ext_resource type="Texture2D" uid="uid://08mvmq23j6g" path="res://images/CreateButton.png" id="6_1qy1k"]
+[ext_resource type="Script" uid="uid://dulh6cd4822hq" path="res://button s.gd" id="6_x2ust"]
+[ext_resource type="Texture2D" uid="uid://bkbl4jjg3h64m" path="res://images/PlayButton.png" id="7_3n40r"]
+[ext_resource type="Texture2D" uid="uid://cu0wdgobj1fvj" path="res://images/InfoButton.png" id="8_45aep"]
+[ext_resource type="Script" uid="uid://dn0kqk5684s6k" path="res://scripts/settings.gd" id="9_eod45"]
+[ext_resource type="Texture2D" uid="uid://bp0g34eskj760" path="res://images/settings.png" id="9_tyrfw"]
+[ext_resource type="Texture2D" uid="uid://c5lxbftle5nq4" path="res://images/config.png" id="11_nwk8b"]
+[ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="12_x2ust"]
+[ext_resource type="Texture2D" uid="uid://cqtatv5bjovuj" path="res://images/empty.png" id="13_7y1a3"]
+[ext_resource type="Script" uid="uid://dl88e0vey0bum" path="res://im_export.gd" id="14_nwk8b"]
+[ext_resource type="Texture2D" uid="uid://bsuoxhbc364gb" path="res://images/Import.png" id="15_x2ust"]
+[ext_resource type="Script" uid="uid://blnqs2e8vnpqh" path="res://generate.gd" id="17_eglai"]
+[ext_resource type="Texture2D" uid="uid://d2hkp5l527vpi" path="res://images/generate.png" id="18_m1ld8"]
+
+[sub_resource type="Gradient" id="Gradient_ej4tk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oe8ih"]
+gradient = SubResource("Gradient_ej4tk")
+
+[sub_resource type="SystemFont" id="SystemFont_xuee5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_smepj"]
+font = SubResource("SystemFont_xuee5")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_xuee5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.52906674, 0.5290667, 0.5290667, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_smepj"]
+gradient = SubResource("Gradient_xuee5")
+width = 10
+height = 5
+
+[sub_resource type="Curve" id="Curve_cbffv"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.4534884, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1ld8"]
+size = Vector2(191, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2em84"]
+size = Vector2(197, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kugc"]
+size = Vector2(200, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyrfw"]
+size = Vector2(16.400024, 15.6)
+
+[sub_resource type="Gradient" id="Gradient_eod45"]
+offsets = PackedFloat32Array(0.99333334)
+colors = PackedColorArray(0.74978, 0.74978, 0.74977994, 0.54509807)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nwk8b"]
+gradient = SubResource("Gradient_eod45")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eglai"]
+size = Vector2(53.99996, 62.999996)
+
+[sub_resource type="SystemFont" id="SystemFont_m1ld8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2em84"]
+font = SubResource("SystemFont_m1ld8")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7y1a3"]
+size = Vector2(197, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwi80"]
+size = Vector2(191, 93)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(961.50006, 543.5)
+scale = Vector2(30.078127, 17.015625)
+texture = SubResource("GradientTexture2D_oe8ih")
+
+[node name="Warnings" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 810.0
+offset_right = 951.0
+offset_bottom = 1083.0
+label_settings = SubResource("LabelSettings_smepj")
+vertical_alignment = 2
+
+[node name="CreateBoard" type="Node2D" parent="."]
+visible = false
+script = ExtResource("1_n4psk")
+
+[node name="OpenFile" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 1
+size = Vector2i(1200, 720)
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.json;JSON Files")
+script = ExtResource("2_xuee5")
+
+[node name="SaveFile" type="FileDialog" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(1200, 720)
+dialog_hide_on_ok = true
+access = 2
+filters = PackedStringArray("*.json;JSON Files")
+script = ExtResource("2_ej4tk")
+
+[node name="PlayBoard" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_oe8ih")
+
+[node name="ConfetRight" type="CPUParticles2D" parent="."]
+position = Vector2(1912, 381)
+scale = Vector2(-1.8768393, -2.101892)
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_smepj")
+lifetime = 4.89
+one_shot = true
+explosiveness = 0.8
+randomness = 0.29
+gravity = Vector2(0, 300.995)
+initial_velocity_min = 442.0
+initial_velocity_max = 442.0
+angular_velocity_min = 519.59
+angular_velocity_max = 534.43
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_cbffv")
+
+[node name="ConfetLeft" type="CPUParticles2D" parent="."]
+position = Vector2(0, 293)
+scale = Vector2(1.877, 2)
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_smepj")
+lifetime = 6.14
+one_shot = true
+explosiveness = 0.79
+randomness = 0.29
+gravity = Vector2(0, 300.995)
+initial_velocity_min = 422.68
+initial_velocity_max = 422.68
+angular_velocity_min = 500.0
+angular_velocity_max = 500.0
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_cbffv")
+
+[node name="Header" type="Sprite2D" parent="."]
+position = Vector2(960, 483)
+texture = ExtResource("5_2ihbs")
+
+[node name="InfoButton" type="Area2D" parent="."]
+script = ExtResource("6_x2ust")
+
+[node name="InfoButton" type="Sprite2D" parent="InfoButton"]
+position = Vector2(1725, 64)
+texture = ExtResource("8_45aep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfoButton"]
+position = Vector2(1724.5, 65.5)
+shape = SubResource("RectangleShape2D_m1ld8")
+
+[node name="PlayButton" type="Area2D" parent="."]
+script = ExtResource("6_x2ust")
+
+[node name="PlayButton" type="Sprite2D" parent="PlayButton"]
+position = Vector2(405, 64)
+texture = ExtResource("7_3n40r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayButton"]
+position = Vector2(405.5, 65.5)
+shape = SubResource("RectangleShape2D_2em84")
+
+[node name="CreateButton" type="Area2D" parent="."]
+script = ExtResource("6_x2ust")
+
+[node name="CreateButton" type="Sprite2D" parent="CreateButton"]
+position = Vector2(180, 64)
+texture = ExtResource("6_1qy1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreateButton"]
+position = Vector2(180, 66)
+shape = SubResource("RectangleShape2D_0kugc")
+
+[node name="Settings Icon" type="Area2D" parent="."]
+position = Vector2(-389.9995, 930.00024)
+scale = Vector2(4.9999995, 4.9999995)
+script = ExtResource("9_eod45")
+
+[node name="Settings" type="Sprite2D" parent="Settings Icon"]
+position = Vector2(389.19995, -173.00006)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("9_tyrfw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Settings Icon"]
+position = Vector2(389.19992, -172.80006)
+shape = SubResource("RectangleShape2D_tyrfw")
+
+[node name="SettingsPage" type="Node2D" parent="."]
+visible = false
+position = Vector2(1556, 64.99994)
+scale = Vector2(0.20000002, 0.20000002)
+
+[node name="Hider" type="Sprite2D" parent="SettingsPage"]
+position = Vector2(-2979.999, 2375)
+scale = Vector2(150.07813, 85.39062)
+texture = SubResource("GradientTexture2D_nwk8b")
+
+[node name="Config" type="Sprite2D" parent="SettingsPage"]
+position = Vector2(-2979.9995, 2375)
+scale = Vector2(4.9999995, 4.9999995)
+texture = ExtResource("11_nwk8b")
+
+[node name="Exit" type="Area2D" parent="SettingsPage"]
+position = Vector2(-389.9995, 930.00024)
+scale = Vector2(4.9999995, 4.9999995)
+script = ExtResource("9_eod45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SettingsPage/Exit"]
+position = Vector2(-0.00012207031, -0.5)
+shape = SubResource("RectangleShape2D_eglai")
+
+[node name="Exit" type="Sprite2D" parent="SettingsPage/Exit"]
+texture = ExtResource("12_x2ust")
+
+[node name="Autofill Button" type="Area2D" parent="SettingsPage"]
+position = Vector2(-5434.998, 1365.0002)
+scale = Vector2(4.9999995, 4.9999995)
+script = ExtResource("9_eod45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SettingsPage/Autofill Button"]
+shape = SubResource("RectangleShape2D_eglai")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettingsPage/Autofill Button"]
+texture = ExtResource("13_7y1a3")
+
+[node name="Label" type="Label" parent="SettingsPage/Autofill Button"]
+offset_left = 34.999756
+offset_top = -22.0
+offset_right = 146.99976
+offset_bottom = 23.0
+text = "Autofill"
+label_settings = SubResource("LabelSettings_2em84")
+
+[node name="Correction Button" type="Area2D" parent="SettingsPage"]
+position = Vector2(-5434.9995, 1760.0001)
+scale = Vector2(4.9999995, 4.9999995)
+script = ExtResource("9_eod45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SettingsPage/Correction Button"]
+shape = SubResource("RectangleShape2D_eglai")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettingsPage/Correction Button"]
+texture = ExtResource("13_7y1a3")
+
+[node name="Label" type="Label" parent="SettingsPage/Correction Button"]
+offset_left = 34.999756
+offset_top = -22.0
+offset_right = 146.99976
+offset_bottom = 23.0
+text = "Correction"
+label_settings = SubResource("LabelSettings_2em84")
+
+[node name="Penalize Button" type="Area2D" parent="SettingsPage"]
+position = Vector2(-5309.9995, 2160)
+scale = Vector2(4.9999995, 4.9999995)
+script = ExtResource("9_eod45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SettingsPage/Penalize Button"]
+shape = SubResource("RectangleShape2D_eglai")
+
+[node name="Sprite2D" type="Sprite2D" parent="SettingsPage/Penalize Button"]
+texture = ExtResource("13_7y1a3")
+
+[node name="Label" type="Label" parent="SettingsPage/Penalize Button"]
+offset_left = 34.999756
+offset_top = -22.0
+offset_right = 146.99976
+offset_bottom = 23.0
+text = "Penalize"
+label_settings = SubResource("LabelSettings_2em84")
+
+[node name="Import and Export" type="Area2D" parent="."]
+visible = false
+script = ExtResource("14_nwk8b")
+
+[node name="ImExport" type="Sprite2D" parent="Import and Export"]
+position = Vector2(1774, 1004)
+texture = ExtResource("15_x2ust")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Import and Export"]
+position = Vector2(1774.5, 1004)
+shape = SubResource("RectangleShape2D_7y1a3")
+
+[node name="HorLeng" type="SpinBox" parent="."]
+offset_left = 596.0
+offset_top = 991.0
+offset_right = 816.0
+offset_bottom = 1041.0
+max_value = 30.0
+rounded = true
+prefix = "Horizontal Length:"
+
+[node name="VerLeng" type="SpinBox" parent="."]
+offset_left = 1119.0
+offset_top = 996.0
+offset_right = 1338.9999
+offset_bottom = 1046.0
+max_value = 30.0
+rounded = true
+prefix = "Vertical Length:"
+
+[node name="Generate" type="Area2D" parent="."]
+position = Vector2(960, 988)
+script = ExtResource("17_eglai")
+
+[node name="Sprite2D" type="Sprite2D" parent="Generate"]
+texture = ExtResource("18_m1ld8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Generate"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_hwi80")
+
+[connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
+[connection signal="file_selected" from="SaveFile" to="SaveFile" method="_on_file_selected"]
+[connection signal="input_event" from="InfoButton" to="InfoButton" method="_on_input_event"]
+[connection signal="input_event" from="PlayButton" to="PlayButton" method="_on_input_event"]
+[connection signal="input_event" from="CreateButton" to="CreateButton" method="_on_input_event"]
+[connection signal="input_event" from="Settings Icon" to="Settings Icon" method="_on_input_event"]
+[connection signal="input_event" from="SettingsPage/Exit" to="SettingsPage/Exit" method="_on_input_event"]
+[connection signal="input_event" from="SettingsPage/Autofill Button" to="SettingsPage/Autofill Button" method="_on_input_event"]
+[connection signal="input_event" from="SettingsPage/Correction Button" to="SettingsPage/Correction Button" method="_on_input_event"]
+[connection signal="input_event" from="SettingsPage/Penalize Button" to="SettingsPage/Penalize Button" method="_on_input_event"]
+[connection signal="input_event" from="Import and Export" to="CreateBoard" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Import and Export" to="Import and Export" method="_on_input_event"]
+[connection signal="input_event" from="Generate" to="Generate" method="_on_input_event"]
