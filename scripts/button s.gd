@@ -6,6 +6,8 @@ extends Area2D
 
 @onready var ImEx = get_node("../Import and Export")
 @onready var ImExSprite = get_node("../Import and Export/ImExport")
+@onready var info = get_node("../Info")
+@onready var warnings = get_node("../Warnings")
 @onready var Settings = get_node("../Settings Icon")
 @onready var SettingsPage = get_node("../SettingsPage")
 @onready var HorLeng = get_node("../HorLeng")
@@ -29,6 +31,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and not SettingsPage.visible:
 		ImEx.show()
 		if self == CB:
+			info.hide()
+			warnings.hide()
 			HorLeng.show()
 			VerLeng.show()
 			Generate.show()
@@ -37,6 +41,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			Settings.hide()
 			ImExSprite.texture = load("res://images/Export.png")
 		if self == PB:
+			info.hide()
+			warnings.show()
 			HorLeng.hide()
 			VerLeng.hide()
 			Generate.hide()
@@ -45,6 +51,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			Settings.show()
 			ImExSprite.texture = load("res://images/Import.png")
 		if self == IB:
+			info.show()
+			warnings.hide()
 			HorLeng.hide()
 			VerLeng.hide()
 			Generate.hide()

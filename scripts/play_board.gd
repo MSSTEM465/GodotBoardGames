@@ -13,15 +13,22 @@ var autofill = false
 var correction = false
 var penalize = false
 
+func _input(event) -> void:
+	self.position = Vector2(self.position.x + (Input.get_axis("moveleft","moveright") * 10),self.position.y + (Input.get_axis("moveup","movedown") * 10))
+	
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func niceOneIdiot(): # Code ran by grid to remove itself when failed. Name is necessary
+	labels = []
 	for n in get_children():
 		n.queue_free()
 
 func openAndGenerate(path):
+	for n in get_children():
+		n.queue_free()
 	completed = false
 	get_node("../Warnings").set_text("")
 	var json
@@ -37,6 +44,8 @@ func openAndGenerate(path):
 	else:
 		print("Error in opening file")
 		return
+	labels = []
+	arraySelected = []
 	for i in range(verLeng):
 		arraySelected.append([])
 		arraySelected[i] = []

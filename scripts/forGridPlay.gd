@@ -22,7 +22,7 @@ func _ready():
 	input_event.connect(_on_input_event)
 
 func _input(event) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and not get_node("../../SettingsPage").visible:
 		if event.is_action_pressed("fill"):
 			leftHold = true
 		if event.is_action_pressed("empty"):
@@ -35,6 +35,10 @@ func _input(event) -> void:
 			rightHold = false
 		if event.is_action_released("middle"):
 			middleHold = false
+	if get_node("../../SettingsPage").visible:
+		leftHold = false
+		rightHold = false
+		middleHold = false
 
 func _on_input_event(viewport, event, shape_idx):
 		
@@ -104,12 +108,23 @@ func _on_input_event(viewport, event, shape_idx):
 				else:
 					warnings.set_text("")
 		if PlayBoard.arraySelected == PlayBoard.arraySolution and not PlayBoard.completed:
-			PlayBoard.completed = true
-			warnings.set_text("You win!")
-			var confL = get_node("../../ConfetLeft")
-			var confR = get_node("../../ConfetRight")
-			confR.emitting = true
-			confL.emitting = true
+			if get_node("../../Campaign/Control").inGame:
+				PlayBoard.hide()
+				get_node("../../Campaign").show()
+				get_node("../../Campaign/Control").completedStories.append(get_node("../../Campaign/Control").currentStory)
+				var confL = get_node("../../ConfetLeft")
+				var confR = get_node("../../ConfetRight")
+				for i in get_node("../../Campaign/Control").get_children():
+					i.update()
+				confR.emitting = true
+				confL.emitting = true
+			else:
+				PlayBoard.completed = true
+				warnings.set_text("You win!")
+				var confL = get_node("../../ConfetLeft")
+				var confR = get_node("../../ConfetRight")
+				confR.emitting = true
+				confL.emitting = true
 	#print(CreateBoard.array)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

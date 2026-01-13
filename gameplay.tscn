@@ -1,12 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://upps4vm7qnwk"]
+[gd_scene load_steps=40 format=3 uid="uid://upps4vm7qnwk"]
 
+[ext_resource type="Script" uid="uid://cuggfwwpjxef6" path="res://backgroundPC.gd" id="1_2em84"]
 [ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://bybcnuyf12h3f" path="res://scripts/save_file.gd" id="2_ej4tk"]
 [ext_resource type="Script" uid="uid://dktpjkwm7ofx6" path="res://scripts/open_file.gd" id="2_xuee5"]
 [ext_resource type="Script" uid="uid://bs7jtxkqiwohl" path="res://scripts/play_board.gd" id="3_oe8ih"]
 [ext_resource type="Texture2D" uid="uid://em2bknk0xvto" path="res://images/header.png" id="5_2ihbs"]
 [ext_resource type="Texture2D" uid="uid://08mvmq23j6g" path="res://images/CreateButton.png" id="6_1qy1k"]
-[ext_resource type="Script" uid="uid://dulh6cd4822hq" path="res://button s.gd" id="6_x2ust"]
+[ext_resource type="Script" uid="uid://dulh6cd4822hq" path="res://scripts/button s.gd" id="6_x2ust"]
 [ext_resource type="Texture2D" uid="uid://bkbl4jjg3h64m" path="res://images/PlayButton.png" id="7_3n40r"]
 [ext_resource type="Texture2D" uid="uid://cu0wdgobj1fvj" path="res://images/InfoButton.png" id="8_45aep"]
 [ext_resource type="Script" uid="uid://dn0kqk5684s6k" path="res://scripts/settings.gd" id="9_eod45"]
@@ -14,10 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://c5lxbftle5nq4" path="res://images/config.png" id="11_nwk8b"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="12_x2ust"]
 [ext_resource type="Texture2D" uid="uid://cqtatv5bjovuj" path="res://images/empty.png" id="13_7y1a3"]
-[ext_resource type="Script" uid="uid://dl88e0vey0bum" path="res://im_export.gd" id="14_nwk8b"]
+[ext_resource type="Script" uid="uid://dl88e0vey0bum" path="res://scripts/im_export.gd" id="14_nwk8b"]
 [ext_resource type="Texture2D" uid="uid://bsuoxhbc364gb" path="res://images/Import.png" id="15_x2ust"]
-[ext_resource type="Script" uid="uid://blnqs2e8vnpqh" path="res://generate.gd" id="17_eglai"]
+[ext_resource type="Script" uid="uid://blnqs2e8vnpqh" path="res://scripts/generate.gd" id="17_eglai"]
 [ext_resource type="Texture2D" uid="uid://d2hkp5l527vpi" path="res://images/generate.png" id="18_m1ld8"]
+[ext_resource type="Texture2D" uid="uid://525cmopoflxd" path="res://images/info.png" id="19_m1ld8"]
+[ext_resource type="Script" uid="uid://bwkyd7h3fdlq4" path="res://storymode.gd" id="21_0kugc"]
 
 [sub_resource type="Gradient" id="Gradient_ej4tk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -87,8 +90,10 @@ size = Vector2(191, 93)
 position = Vector2(961.50006, 543.5)
 scale = Vector2(30.078127, 17.015625)
 texture = SubResource("GradientTexture2D_oe8ih")
+script = ExtResource("1_2em84")
 
 [node name="Warnings" type="Label" parent="."]
+visible = false
 offset_left = 21.0
 offset_top = 810.0
 offset_right = 951.0
@@ -161,6 +166,17 @@ angular_velocity_max = 500.0
 hue_variation_min = -1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_cbffv")
+
+[node name="Campaign" type="ScrollContainer" parent="."]
+offset_right = 1922.0
+offset_bottom = 1084.0
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Control" type="Control" parent="Campaign"]
+layout_mode = 2
+script = ExtResource("21_0kugc")
 
 [node name="Header" type="Sprite2D" parent="."]
 position = Vector2(960, 483)
@@ -310,6 +326,7 @@ position = Vector2(1774.5, 1004)
 shape = SubResource("RectangleShape2D_7y1a3")
 
 [node name="HorLeng" type="SpinBox" parent="."]
+visible = false
 offset_left = 596.0
 offset_top = 991.0
 offset_right = 816.0
@@ -319,6 +336,7 @@ rounded = true
 prefix = "Horizontal Length:"
 
 [node name="VerLeng" type="SpinBox" parent="."]
+visible = false
 offset_left = 1119.0
 offset_top = 996.0
 offset_right = 1338.9999
@@ -328,6 +346,7 @@ rounded = true
 prefix = "Vertical Length:"
 
 [node name="Generate" type="Area2D" parent="."]
+visible = false
 position = Vector2(960, 988)
 script = ExtResource("17_eglai")
 
@@ -338,7 +357,15 @@ texture = ExtResource("18_m1ld8")
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_hwi80")
 
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(964, 600)
+texture = ExtResource("19_m1ld8")
+
 [connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
+[connection signal="about_to_popup" from="SaveFile" to="SaveFile" method="_on_about_to_popup"]
+[connection signal="canceled" from="SaveFile" to="SaveFile" method="_on_canceled"]
+[connection signal="confirmed" from="SaveFile" to="SaveFile" method="_on_confirmed"]
 [connection signal="file_selected" from="SaveFile" to="SaveFile" method="_on_file_selected"]
 [connection signal="input_event" from="InfoButton" to="InfoButton" method="_on_input_event"]
 [connection signal="input_event" from="PlayButton" to="PlayButton" method="_on_input_event"]

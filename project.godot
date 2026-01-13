@@ -11,14 +11,22 @@ config_version=5
 [application]
 
 config/name="Newograms"
+config/version="0.1.0"
 run/main_scene="uid://upps4vm7qnwk"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://images/icon.svg"
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://cpbai3s34beqk"
+config/icon="uid://cpbai3s34beqk"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [input]
 
@@ -67,3 +75,4 @@ export={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

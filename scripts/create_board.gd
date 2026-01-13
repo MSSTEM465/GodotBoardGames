@@ -45,8 +45,8 @@ func _input(event) -> void:
 		
 
 func generate(size):
-	var verLeng = size[1]
-	var horLeng = size[0]
+	verLeng = size[1]
+	horLeng = size[0]
 	labels = []
 	for n in get_children():
 		n.queue_free()

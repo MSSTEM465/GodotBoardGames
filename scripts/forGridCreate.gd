@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var CreateBoard = get_node("../../CreateBoard")
+@onready var SaveFile = get_node("../../SaveFile")
 
 var hori: int
 var vert: int
@@ -32,6 +33,10 @@ func _input(event) -> void:
 			rightHold = false
 		if event.is_action_released("middle"):
 			middleHold = false
+	if SaveFile.heyMan:
+		leftHold = false
+		middleHold = false
+		rightHold = false
 
 func _on_input_event(viewport, event, shape_idx):
 

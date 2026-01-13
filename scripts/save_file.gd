@@ -1,4 +1,5 @@
 extends FileDialog
+var heyMan = false
 
 @onready var cb = get_node("../CreateBoard")
 
@@ -13,3 +14,18 @@ func _process(delta: float) -> void:
 
 func _on_file_selected(path: String) -> void:
 	cb.saveFile(path)
+
+
+func _on_about_to_popup() -> void:
+	heyMan = true
+	pass # Replace with function body.
+
+
+func _on_confirmed() -> void:
+	heyMan = false
+	pass # Replace with function body.
+
+
+func _on_canceled() -> void:
+	heyMan = false
+	pass # Replace with function body.

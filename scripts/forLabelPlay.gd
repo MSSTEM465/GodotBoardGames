@@ -4,6 +4,7 @@ extends Label
 @onready var location: int
 @onready var ifVert: bool
 
+
 var lane = []
 var result
 var counter
@@ -13,6 +14,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func update():
+	if OS.get_name() == "Android" or false:
+		PlayBoard = get_tree().root.get_node("Mobile/PlayBoard")
 	lane = []
 	if ifVert:
 		lane = PlayBoard.arraySolution[location]
