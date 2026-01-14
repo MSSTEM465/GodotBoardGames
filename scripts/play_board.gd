@@ -44,6 +44,10 @@ func openAndGenerate(path):
 	else:
 		print("Error in opening file")
 		return
+	if get_node("../Campaign/Control").inGame:
+		autofill = json["boardData"][2]["autofill"]
+		correction = json["boardData"][3]["correction"]
+		penalize = json["boardData"][4]["penalize"]
 	labels = []
 	arraySelected = []
 	for i in range(verLeng):

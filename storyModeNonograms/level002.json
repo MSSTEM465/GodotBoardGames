@@ -1,0 +1,83 @@
+{
+	"boardArray": [
+		[
+			0,
+			0,
+			1,
+			1,
+			0,
+			0
+		],
+		[
+			0,
+			1,
+			1,
+			1,
+			1,
+			0
+		],
+		[
+			1,
+			1,
+			1,
+			1,
+			1,
+			1
+		],
+		[
+			0,
+			1,
+			1,
+			1,
+			1,
+			0
+		],
+		[
+			0,
+			1,
+			0,
+			1,
+			1,
+			0
+		],
+		[
+			0,
+			1,
+			1,
+			1,
+			1,
+			0
+		]
+	],
+	"boardData": [
+		{
+			"boardW": 6
+		},
+		{
+			"boardH": 6
+		},
+		{
+			"autofill": false
+		},
+		{
+			"correction": false
+		},
+		{
+			"penalize": false
+		}
+	],
+	"info": [
+		{
+			"title": "House"
+		},
+		{
+			"diff": 2
+		},
+		{
+			"desc": "Something a kindergartener would draw. 6x6 grid"
+		},
+		{
+			"locked": -1
+		}
+	]
+}

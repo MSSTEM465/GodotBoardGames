@@ -1,6 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://upps4vm7qnwk"]
+[gd_scene load_steps=48 format=3 uid="uid://upps4vm7qnwk"]
 
-[ext_resource type="Script" uid="uid://cuggfwwpjxef6" path="res://backgroundPC.gd" id="1_2em84"]
+[ext_resource type="Script" uid="uid://cuggfwwpjxef6" path="res://scripts/backgroundPC.gd" id="1_2em84"]
 [ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://bybcnuyf12h3f" path="res://scripts/save_file.gd" id="2_ej4tk"]
 [ext_resource type="Script" uid="uid://dktpjkwm7ofx6" path="res://scripts/open_file.gd" id="2_xuee5"]
@@ -19,8 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://bsuoxhbc364gb" path="res://images/Import.png" id="15_x2ust"]
 [ext_resource type="Script" uid="uid://blnqs2e8vnpqh" path="res://scripts/generate.gd" id="17_eglai"]
 [ext_resource type="Texture2D" uid="uid://d2hkp5l527vpi" path="res://images/generate.png" id="18_m1ld8"]
-[ext_resource type="Texture2D" uid="uid://525cmopoflxd" path="res://images/info.png" id="19_m1ld8"]
-[ext_resource type="Script" uid="uid://bwkyd7h3fdlq4" path="res://storymode.gd" id="21_0kugc"]
+[ext_resource type="Script" uid="uid://bwkyd7h3fdlq4" path="res://scripts/storymode.gd" id="21_0kugc"]
+[ext_resource type="Texture2D" uid="uid://cay3x6kxtsn45" path="res://images/nonograminfo.png" id="21_hwi80"]
+[ext_resource type="Texture2D" uid="uid://cor0cbmwlu006" path="res://images/sotry.png" id="22_hwi80"]
+[ext_resource type="Texture2D" uid="uid://di6hsoej8v4np" path="res://images/information/infoCrazy.png" id="23_td3eq"]
+[ext_resource type="Script" uid="uid://b5jtvouvxvedw" path="res://back.gd" id="24_eyn1h"]
+[ext_resource type="Texture2D" uid="uid://ctgm6ssbysyvb" path="res://images/back.png" id="25_ip4p6"]
 
 [sub_resource type="Gradient" id="Gradient_ej4tk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -83,6 +87,21 @@ size = Vector2(197, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwi80"]
 size = Vector2(191, 93)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yr68n"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eyn1h"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ip4p6"]
+font_size = 40
+font_color = Color(0.87036264, 0.7633167, 0.44469902, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfxku"]
+size = Vector2(44, 47)
 
 [node name="Node2D" type="Node2D"]
 
@@ -168,6 +187,7 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_cbffv")
 
 [node name="Campaign" type="ScrollContainer" parent="."]
+visible = false
 offset_right = 1922.0
 offset_bottom = 1084.0
 follow_focus = true
@@ -205,6 +225,7 @@ position = Vector2(405.5, 65.5)
 shape = SubResource("RectangleShape2D_2em84")
 
 [node name="CreateButton" type="Area2D" parent="."]
+position = Vector2(440, -1)
 script = ExtResource("6_x2ust")
 
 [node name="CreateButton" type="Sprite2D" parent="CreateButton"]
@@ -216,6 +237,7 @@ position = Vector2(180, 66)
 shape = SubResource("RectangleShape2D_0kugc")
 
 [node name="Settings Icon" type="Area2D" parent="."]
+visible = false
 position = Vector2(-389.9995, 930.00024)
 scale = Vector2(4.9999995, 4.9999995)
 script = ExtResource("9_eod45")
@@ -358,9 +380,67 @@ position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_hwi80")
 
 [node name="Info" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(964, 600)
-texture = ExtResource("19_m1ld8")
+texture = ExtResource("21_hwi80")
+
+[node name="StoryButton" type="Area2D" parent="."]
+position = Vector2(-1546, 0)
+script = ExtResource("6_x2ust")
+
+[node name="InfoButton" type="Sprite2D" parent="StoryButton"]
+position = Vector2(1725, 64)
+texture = ExtResource("22_hwi80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoryButton"]
+position = Vector2(1724.5, 65.5)
+shape = SubResource("RectangleShape2D_m1ld8")
+
+[node name="LevelInfo" type="Node2D" parent="."]
+visible = false
+
+[node name="InfoSprite" type="Sprite2D" parent="LevelInfo"]
+position = Vector2(369, 245.5)
+texture = ExtResource("23_td3eq")
+
+[node name="Title" type="Label" parent="LevelInfo"]
+offset_left = 145.0
+offset_top = 17.5
+offset_right = 583.0
+offset_bottom = 86.5
+text = "Title of Nonogram"
+label_settings = SubResource("LabelSettings_yr68n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="LevelInfo"]
+offset_left = 18.0
+offset_top = 106.5
+offset_right = 720.0
+offset_bottom = 597.5
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit"
+label_settings = SubResource("LabelSettings_eyn1h")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Difficulty" type="Label" parent="LevelInfo"]
+offset_left = 82.0
+offset_top = 426.5
+offset_right = 128.0
+offset_bottom = 481.5
+text = "14"
+label_settings = SubResource("LabelSettings_ip4p6")
+
+[node name="Back" type="Area2D" parent="."]
+visible = false
+position = Vector2(46, 46)
+script = ExtResource("24_eyn1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Back"]
+texture = ExtResource("25_ip4p6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_xfxku")
 
 [connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
 [connection signal="about_to_popup" from="SaveFile" to="SaveFile" method="_on_about_to_popup"]
@@ -378,3 +458,6 @@ texture = ExtResource("19_m1ld8")
 [connection signal="input_event" from="Import and Export" to="CreateBoard" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Import and Export" to="Import and Export" method="_on_input_event"]
 [connection signal="input_event" from="Generate" to="Generate" method="_on_input_event"]
+[connection signal="input_event" from="StoryButton" to="StoryButton" method="_on_input_event"]
+[connection signal="input_event" from="Back" to="Background" method="_on_back_input_event"]
+[connection signal="input_event" from="Back" to="Back" method="_on_input_event"]

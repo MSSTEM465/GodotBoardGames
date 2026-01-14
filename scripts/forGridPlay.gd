@@ -114,8 +114,10 @@ func _on_input_event(viewport, event, shape_idx):
 				get_node("../../Campaign/Control").completedStories.append(get_node("../../Campaign/Control").currentStory)
 				var confL = get_node("../../ConfetLeft")
 				var confR = get_node("../../ConfetRight")
+				get_node("../../Campaign/Control").inGame = false
 				for i in get_node("../../Campaign/Control").get_children():
 					i.update()
+				get_node("../../Import and Export").show()
 				confR.emitting = true
 				confL.emitting = true
 			else:

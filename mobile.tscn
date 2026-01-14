@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://tyh4v2ks6crk"]
 
-[ext_resource type="Script" uid="uid://5k8fnm4a7nmo" path="res://background.gd" id="1_kgp4c"]
-[ext_resource type="Script" uid="uid://djji471dixnyv" path="res://directional.gd" id="2_ui7j4"]
+[ext_resource type="Script" uid="uid://5k8fnm4a7nmo" path="res://scripts/background.gd" id="1_kgp4c"]
+[ext_resource type="Script" uid="uid://djji471dixnyv" path="res://scripts/directional.gd" id="2_ui7j4"]
 [ext_resource type="Script" uid="uid://bs7jtxkqiwohl" path="res://scripts/play_board.gd" id="3_xux57"]
 
 [sub_resource type="Gradient" id="Gradient_bj8h8"]
