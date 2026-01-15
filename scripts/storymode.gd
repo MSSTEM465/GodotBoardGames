@@ -51,7 +51,6 @@ func generateStories():
 		area.set_script(load("res://scripts/forStoryNodes.gd"))
 		area.sprite = sprite
 		area.id = i
-		self.add_child(area)
 		label.set_text(str(i+1))
 		label.add_theme_font_size_override("font_size",30)
 		label.add_theme_color_override("font_color", "black")
@@ -60,6 +59,7 @@ func generateStories():
 		area.global_position = Vector2(get_viewport().size.x/2,i*200+200)
 		#get_node("../../ScrollContainer").set_v_scroll(area.global_position.y + 100)
 		self.set_custom_minimum_size(Vector2(100,area.global_position.y+500))
+		self.add_child(area)
 		area.update()
 		#if i % 2 == 0:
 			#completedStories.append(stories[i])

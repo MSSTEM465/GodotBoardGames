@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://jav0m5rc2321"]
+
+[sub_resource type="Gradient" id="Gradient_g8yvt"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hnafd"]
+gradient = SubResource("Gradient_g8yvt")
+
+[node name="Minesweeper" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(947.49994, 529.5)
+scale = Vector2(30.609373, 17.546873)
+texture = SubResource("GradientTexture2D_hnafd")
+
+[node name="field" type="Node2D" parent="."]

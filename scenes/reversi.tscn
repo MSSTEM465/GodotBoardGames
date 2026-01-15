@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://cssmqoj4n7t2b"]
+
+[ext_resource type="Script" uid="uid://cwank1r2xbhql" path="res://scripts/board.gd" id="1_i6p4b"]
+[ext_resource type="Texture2D" uid="uid://rj0vxlk8qhmr" path="res://images/black.png" id="2_mj47m"]
+
+[sub_resource type="Gradient" id="Gradient_qegui"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6nnvk"]
+gradient = SubResource("Gradient_qegui")
+
+[sub_resource type="Gradient" id="Gradient_mj47m"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.18717697, 0.18717581, 0.18717608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pph0o"]
+gradient = SubResource("Gradient_mj47m")
+width = 32
+height = 16
+fill_from = Vector2(0.46261683, 1)
+fill_to = Vector2(0.45794392, 0.72897196)
+
+[sub_resource type="Curve" id="Curve_pxsk5"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(963, 541.5)
+scale = Vector2(30.09375, 16.921875)
+texture = SubResource("GradientTexture2D_6nnvk")
+
+[node name="board" type="Node2D" parent="."]
+script = ExtResource("1_i6p4b")
+
+[node name="Turn" type="Sprite2D" parent="."]
+position = Vector2(74, 1011)
+scale = Vector2(2, 2)
+texture = ExtResource("2_mj47m")
+
+[node name="whiteWin" type="CPUParticles2D" parent="."]
+position = Vector2(-22, 430)
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_pph0o")
+lifetime = 6.0
+one_shot = true
+explosiveness = 0.87
+direction = Vector2(2.015, 0)
+spread = 70.98
+gravity = Vector2(0, 400)
+initial_velocity_min = 711.34
+initial_velocity_max = 991.63
+angular_velocity_max = 178.14
+scale_amount_min = 0.3
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_pxsk5")
+
+[node name="blackWin" type="CPUParticles2D" parent="."]
+position = Vector2(1902, 422)
+scale = Vector2(-1, 1)
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_pph0o")
+lifetime = 6.0
+one_shot = true
+explosiveness = 0.87
+direction = Vector2(2.015, 0)
+spread = 70.98
+gravity = Vector2(0, 400)
+initial_velocity_min = 711.34
+initial_velocity_max = 991.63
+angular_velocity_max = 178.14
+scale_amount_min = 0.3
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_pxsk5")

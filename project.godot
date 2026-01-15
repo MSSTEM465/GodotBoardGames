@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Newograms"
 config/version="0.1.0"
-run/main_scene="uid://upps4vm7qnwk"
+run/main_scene="uid://clpsgko82odrx"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/fullsize=false
