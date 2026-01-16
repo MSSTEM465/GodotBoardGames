@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://upps4vm7qnwk"]
+[gd_scene load_steps=50 format=3 uid="uid://upps4vm7qnwk"]
 
 [ext_resource type="Script" uid="uid://cuggfwwpjxef6" path="res://scripts/backgroundPC.gd" id="1_rmy11"]
 [ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="2_i0nma"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://di6hsoej8v4np" path="res://images/information/infoCrazy.png" id="23_ffasw"]
 [ext_resource type="Script" uid="uid://b5jtvouvxvedw" path="res://scripts/back.gd" id="24_lnjh5"]
 [ext_resource type="Texture2D" uid="uid://ctgm6ssbysyvb" path="res://images/back.png" id="25_6cjkq"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="26_vrqbj"]
 
 [sub_resource type="Gradient" id="Gradient_ej4tk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -102,6 +103,9 @@ font_color = Color(0.87036264, 0.7633167, 0.44469902, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfxku"]
 size = Vector2(44, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm2mb"]
+size = Vector2(58, 64)
 
 [node name="Node2D" type="Node2D"]
 
@@ -442,6 +446,16 @@ texture = ExtResource("25_6cjkq")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_xfxku")
 
+[node name="exitToMM" type="Area2D" parent="."]
+position = Vector2(1873, 41)
+script = ExtResource("26_vrqbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitToMM"]
+shape = SubResource("RectangleShape2D_gm2mb")
+
+[node name="Sprite2D" type="Sprite2D" parent="exitToMM"]
+texture = ExtResource("15_m3i5y")
+
 [connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
 [connection signal="about_to_popup" from="SaveFile" to="SaveFile" method="_on_about_to_popup"]
 [connection signal="canceled" from="SaveFile" to="SaveFile" method="_on_canceled"]
@@ -461,3 +475,4 @@ shape = SubResource("RectangleShape2D_xfxku")
 [connection signal="input_event" from="StoryButton" to="StoryButton" method="_on_input_event"]
 [connection signal="input_event" from="Back" to="Background" method="_on_back_input_event"]
 [connection signal="input_event" from="Back" to="Back" method="_on_input_event"]
+[connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]

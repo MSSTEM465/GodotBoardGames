@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cssmqoj4n7t2b"]
+[gd_scene load_steps=11 format=3 uid="uid://cssmqoj4n7t2b"]
 
 [ext_resource type="Script" uid="uid://cwank1r2xbhql" path="res://scripts/board.gd" id="1_i6p4b"]
 [ext_resource type="Texture2D" uid="uid://rj0vxlk8qhmr" path="res://images/black.png" id="2_mj47m"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="3_pxsk5"]
+[ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="4_bkufs"]
 
 [sub_resource type="Gradient" id="Gradient_qegui"]
 offsets = PackedFloat32Array(1)
@@ -26,6 +28,9 @@ fill_to = Vector2(0.45794392, 0.72897196)
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hatgk"]
+size = Vector2(58, 64)
 
 [node name="Node2D" type="Node2D"]
 
@@ -78,3 +83,15 @@ angular_velocity_max = 178.14
 scale_amount_min = 0.3
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_pxsk5")
+
+[node name="exitToMM" type="Area2D" parent="."]
+position = Vector2(1885, 34)
+script = ExtResource("3_pxsk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitToMM"]
+shape = SubResource("RectangleShape2D_hatgk")
+
+[node name="Sprite2D" type="Sprite2D" parent="exitToMM"]
+texture = ExtResource("4_bkufs")
+
+[connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]

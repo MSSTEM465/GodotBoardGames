@@ -1,5 +1,6 @@
 extends Area2D 
 @onready var field = get_node("../../field")
+@onready var audioPlayer = get_node("../../AudioStreamPlayer2D")
 var unrevealed = preload("res://images/minesweeper/click.png")
 var vertPos: int
 var horiPos: int
@@ -19,6 +20,9 @@ func reveal():
 		if field.array[vertPos][horiPos] == 1:
 			print("mine")
 			sprite.texture = load("res://images/minesweeper/mine.png")
+			get_node("../../explosion").position = self.global_position
+			get_node("../../explosion").emitting = true
+			audioPlayer.play()
 		else:
 			var direction = 0
 			var list = [[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1]]

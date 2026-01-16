@@ -1,6 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://jav0m5rc2321"]
+[gd_scene load_steps=17 format=3 uid="uid://jav0m5rc2321"]
 
 [ext_resource type="Script" uid="uid://lsibv8na6g3x" path="res://scenes/field.gd" id="1_hnafd"]
+[ext_resource type="Script" uid="uid://bbahoxystmr0o" path="res://scenes/difficultiesMine.gd" id="2_p5s82"]
+[ext_resource type="Texture2D" uid="uid://cwkpwyrse8qke" path="res://images/easy.png" id="3_2m5h3"]
+[ext_resource type="Texture2D" uid="uid://cunphb46y88hp" path="res://images/medium.png" id="4_f7qek"]
+[ext_resource type="Texture2D" uid="uid://edbj8md34vn4" path="res://images/hard.png" id="5_rm57e"]
+[ext_resource type="AudioStream" uid="uid://cf60olcmjhh0g" path="res://sounds/Boom11.wav" id="6_rm57e"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="7_n22ri"]
+[ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="8_iwuws"]
 
 [sub_resource type="Gradient" id="Gradient_g8yvt"]
 offsets = PackedFloat32Array(1)
@@ -8,6 +15,29 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hnafd"]
 gradient = SubResource("Gradient_g8yvt")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7qek"]
+size = Vector2(196, 96)
+
+[sub_resource type="Gradient" id="Gradient_f7qek"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1.1440617, 0.7673932, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rm57e"]
+gradient = SubResource("Gradient_f7qek")
+width = 32
+height = 32
+
+[sub_resource type="Curve" id="Curve_ij7u7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rm57e"]
+offsets = PackedFloat32Array(0, 0.11643836, 0.739726)
+colors = PackedColorArray(0.95, 0, 0, 1, 1, 0.571, 0.00999999, 1, 0.9999997, 0.8919378, 0.66331804, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdkew"]
+size = Vector2(58, 64)
 
 [node name="Minesweeper" type="Node2D"]
 
@@ -18,3 +48,68 @@ texture = SubResource("GradientTexture2D_hnafd")
 
 [node name="field" type="Node2D" parent="."]
 script = ExtResource("1_hnafd")
+
+[node name="Difficulty" type="Node2D" parent="."]
+
+[node name="Easy" type="Area2D" parent="Difficulty"]
+position = Vector2(509, 981)
+script = ExtResource("2_p5s82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Difficulty/Easy"]
+shape = SubResource("RectangleShape2D_f7qek")
+
+[node name="Sprite2D" type="Sprite2D" parent="Difficulty/Easy"]
+texture = ExtResource("3_2m5h3")
+
+[node name="Medium" type="Area2D" parent="Difficulty"]
+position = Vector2(773, 981)
+script = ExtResource("2_p5s82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Difficulty/Medium"]
+shape = SubResource("RectangleShape2D_f7qek")
+
+[node name="Sprite2D" type="Sprite2D" parent="Difficulty/Medium"]
+texture = ExtResource("4_f7qek")
+
+[node name="Hard" type="Area2D" parent="Difficulty"]
+position = Vector2(1030, 985)
+script = ExtResource("2_p5s82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Difficulty/Hard"]
+shape = SubResource("RectangleShape2D_f7qek")
+
+[node name="Sprite2D" type="Sprite2D" parent="Difficulty/Hard"]
+texture = ExtResource("5_rm57e")
+
+[node name="explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_rm57e")
+one_shot = true
+explosiveness = 0.88
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 731.96
+initial_velocity_max = 989.69
+radial_accel_max = 100.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_ij7u7")
+color_ramp = SubResource("Gradient_rm57e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rm57e")
+
+[node name="exitToMM" type="Area2D" parent="."]
+position = Vector2(1885, 34)
+script = ExtResource("7_n22ri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitToMM"]
+shape = SubResource("RectangleShape2D_gdkew")
+
+[node name="Sprite2D" type="Sprite2D" parent="exitToMM"]
+texture = ExtResource("8_iwuws")
+
+[connection signal="input_event" from="Difficulty/Easy" to="Difficulty/Easy" method="_on_input_event"]
+[connection signal="input_event" from="Difficulty/Medium" to="Difficulty/Medium" method="_on_input_event"]
+[connection signal="input_event" from="Difficulty/Hard" to="Difficulty/Hard" method="_on_input_event"]
+[connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]
