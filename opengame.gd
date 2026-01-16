@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var nonogram = get_node("../Nonogram")
 @onready var Reversi = get_node("../Reversi")
+@onready var Minesweeper = get_node("../Minesweeper")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,4 +21,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			get_tree().change_scene_to_file("res://scenes/gameplay.tscn")
 		if self == Reversi:
 			get_tree().change_scene_to_file("res://scenes/reversi.tscn")
+		if self == Minesweeper:
+			get_tree().change_scene_to_file("res://scenes/minesweeper.tscn")
 	pass # Replace with function body.
