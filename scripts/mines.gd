@@ -19,6 +19,7 @@ func reveal():
 		revealed = true
 		if field.array[vertPos][horiPos] == 1:
 			print("mine")
+			field.failure()
 			sprite.texture = load("res://images/minesweeper/mine.png")
 			get_node("../../explosion").position = self.global_position
 			get_node("../../explosion").emitting = true
@@ -59,6 +60,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				revealAround()
 			else:
 				reveal()
+		get_node("../../FlagCount").recount()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

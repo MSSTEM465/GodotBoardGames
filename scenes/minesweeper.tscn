@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jav0m5rc2321"]
+[gd_scene load_steps=28 format=3 uid="uid://jav0m5rc2321"]
 
 [ext_resource type="Script" uid="uid://lsibv8na6g3x" path="res://scenes/field.gd" id="1_hnafd"]
 [ext_resource type="Script" uid="uid://bbahoxystmr0o" path="res://scenes/difficultiesMine.gd" id="2_p5s82"]
@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://cf60olcmjhh0g" path="res://sounds/Boom11.wav" id="6_rm57e"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="7_n22ri"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="8_iwuws"]
+[ext_resource type="FontFile" uid="uid://b6m7kdllydx0t" path="res://G7_Segment_7a.ttf" id="9_gdkew"]
+[ext_resource type="Script" uid="uid://cor31w87akdfq" path="res://scenes/flag_count.gd" id="9_iwuws"]
+[ext_resource type="Script" uid="uid://d2omcww42uy33" path="res://scenes/stopwatch.gd" id="11_oq8vg"]
 
 [sub_resource type="Gradient" id="Gradient_g8yvt"]
 offsets = PackedFloat32Array(1)
@@ -38,6 +41,41 @@ colors = PackedColorArray(0.95, 0, 0, 1, 1, 0.571, 0.00999999, 1, 0.9999997, 0.8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdkew"]
 size = Vector2(58, 64)
+
+[sub_resource type="Gradient" id="Gradient_oq8vg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_graq4"]
+gradient = SubResource("Gradient_oq8vg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6s8j6"]
+font = ExtResource("9_gdkew")
+font_size = 100
+font_color = Color(0.29, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_i64aw"]
+base_font = ExtResource("9_gdkew")
+spacing_space = -20
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdkew"]
+font = SubResource("FontVariation_i64aw")
+font_size = 100
+font_color = Color(0.88431424, 3.200695e-06, 1.1551381e-06, 1)
+
+[sub_resource type="Gradient" id="Gradient_graq4"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.60701716, 0.54817975, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6s8j6"]
+gradient = SubResource("Gradient_graq4")
+width = 32
+height = 16
+
+[sub_resource type="Curve" id="Curve_i64aw"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.80232567, -1), 0.0, 2.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Minesweeper" type="Node2D"]
 
@@ -108,6 +146,70 @@ shape = SubResource("RectangleShape2D_gdkew")
 
 [node name="Sprite2D" type="Sprite2D" parent="exitToMM"]
 texture = ExtResource("8_iwuws")
+
+[node name="7SegmentBlack" type="Sprite2D" parent="."]
+position = Vector2(91, 62.5)
+scale = Vector2(2.46875, 1.265625)
+texture = SubResource("GradientTexture2D_graq4")
+
+[node name="Background" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 13.0
+offset_right = 123.0
+offset_bottom = 118.0
+text = "888"
+label_settings = SubResource("LabelSettings_6s8j6")
+
+[node name="FlagCount" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 13.0
+offset_right = 80.0
+offset_bottom = 77.0
+text = "000"
+label_settings = SubResource("LabelSettings_gdkew")
+script = ExtResource("9_iwuws")
+
+[node name="7SegmentBlack2" type="Sprite2D" parent="."]
+position = Vector2(271, 62.5)
+scale = Vector2(2.46875, 1.265625)
+texture = SubResource("GradientTexture2D_graq4")
+
+[node name="Background2" type="Label" parent="."]
+offset_left = 195.0
+offset_top = 13.0
+offset_right = 356.0
+offset_bottom = 118.0
+text = "888"
+label_settings = SubResource("LabelSettings_6s8j6")
+
+[node name="Stopwatch" type="Label" parent="."]
+offset_left = 195.0
+offset_top = 13.0
+offset_right = 356.0
+offset_bottom = 118.0
+text = "000"
+label_settings = SubResource("LabelSettings_gdkew")
+script = ExtResource("11_oq8vg")
+
+[node name="winner" type="CPUParticles2D" parent="."]
+position = Vector2(957.9999, 1123)
+rotation = -0.8480008
+emitting = false
+amount = 100
+texture = SubResource("GradientTexture2D_6s8j6")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.82
+direction = Vector2(1, -1)
+spread = 41.29
+gravity = Vector2(0, 400)
+initial_velocity_min = 835.06
+initial_velocity_max = 927.84
+angular_velocity_min = 192.99
+angular_velocity_max = 296.91
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_i64aw")
 
 [connection signal="input_event" from="Difficulty/Easy" to="Difficulty/Easy" method="_on_input_event"]
 [connection signal="input_event" from="Difficulty/Medium" to="Difficulty/Medium" method="_on_input_event"]

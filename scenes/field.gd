@@ -17,6 +17,7 @@ func _input(event) -> void:
 
 # size = [vertical length, horizontal length]
 func generateBoard(size, mines):
+	get_node("../Stopwatch").start()
 	array = []
 	areaArray = []
 	for i in get_children():
@@ -74,6 +75,7 @@ func generateBoard(size, mines):
 				nope = true
 				dontContinue = true
 				break
+	get_node("../FlagCount").recount()
 	self.position = Vector2(1920/2-(50*size[1])/2,1080/2-(50*size[0])/2)
 	#while not sigh:
 		#var rand1 = randi() % size[0]
@@ -86,7 +88,16 @@ func generateBoard(size, mines):
 		#if not nope:
 			#areaArray[rand1][rand2].sprite.texture = load("res://images/minesweeper/x.png")
 			#sigh = true
-					
+
+func failure():
+	get_node("../Stopwatch").started = false
+	for i in range(len(array)):
+		for j in range(len(array[i])):
+			if array[i][j] == 1:
+				areaArray[i][j].reveal()
+			areaArray[i][j].revealed = true
+				
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
