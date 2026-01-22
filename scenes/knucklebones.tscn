@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmjljpdc86wo5"]
+
+[ext_resource type="Script" uid="uid://bfucjvnuvevwq" path="res://scenes/north_board.gd" id="1_s8xw6"]
+[ext_resource type="Texture2D" uid="uid://cxg00jbs24w3d" path="res://images/Dice/selection.png" id="1_si0yg"]
+[ext_resource type="Script" uid="uid://bv62swwb22d7s" path="res://scenes/south_board.gd" id="2_7uoed"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="2_pxeq0"]
+[ext_resource type="Texture2D" uid="uid://dafinu553rd83" path="res://images/Dice/empty.png" id="2_w2nri"]
+[ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="3_k4q0p"]
+[ext_resource type="Script" uid="uid://bubeo0kn3efcu" path="res://scenes/timer.gd" id="7_k4q0p"]
+
+[sub_resource type="Gradient" id="Gradient_w2nri"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7uoed"]
+gradient = SubResource("Gradient_w2nri")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyage"]
+size = Vector2(58, 64)
+
+[sub_resource type="Gradient" id="Gradient_pxeq0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.90585303, 0.42432418, 0.38824248, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k4q0p"]
+gradient = SubResource("Gradient_pxeq0")
+width = 32
+height = 16
+
+[sub_resource type="Curve" id="Curve_xyage"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Knucklebones" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(948, 529)
+scale = Vector2(30.625, 17.53125)
+texture = SubResource("GradientTexture2D_7uoed")
+
+[node name="Selection" type="Node2D" parent="."]
+
+[node name="Selection" type="Sprite2D" parent="Selection"]
+position = Vector2(143, 143)
+texture = ExtResource("1_si0yg")
+
+[node name="North Board" type="Node2D" parent="."]
+position = Vector2(850, 350)
+scale = Vector2(2, 2)
+script = ExtResource("1_s8xw6")
+
+[node name="South Board" type="Node2D" parent="."]
+position = Vector2(850, 691)
+scale = Vector2(2, 2)
+script = ExtResource("2_7uoed")
+
+[node name="North Score" type="Node2D" parent="."]
+position = Vector2(801, 400)
+
+[node name="South Score" type="Node2D" parent="."]
+position = Vector2(790, 579)
+
+[node name="Die" type="Sprite2D" parent="."]
+position = Vector2(58, 62)
+scale = Vector2(2, 2)
+texture = ExtResource("2_w2nri")
+
+[node name="exitToMM" type="Area2D" parent="."]
+position = Vector2(1882, 41)
+script = ExtResource("2_pxeq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitToMM"]
+shape = SubResource("RectangleShape2D_xyage")
+
+[node name="Sprite2D" type="Sprite2D" parent="exitToMM"]
+texture = ExtResource("3_k4q0p")
+
+[node name="South Conf" type="CPUParticles2D" parent="."]
+position = Vector2(929, 1192.9999)
+rotation = -1.3687795
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_k4q0p")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.89
+gravity = Vector2(0, 300)
+initial_velocity_min = 618.56
+initial_velocity_max = 1000.0
+angular_velocity_max = 534.43
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_xyage")
+
+[node name="North Conf" type="CPUParticles2D" parent="."]
+position = Vector2(943.99994, -92)
+rotation = 1.570602
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_k4q0p")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.89
+gravity = Vector2(0, 300)
+initial_velocity_min = 618.56
+initial_velocity_max = 1000.0
+angular_velocity_max = 534.43
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_xyage")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("7_k4q0p")
+
+[connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
