@@ -1,0 +1,260 @@
+[gd_scene load_steps=36 format=3 uid="uid://s4kgbsqth4k7"]
+
+[ext_resource type="Script" uid="uid://cbemro020ebd2" path="res://scenes/ship_view.gd" id="1_h2n8t"]
+[ext_resource type="Script" uid="uid://emf3beecip33" path="res://scenes/shipselection.gd" id="2_3o4bw"]
+[ext_resource type="Script" uid="uid://7yvar1pqfrh3" path="res://scenes/map.gd" id="2_7p8mn"]
+[ext_resource type="Texture2D" uid="uid://barmgekavay4h" path="res://images/battleship/cruiser.png" id="2_bha3w"]
+[ext_resource type="Texture2D" uid="uid://ctb4r4ksqali8" path="res://images/battleship/destroyer.png" id="3_3o4bw"]
+[ext_resource type="Texture2D" uid="uid://dn6xw3s8by5bk" path="res://images/battleship/submarine.png" id="4_b0f4n"]
+[ext_resource type="Texture2D" uid="uid://cdoke27a4elpm" path="res://images/battleship/battleship.png" id="5_ugqti"]
+[ext_resource type="Texture2D" uid="uid://wh2stuqqv7wq" path="res://images/battleship/carrier.png" id="6_3iosq"]
+[ext_resource type="Script" uid="uid://cxi6hu1jwoiih" path="res://scenes/mouse_ship.gd" id="7_q78e7"]
+[ext_resource type="Texture2D" uid="uid://edbj8md34vn4" path="res://images/hard.png" id="9_3iosq"]
+[ext_resource type="Script" uid="uid://cp23q1b8qd2au" path="res://scenes/next_button.gd" id="10_q78e7"]
+[ext_resource type="Texture2D" uid="uid://cunphb46y88hp" path="res://images/medium.png" id="11_7p8mn"]
+[ext_resource type="Script" uid="uid://cdo2gk6uwg78o" path="res://scenes/proceed.gd" id="11_q78e7"]
+[ext_resource type="Texture2D" uid="uid://jh8tbjlgvvoq" path="res://images/battleship/whitePeg.png" id="14_jfsxd"]
+[ext_resource type="Script" uid="uid://decokmn1xjls6" path="res://scenes/peg.gd" id="15_qqthi"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="16_plav0"]
+[ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="17_esnww"]
+
+[sub_resource type="Gradient" id="Gradient_w3xm1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h2n8t"]
+gradient = SubResource("Gradient_w3xm1")
+
+[sub_resource type="SystemFont" id="SystemFont_jfsxd"]
+font_names = PackedStringArray("Georgia")
+
+[sub_resource type="LabelSettings" id="LabelSettings_esnww"]
+font = SubResource("SystemFont_jfsxd")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_u5uit"]
+font_names = PackedStringArray("Georgia")
+
+[sub_resource type="LabelSettings" id="LabelSettings_irkpd"]
+font = SubResource("SystemFont_u5uit")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p8mn"]
+size = Vector2(84, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d52dr"]
+size = Vector2(135, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfsxd"]
+size = Vector2(137, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqthi"]
+size = Vector2(183, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plav0"]
+size = Vector2(234, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8e6oq"]
+size = Vector2(194, 95)
+
+[sub_resource type="Gradient" id="Gradient_d52dr"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jfsxd"]
+gradient = SubResource("Gradient_d52dr")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qqthi"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_plav0"]
+font_size = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esnww"]
+size = Vector2(194, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uunth"]
+size = Vector2(58, 64)
+
+[node name="Battleship" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(949, 528.5)
+scale = Vector2(30.65625, 17.515625)
+texture = SubResource("GradientTexture2D_h2n8t")
+
+[node name="Player" type="Label" parent="."]
+offset_left = 881.0
+offset_top = 10.0
+offset_right = 1019.0
+offset_bottom = 56.0
+text = "Player 1"
+label_settings = SubResource("LabelSettings_esnww")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Map" type="Node2D" parent="."]
+position = Vector2(1348, 237)
+script = ExtResource("2_7p8mn")
+
+[node name="Ship View" type="Node2D" parent="."]
+position = Vector2(93, 237)
+script = ExtResource("1_h2n8t")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 54.0
+offset_right = 226.0
+offset_bottom = 100.0
+text = "Your Board"
+label_settings = SubResource("LabelSettings_irkpd")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1679.0
+offset_top = 72.0
+offset_right = 1893.0
+offset_bottom = 118.0
+text = "Enemy Map"
+label_settings = SubResource("LabelSettings_irkpd")
+
+[node name="Ship Selection" type="Node2D" parent="."]
+
+[node name="Cruiser" type="Area2D" parent="Ship Selection"]
+position = Vector2(84, 989)
+script = ExtResource("2_3o4bw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship Selection/Cruiser"]
+position = Vector2(21, 0)
+shape = SubResource("RectangleShape2D_7p8mn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship Selection/Cruiser"]
+texture = ExtResource("2_bha3w")
+
+[node name="Destroyer" type="Area2D" parent="Ship Selection"]
+position = Vector2(253, 990)
+script = ExtResource("2_3o4bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship Selection/Destroyer"]
+texture = ExtResource("3_3o4bw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship Selection/Destroyer"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_d52dr")
+
+[node name="Submarine" type="Area2D" parent="Ship Selection"]
+position = Vector2(441, 991)
+script = ExtResource("2_3o4bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship Selection/Submarine"]
+texture = ExtResource("4_b0f4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship Selection/Submarine"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_jfsxd")
+
+[node name="Battleship" type="Area2D" parent="Ship Selection"]
+position = Vector2(692, 990)
+script = ExtResource("2_3o4bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship Selection/Battleship"]
+texture = ExtResource("5_ugqti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship Selection/Battleship"]
+position = Vector2(21.5, -0.5)
+shape = SubResource("RectangleShape2D_qqthi")
+
+[node name="Carrier" type="Area2D" parent="Ship Selection"]
+position = Vector2(1013, 990)
+script = ExtResource("2_3o4bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship Selection/Carrier"]
+texture = ExtResource("6_3iosq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship Selection/Carrier"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_plav0")
+
+[node name="Mouse Ship" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_bha3w")
+script = ExtResource("7_q78e7")
+
+[node name="Next Button" type="Area2D" parent="."]
+position = Vector2(1784, 1006)
+script = ExtResource("10_q78e7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next Button"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8e6oq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Next Button"]
+texture = ExtResource("11_7p8mn")
+
+[node name="Hider" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Hider"]
+top_level = true
+z_index = 50
+position = Vector2(957.5, 529)
+scale = Vector2(30.921875, 17.53125)
+texture = SubResource("GradientTexture2D_jfsxd")
+
+[node name="Label" type="Label" parent="Hider"]
+top_level = true
+z_index = 52
+offset_left = 670.0
+offset_top = 24.0
+offset_right = 1222.0
+offset_bottom = 79.0
+text = "Show this to the next player!"
+label_settings = SubResource("LabelSettings_qqthi")
+
+[node name="Warn" type="Label" parent="Hider"]
+top_level = true
+z_index = 52
+offset_left = 459.0
+offset_top = 134.0
+offset_right = 1408.0
+offset_bottom = 203.0
+text = "Prestage! Create your board"
+label_settings = SubResource("LabelSettings_plav0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Area2D" parent="Hider"]
+top_level = true
+z_index = 60
+position = Vector2(936, 1001)
+script = ExtResource("11_q78e7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hider/Button"]
+shape = SubResource("RectangleShape2D_esnww")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hider/Button"]
+texture = ExtResource("9_3iosq")
+
+[node name="peg" type="Sprite2D" parent="."]
+texture = ExtResource("14_jfsxd")
+script = ExtResource("15_qqthi")
+
+[node name="exitToMM" type="Area2D" parent="."]
+position = Vector2(1882, 41)
+script = ExtResource("16_plav0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitToMM"]
+shape = SubResource("RectangleShape2D_uunth")
+
+[node name="Sprite2D" type="Sprite2D" parent="exitToMM"]
+texture = ExtResource("17_esnww")
+
+[connection signal="input_event" from="Ship Selection/Cruiser" to="Ship Selection/Cruiser" method="_on_input_event"]
+[connection signal="input_event" from="Ship Selection/Destroyer" to="Ship Selection/Destroyer" method="_on_input_event"]
+[connection signal="input_event" from="Ship Selection/Submarine" to="Ship Selection/Submarine" method="_on_input_event"]
+[connection signal="input_event" from="Ship Selection/Battleship" to="Ship Selection/Battleship" method="_on_input_event"]
+[connection signal="input_event" from="Ship Selection/Carrier" to="Ship Selection/Carrier" method="_on_input_event"]
+[connection signal="input_event" from="Next Button" to="Next Button" method="_on_input_event"]
+[connection signal="input_event" from="Hider/Button" to="Hider/Button" method="_on_input_event"]
+[connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]

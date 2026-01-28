@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://clpsgko82odrx"]
+[gd_scene load_steps=12 format=3 uid="uid://clpsgko82odrx"]
 
 [ext_resource type="Script" uid="uid://br674xi31r4nq" path="res://opengame.gd" id="1_wgsso"]
 [ext_resource type="Texture2D" uid="uid://bfyqum5t5hktb" path="res://images/nonogrambutton.png" id="2_igs2m"]
 [ext_resource type="Texture2D" uid="uid://dk72lbd4jkxqj" path="res://images/reversibutton.png" id="3_3pujl"]
 [ext_resource type="Texture2D" uid="uid://6i22wt4e3bkp" path="res://images/minesweeperbutton.png" id="4_igs2m"]
+[ext_resource type="Texture2D" uid="uid://mmnc5ihjb6kq" path="res://images/knucklebutton.png" id="5_3pujl"]
+[ext_resource type="Texture2D" uid="uid://d4kqp3hx684y5" path="res://images/battleshipbutton.png" id="6_7uvds"]
 
 [sub_resource type="Gradient" id="Gradient_loy4s"]
 offsets = PackedFloat32Array(1)
@@ -18,6 +20,9 @@ size = Vector2(481, 488)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at6rn"]
 size = Vector2(480, 479)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dihg0"]
+size = Vector2(479, 482)
+
 [node name="Mainmenu" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,7 +31,7 @@ scale = Vector2(30.671875, 17.671875)
 texture = SubResource("GradientTexture2D_cmhrf")
 
 [node name="Nonogram" type="Area2D" parent="."]
-position = Vector2(354, 482)
+position = Vector2(439, 281)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nonogram"]
@@ -37,7 +42,7 @@ shape = SubResource("RectangleShape2D_7uvds")
 texture = ExtResource("2_igs2m")
 
 [node name="Reversi" type="Area2D" parent="."]
-position = Vector2(1451, 491)
+position = Vector2(985, 279)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reversi"]
@@ -48,7 +53,7 @@ shape = SubResource("RectangleShape2D_at6rn")
 texture = ExtResource("3_3pujl")
 
 [node name="Minesweeper" type="Area2D" parent="."]
-position = Vector2(896, 483)
+position = Vector2(984, 786)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minesweeper"]
@@ -58,6 +63,30 @@ shape = SubResource("RectangleShape2D_at6rn")
 [node name="Sprite2D" type="Sprite2D" parent="Minesweeper"]
 texture = ExtResource("4_igs2m")
 
+[node name="Knucklebones" type="Area2D" parent="."]
+position = Vector2(439, 782)
+script = ExtResource("1_wgsso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Knucklebones"]
+position = Vector2(-4.5, 8)
+shape = SubResource("RectangleShape2D_7uvds")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knucklebones"]
+texture = ExtResource("5_3pujl")
+
+[node name="Battleship" type="Area2D" parent="."]
+position = Vector2(1495, 501)
+script = ExtResource("1_wgsso")
+
+[node name="Sprite2D" type="Sprite2D" parent="Battleship"]
+texture = ExtResource("6_7uvds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Battleship"]
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_dihg0")
+
 [connection signal="input_event" from="Nonogram" to="Nonogram" method="_on_input_event"]
 [connection signal="input_event" from="Reversi" to="Reversi" method="_on_input_event"]
 [connection signal="input_event" from="Minesweeper" to="Minesweeper" method="_on_input_event"]
+[connection signal="input_event" from="Knucklebones" to="Knucklebones" method="_on_input_event"]
+[connection signal="input_event" from="Battleship" to="Battleship" method="_on_input_event"]
