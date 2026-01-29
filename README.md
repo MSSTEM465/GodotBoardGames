@@ -6,3 +6,4 @@ Currently avaliable games:
 	- Minesweeper
 	- Reversi
 	- Knucklebones (Minigame from Cult of the Lamb)
+	- Battleship

@@ -22,21 +22,21 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func checkWon():
-	print("Checking win condition")
-	print(Time.get_unix_time_from_system())
+	#print("Checking win condition")
+	#print(Time.get_unix_time_from_system())
 	if turn == 0:
 		for i in range(len(p1ShipArray)):
 			for j in range(len(p1ShipArray[i])):
 				if p1ShipArray[i][j] > 0 and p2ShotArray[i][j] == 0:
-					print("Last move did not win game")
-					print(Time.get_unix_time_from_system())
+					#print("Last move did not win game")
+					#print(Time.get_unix_time_from_system())
 					return false
 	else:
 		for i in range(len(p2ShipArray)):
 			for j in range(len(p2ShipArray[i])):
 				if p2ShipArray[i][j] > 0 and p1ShotArray[i][j] == 0:
-					print("Last move did not win game")
-					print(Time.get_unix_time_from_system())
+					#print("Last move did not win game")
+					#print(Time.get_unix_time_from_system())
 					return false
 	print("Won!")
 	print(Time.get_unix_time_from_system())
