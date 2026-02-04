@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce5gh7504g5tn"]
+
+[ext_resource type="Shader" uid="uid://dd0vkdmnvgo0k" path="res://blur.gdshader" id="1_gov4d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1l04a"]
+shader = ExtResource("1_gov4d")
+shader_parameter/blur_amount = 1.0
+
+[sub_resource type="SystemFont" id="SystemFont_gov4d"]
+subpixel_positioning = 0
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_1l04a")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 916.0
+offset_right = 964.0
+offset_bottom = 989.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = SubResource("SystemFont_gov4d")
+theme_override_font_sizes/font_size = 50

@@ -20,6 +20,10 @@ boot_splash/use_filter=false
 boot_splash/image="uid://cpbai3s34beqk"
 config/icon="uid://cpbai3s34beqk"
 
+[autoload]
+
+Loadingmanager="*res://scripts/loadingmanager.gd"
+
 [display]
 
 window/size/viewport_width=1920

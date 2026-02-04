@@ -19,13 +19,13 @@ func _process(delta: float) -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if self == nonogram:
-			get_tree().change_scene_to_file("res://scenes/gameplay.tscn")
+			Loadingmanager.load_scene("res://scenes/gameplay.tscn")
 		if self == Reversi:
-			get_tree().change_scene_to_file("res://scenes/reversi.tscn")
+			Loadingmanager.load_scene("res://scenes/reversi.tscn")
 		if self == Minesweeper:
-			get_tree().change_scene_to_file("res://scenes/minesweeper.tscn")
+			Loadingmanager.load_scene("res://scenes/minesweeper.tscn")
 		if self == knuckle:
-			get_tree().change_scene_to_file("res://scenes/knucklebones.tscn")
+			Loadingmanager.load_scene("res://scenes/knucklebones.tscn")
 		if self == battleship:
-			get_tree().change_scene_to_file("res://scenes/battleship.tscn")
+			Loadingmanager.load_scene("res://scenes/battleship.tscn")
 	pass # Replace with function body.
