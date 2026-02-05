@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://upps4vm7qnwk"]
+[gd_scene load_steps=52 format=3 uid="uid://upps4vm7qnwk"]
 
 [ext_resource type="Script" uid="uid://cuggfwwpjxef6" path="res://scripts/backgroundPC.gd" id="1_rmy11"]
 [ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="2_i0nma"]
@@ -26,6 +26,8 @@
 [ext_resource type="Script" uid="uid://b5jtvouvxvedw" path="res://scripts/back.gd" id="24_lnjh5"]
 [ext_resource type="Texture2D" uid="uid://ctgm6ssbysyvb" path="res://images/back.png" id="25_6cjkq"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="26_vrqbj"]
+[ext_resource type="Texture2D" uid="uid://0fw6i7cebj86" path="res://images/locked.png" id="27_jhs7r"]
+[ext_resource type="Script" uid="uid://dgjo280knwcad" path="res://scenes/locked.gd" id="28_28f34"]
 
 [sub_resource type="Gradient" id="Gradient_ej4tk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -455,6 +457,13 @@ shape = SubResource("RectangleShape2D_gm2mb")
 
 [node name="Sprite2D" type="Sprite2D" parent="exitToMM"]
 texture = ExtResource("15_m3i5y")
+
+[node name="locked" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(521, 62)
+scale = Vector2(1.84, 1.84)
+texture = ExtResource("27_jhs7r")
+script = ExtResource("28_28f34")
 
 [connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
 [connection signal="about_to_popup" from="SaveFile" to="SaveFile" method="_on_about_to_popup"]

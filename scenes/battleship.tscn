@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://s4kgbsqth4k7"]
+[gd_scene load_steps=35 format=3 uid="uid://s4kgbsqth4k7"]
 
 [ext_resource type="Script" uid="uid://cbemro020ebd2" path="res://scenes/ship_view.gd" id="1_h2n8t"]
 [ext_resource type="Script" uid="uid://emf3beecip33" path="res://scenes/shipselection.gd" id="2_3o4bw"]
@@ -9,10 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cdoke27a4elpm" path="res://images/battleship/battleship.png" id="5_ugqti"]
 [ext_resource type="Texture2D" uid="uid://wh2stuqqv7wq" path="res://images/battleship/carrier.png" id="6_3iosq"]
 [ext_resource type="Script" uid="uid://cxi6hu1jwoiih" path="res://scenes/mouse_ship.gd" id="7_q78e7"]
-[ext_resource type="Texture2D" uid="uid://edbj8md34vn4" path="res://images/hard.png" id="9_3iosq"]
 [ext_resource type="Script" uid="uid://cp23q1b8qd2au" path="res://scenes/next_button.gd" id="10_q78e7"]
-[ext_resource type="Texture2D" uid="uid://cunphb46y88hp" path="res://images/medium.png" id="11_7p8mn"]
 [ext_resource type="Script" uid="uid://cdo2gk6uwg78o" path="res://scenes/proceed.gd" id="11_q78e7"]
+[ext_resource type="Texture2D" uid="uid://dfqq5s5njuaej" path="res://images/next.png" id="11_qqthi"]
 [ext_resource type="Texture2D" uid="uid://jh8tbjlgvvoq" path="res://images/battleship/whitePeg.png" id="14_jfsxd"]
 [ext_resource type="Script" uid="uid://decokmn1xjls6" path="res://scenes/peg.gd" id="15_qqthi"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="16_plav0"]
@@ -190,7 +189,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_8e6oq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Next Button"]
-texture = ExtResource("11_7p8mn")
+texture = ExtResource("11_qqthi")
 
 [node name="Hider" type="Node2D" parent="."]
 visible = false
@@ -234,7 +233,7 @@ script = ExtResource("11_q78e7")
 shape = SubResource("RectangleShape2D_esnww")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hider/Button"]
-texture = ExtResource("9_3iosq")
+texture = ExtResource("11_qqthi")
 
 [node name="peg" type="Sprite2D" parent="."]
 texture = ExtResource("14_jfsxd")

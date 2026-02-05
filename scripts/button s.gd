@@ -16,6 +16,7 @@ extends Area2D
 @onready var Generate = get_node("../Generate")
 @onready var Scroller = get_node("../Campaign")
 @onready var LevelInfo = get_node("../LevelInfo")
+@onready var Locked = get_node("../locked")
 
 @onready var PlayBoard = get_node("../PlayBoard")
 @onready var CreateBoard = get_node("../CreateBoard")
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and not SettingsPage.visible:
 		ImEx.show()
-		if self == CB:
+		if self == CB and not Locked.visible:
 			LevelInfo.hide()
 			info.hide()
 			warnings.hide()
@@ -46,7 +47,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			ImExSprite.texture = load("res://images/Export.png")
 			Scroller.hide()
 			get_node("../Back").hide()
-		if self == PB:
+		if self == PB and not Locked.visible:
 			LevelInfo.hide()
 			get_node("../Back").hide()
 			info.hide()
