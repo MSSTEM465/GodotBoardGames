@@ -21,7 +21,6 @@ func whatisurproblem():
 		if ((verLeng + i[0]) > -1 and (verLeng + i[0]) < len(board.board)):
 			if ((horLeng + i[1]) > -1 and (horLeng + i[1]) < len(board.board)):
 				if board.board[verLeng+i[0]][horLeng+i[1]]:
-					print(count)
 					count = count + 1
 	return count
 
@@ -44,9 +43,6 @@ func calculateChange():
 			board.newBoard[verLeng][horLeng] = false
 			on = false
 	else:
-		if verLeng == 1 and horLeng == 1:
-			print("UUGHUGHURGUIEHUSDBUILSDVUIL")
-			print(count)
 		if count == 3:
 			board.newBoard[verLeng][horLeng] = true
 			on = true

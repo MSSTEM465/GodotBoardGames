@@ -1,15 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5dhpre1xlntg"]
+[gd_scene load_steps=20 format=3 uid="uid://b5dhpre1xlntg"]
 
 [ext_resource type="Material" uid="uid://bkrakqdnpiwe3" path="res://scenes/binglre.tres" id="1_edcsi"]
 [ext_resource type="Script" uid="uid://0kogyyh7vuw1" path="res://scenes/the_game_of_life.gd" id="2_ipdh0"]
 [ext_resource type="Script" uid="uid://bsv8khopknnn1" path="res://scenes/camerazoom.gd" id="3_bfx6i"]
 [ext_resource type="Script" uid="uid://dxua6oxqnduql" path="res://scenes/lifeistakingtolong.gd" id="4_3rgpa"]
-[ext_resource type="Texture2D" uid="uid://6i22wt4e3bkp" path="res://images/minesweeperbutton.png" id="4_n5sgt"]
 [ext_resource type="Script" uid="uid://dnfuey2ss1fne" path="res://scenes/fps_label.gd" id="5_3rgpa"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="6_wfiq1"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="7_8nfmy"]
 [ext_resource type="Script" uid="uid://6em50vvtgc1e" path="res://scenes/sizing.gd" id="8_i1o2b"]
-[ext_resource type="Texture2D" uid="uid://dfqq5s5njuaej" path="res://images/next.png" id="9_sg6o2"]
+[ext_resource type="Texture2D" uid="uid://diy7f5t53a4mc" path="res://images/life/smaller.png" id="9_sg6o2"]
+[ext_resource type="Script" uid="uid://cofs213dqg1vg" path="res://scenes/startsim.gd" id="10_8nfmy"]
+[ext_resource type="Texture2D" uid="uid://djrlexybofpjx" path="res://images/life/larger.png" id="10_feepl"]
+[ext_resource type="Texture2D" uid="uid://di45g1crgf8bn" path="res://images/life/start.png" id="12_1r6m1"]
+[ext_resource type="Texture2D" uid="uid://dib28v4jr2gbs" path="res://images/life/restart.png" id="13_sg6o2"]
 
 [sub_resource type="Gradient" id="Gradient_bfx6i"]
 offsets = PackedFloat32Array(1)
@@ -28,6 +31,9 @@ size = Vector2(58, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r6m1"]
 size = Vector2(195, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1o2b"]
+size = Vector2(196, 96)
 
 [node name="Gameoflife" type="Node2D"]
 
@@ -101,18 +107,36 @@ position = Vector2(1351, 990)
 script = ExtResource("8_i1o2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Larger"]
-texture = ExtResource("9_sg6o2")
+texture = ExtResource("10_feepl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Larger"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1r6m1")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Start" type="Area2D" parent="CanvasLayer"]
 visible = false
-position = Vector2(960, 497)
-texture = ExtResource("4_n5sgt")
+position = Vector2(110, 56)
+script = ExtResource("10_8nfmy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Start"]
+shape = SubResource("RectangleShape2D_i1o2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Start"]
+texture = ExtResource("12_1r6m1")
+
+[node name="Restart" type="Area2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(110, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Restart"]
+shape = SubResource("RectangleShape2D_i1o2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Restart"]
+texture = ExtResource("13_sg6o2")
 
 [connection signal="value_changed" from="CanvasLayer/VSlider" to="CanvasLayer/VSlider" method="_on_value_changed"]
 [connection signal="input_event" from="CanvasLayer/exitToMM" to="CanvasLayer/exitToMM" method="_on_input_event"]
 [connection signal="input_event" from="CanvasLayer/Smaller" to="CanvasLayer/Smaller" method="_on_input_event"]
 [connection signal="input_event" from="CanvasLayer/Larger" to="CanvasLayer/Smaller" method="_on_larger_input_event"]
+[connection signal="input_event" from="CanvasLayer/Start" to="CanvasLayer/Start" method="_on_input_event"]
+[connection signal="input_event" from="CanvasLayer/Restart" to="CanvasLayer/Start" method="_on_restart_input_event"]

@@ -9,8 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (len(get_node("../../theGame").board)) > 0:
-		self.value = (len(board.get_children()) / (board.size * float(board.size))) * 100
-
-		if self.value == 100:
-			self.queue_free()
+	if visible:
+		if (len(get_node("../../theGame").board)) > 0:
+			self.value = (len(board.get_children()) / (board.size * float(board.size))) * 100
+			if self.value == 100:
+				get_node("../Start").show()
+				self.hide()
