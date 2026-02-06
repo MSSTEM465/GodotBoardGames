@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cf60olcmjhh0g" path="res://sounds/Boom11.wav" id="6_rm57e"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="7_n22ri"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="8_iwuws"]
-[ext_resource type="FontFile" uid="uid://b6m7kdllydx0t" path="res://G7_Segment_7a.ttf" id="9_gdkew"]
+[ext_resource type="FontFile" uid="uid://b6m7kdllydx0t" path="res://fonts/G7_Segment_7a.ttf" id="9_gdkew"]
 [ext_resource type="Script" uid="uid://cor31w87akdfq" path="res://scenes/flag_count.gd" id="9_iwuws"]
 [ext_resource type="Script" uid="uid://d2omcww42uy33" path="res://scenes/stopwatch.gd" id="11_oq8vg"]
 

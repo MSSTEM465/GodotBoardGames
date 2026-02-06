@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bl75e4jo46lgq"
-path="res://.godot/imported/7LED.ttf-3652b10c84d5b6f877e2c7bd0350a85e.fontdata"
+uid="uid://b6m7kdllydx0t"
+path="res://.godot/imported/G7_Segment_7a.ttf-b9c8972251a92c9c4616f5182357f22b.fontdata"
 
 [deps]
 
-source_file="res://7LED.ttf"
-dest_files=["res://.godot/imported/7LED.ttf-3652b10c84d5b6f877e2c7bd0350a85e.fontdata"]
+source_file="res://fonts/G7_Segment_7a.ttf"
+dest_files=["res://.godot/imported/G7_Segment_7a.ttf-b9c8972251a92c9c4616f5182357f22b.fontdata"]
 
 [params]
 

@@ -7,3 +7,4 @@ Currently avaliable games:
 - Reversi
 - Knucklebones (Minigame from Cult of the Lamb)
 - Battleship
+- John Conway's Game of Life
