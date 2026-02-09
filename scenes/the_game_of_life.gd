@@ -64,7 +64,8 @@ func _input(event):
 func _process(delta: float) -> void:
 	if simulating:
 		for i in get_children(): # This is a stupid idea LOL
-			i.calculateChange()
+			if i.on:
+				i.calculateChange()
 		for i in range(len(board)):
 			for j in range(len(board[i])):
 				board[i][j] = newBoard[i][j]

@@ -1,15 +1,17 @@
-[gd_scene load_steps=23 format=3 uid="uid://clpsgko82odrx"]
+[gd_scene load_steps=26 format=3 uid="uid://clpsgko82odrx"]
 
 [ext_resource type="Script" uid="uid://br674xi31r4nq" path="res://scripts/opengame.gd" id="1_wgsso"]
-[ext_resource type="Texture2D" uid="uid://bfyqum5t5hktb" path="res://images/nonogrambutton.png" id="2_igs2m"]
+[ext_resource type="VideoStream" uid="uid://t87u3owpaybk" path="res://videos/nonogrambuttonCompromise.ogv" id="2_0y70q"]
 [ext_resource type="Texture2D" uid="uid://dk72lbd4jkxqj" path="res://images/reversibutton.png" id="3_3pujl"]
 [ext_resource type="Texture2D" uid="uid://6i22wt4e3bkp" path="res://images/minesweeperbutton.png" id="4_igs2m"]
 [ext_resource type="Texture2D" uid="uid://mmnc5ihjb6kq" path="res://images/knucklebutton.png" id="5_3pujl"]
+[ext_resource type="VideoStream" uid="uid://63445x6hmdmd" path="res://videos/minesweeperCB.ogv" id="5_qrn07"]
 [ext_resource type="Texture2D" uid="uid://d4kqp3hx684y5" path="res://images/battleshipbutton.png" id="6_7uvds"]
 [ext_resource type="Script" uid="uid://borsd3gvcsvvd" path="res://scripts/credits_button.gd" id="7_dihg0"]
 [ext_resource type="Texture2D" uid="uid://coe5h4dfnpvjx" path="res://images/Credits.png" id="8_0y70q"]
 [ext_resource type="Texture2D" uid="uid://cfwrxu2vvk5mh" path="res://images/affinity.png" id="9_0y70q"]
 [ext_resource type="Texture2D" uid="uid://cpbai3s34beqk" path="res://images/icon.png" id="10_qrn07"]
+[ext_resource type="VideoStream" uid="uid://d0q7f83a6mlij" path="res://videos/GOBvid.ogv" id="12_lidg2"]
 
 [sub_resource type="Gradient" id="Gradient_loy4s"]
 offsets = PackedFloat32Array(1)
@@ -20,6 +22,8 @@ gradient = SubResource("Gradient_loy4s")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uvds"]
 size = Vector2(481, 488)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qrn07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at6rn"]
 size = Vector2(480, 479)
@@ -60,7 +64,7 @@ scale = Vector2(30.671875, 17.671875)
 texture = SubResource("GradientTexture2D_cmhrf")
 
 [node name="Nonogram" type="Area2D" parent="."]
-position = Vector2(439, 281)
+position = Vector2(376, 281)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nonogram"]
@@ -68,10 +72,21 @@ position = Vector2(-4.5, 8)
 shape = SubResource("RectangleShape2D_7uvds")
 
 [node name="Sprite2D" type="Sprite2D" parent="Nonogram"]
-texture = ExtResource("2_igs2m")
+visible = false
+texture = SubResource("AnimatedTexture_qrn07")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Nonogram"]
+offset_left = -264.0
+offset_top = -244.0
+offset_right = 248.0
+offset_bottom = 268.0
+mouse_filter = 2
+stream = ExtResource("2_0y70q")
+autoplay = true
+loop = true
 
 [node name="Reversi" type="Area2D" parent="."]
-position = Vector2(985, 279)
+position = Vector2(922, 279)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reversi"]
@@ -82,7 +97,7 @@ shape = SubResource("RectangleShape2D_at6rn")
 texture = ExtResource("3_3pujl")
 
 [node name="Minesweeper" type="Area2D" parent="."]
-position = Vector2(984, 786)
+position = Vector2(921, 786)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minesweeper"]
@@ -90,10 +105,21 @@ position = Vector2(1, 5.5)
 shape = SubResource("RectangleShape2D_at6rn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Minesweeper"]
+visible = false
 texture = ExtResource("4_igs2m")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Minesweeper"]
+offset_left = -264.0
+offset_top = -244.0
+offset_right = 248.0
+offset_bottom = 268.0
+mouse_filter = 2
+stream = ExtResource("5_qrn07")
+autoplay = true
+loop = true
+
 [node name="Knucklebones" type="Area2D" parent="."]
-position = Vector2(439, 782)
+position = Vector2(376, 782)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knucklebones"]
@@ -104,7 +130,7 @@ shape = SubResource("RectangleShape2D_7uvds")
 texture = ExtResource("5_3pujl")
 
 [node name="Battleship" type="Area2D" parent="."]
-position = Vector2(1495, 501)
+position = Vector2(1432, 280)
 script = ExtResource("1_wgsso")
 
 [node name="Sprite2D" type="Sprite2D" parent="Battleship"]
@@ -220,6 +246,24 @@ label_settings = SubResource("LabelSettings_qrn07")
 position = Vector2(79, 81)
 texture = ExtResource("10_qrn07")
 
+[node name="GoL" type="Area2D" parent="."]
+position = Vector2(1432, 787)
+script = ExtResource("1_wgsso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoL"]
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_dihg0")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="GoL"]
+offset_left = -264.0
+offset_top = -244.0
+offset_right = 248.0
+offset_bottom = 268.0
+mouse_filter = 2
+stream = ExtResource("12_lidg2")
+autoplay = true
+loop = true
+
 [connection signal="input_event" from="Nonogram" to="Nonogram" method="_on_input_event"]
 [connection signal="input_event" from="Reversi" to="Reversi" method="_on_input_event"]
 [connection signal="input_event" from="Minesweeper" to="Minesweeper" method="_on_input_event"]
@@ -227,3 +271,4 @@ texture = ExtResource("10_qrn07")
 [connection signal="input_event" from="Battleship" to="Battleship" method="_on_input_event"]
 [connection signal="input_event" from="Credits Button" to="Credits Button" method="_on_input_event"]
 [connection signal="input_event" from="Credits/Back Button" to="Credits Button" method="_on_back_button_input_event"]
+[connection signal="input_event" from="GoL" to="GoL" method="_on_input_event"]

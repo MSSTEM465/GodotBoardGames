@@ -5,6 +5,7 @@ extends Area2D
 @onready var Minesweeper = get_node("../Minesweeper")
 @onready var knuckle = get_node("../Knucklebones")
 @onready var battleship = get_node("../Battleship")
+@onready var gol = get_node("../GoL")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,4 +29,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			Loadingmanager.load_scene("res://scenes/knucklebones.tscn")
 		if self == battleship:
 			Loadingmanager.load_scene("res://scenes/battleship.tscn")
+		if self == gol:
+			Loadingmanager.load_scene("res://scenes/gameoflife.tscn")
 	pass # Replace with function body.
