@@ -19,6 +19,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		get_node("../Minesweeper").hide()
 		get_node("../Knucklebones").hide()
 		get_node("../Battleship").hide()
+		get_node("../GoL").hide()
 		self.hide()
 		get_node("../Credits").show()
 	pass # Replace with function body.
@@ -31,6 +32,7 @@ func _on_back_button_input_event(viewport: Node, event: InputEvent, shape_idx: i
 		get_node("../Minesweeper").show()
 		get_node("../Knucklebones").show()
 		get_node("../Battleship").show()
+		get_node("../GoL").show()
 		self.show()
 		get_node("../Credits").hide()
 	pass # Replace with function body.

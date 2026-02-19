@@ -50,15 +50,15 @@ func create(s1,s2):
 	self.show()
 	#newBoard = board.duplicate()
 	
-func _input(event):
-	if event.is_action("movedown"):
-		self.position.y -= 10
-	if event.is_action("moveup"):
-		self.position.y += 10
-	if event.is_action("moveleft"):
-		self.position.x -= 10
-	if event.is_action("moveright"):
-		self.position.x += 10
+#func _input(event):
+	#if event.is_action("movedown"):
+		#self.position.y -= 10
+	#if event.is_action("moveup"):
+		#self.position.y += 10
+	#if event.is_action("moveleft"):
+		#self.position.x -= 10
+	#if event.is_action("moveright"):
+		#self.position.x += 10
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

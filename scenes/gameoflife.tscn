@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5dhpre1xlntg"]
+[gd_scene load_steps=21 format=3 uid="uid://b5dhpre1xlntg"]
 
-[ext_resource type="Material" uid="uid://bkrakqdnpiwe3" path="res://scenes/binglre.tres" id="1_edcsi"]
+[ext_resource type="Script" uid="uid://d15lidov0wnbg" path="res://scenes/cameramovement.gd" id="1_sg6o2"]
 [ext_resource type="Script" uid="uid://0kogyyh7vuw1" path="res://scenes/the_game_of_life.gd" id="2_ipdh0"]
 [ext_resource type="Script" uid="uid://bsv8khopknnn1" path="res://scenes/camerazoom.gd" id="3_bfx6i"]
 [ext_resource type="Script" uid="uid://dxua6oxqnduql" path="res://scenes/lifeistakingtolong.gd" id="4_3rgpa"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://djrlexybofpjx" path="res://images/life/larger.png" id="10_feepl"]
 [ext_resource type="Texture2D" uid="uid://di45g1crgf8bn" path="res://images/life/start.png" id="12_1r6m1"]
 [ext_resource type="Texture2D" uid="uid://dib28v4jr2gbs" path="res://images/life/restart.png" id="13_sg6o2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_feepl"]
 
 [sub_resource type="Gradient" id="Gradient_bfx6i"]
 offsets = PackedFloat32Array(1)
@@ -40,9 +42,10 @@ size = Vector2(196, 96)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(942, 536)
 zoom = Vector2(0.66, 0.66)
+script = ExtResource("1_sg6o2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("1_edcsi")
+material = SubResource("ShaderMaterial_feepl")
 position = Vector2(953, 538.5)
 scale = Vector2(30.78125, 17.828125)
 texture = SubResource("GradientTexture2D_n5sgt")

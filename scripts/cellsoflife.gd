@@ -22,7 +22,7 @@ func whatisurproblem():
 			if ((horLeng + i[1]) > -1 and (horLeng + i[1]) < len(board.board)):
 				if board.board[verLeng+i[0]][horLeng+i[1]]:
 					count = count + 1
-				elif on and not board.board[verLeng+i[0]][horLeng+i[1]]: # Called if viewed object is off, but self is on
+				elif on and not board.newBoard[verLeng+i[0]][horLeng+i[1]]: # Called if viewed object is off, but self is on
 					board.objectBoard[verLeng+i[0]][horLeng+i[1]].imOffandMyFriendsAreOn()
 	return count
 

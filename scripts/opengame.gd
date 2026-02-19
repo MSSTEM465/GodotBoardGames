@@ -9,12 +9,18 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_node("VideoStreamPlayer").play()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	get_node("VideoStreamPlayer").stop()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -31,4 +37,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			Loadingmanager.load_scene("res://scenes/battleship.tscn")
 		if self == gol:
 			Loadingmanager.load_scene("res://scenes/gameoflife.tscn")
+	pass # Replace with function body.
+
+
+func _on_mouse_entered() -> void:
+	get_node("VideoStreamPlayer").play()
+	pass # Replace with function body.
+
+
+func _on_mouse_exited() -> void:
+	get_node("VideoStreamPlayer").set_stream_position(0.0)
+	get_node("VideoStreamPlayer").stop()
 	pass # Replace with function body.
