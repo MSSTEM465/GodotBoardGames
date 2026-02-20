@@ -1,12 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://clpsgko82odrx"]
+[gd_scene load_steps=40 format=3 uid="uid://clpsgko82odrx"]
 
 [ext_resource type="Script" uid="uid://br674xi31r4nq" path="res://scripts/opengame.gd" id="1_wgsso"]
 [ext_resource type="VideoStream" uid="uid://t87u3owpaybk" path="res://videos/nonogrambuttonCompromise.ogv" id="2_0y70q"]
 [ext_resource type="Texture2D" uid="uid://bfyqum5t5hktb" path="res://images/nonogrambutton.png" id="2_y5i8j"]
 [ext_resource type="Texture2D" uid="uid://dk72lbd4jkxqj" path="res://images/reversibutton.png" id="3_3pujl"]
+[ext_resource type="Script" uid="uid://cema0fjgkl6lk" path="res://menuInfo.gd" id="4_f1hcs"]
 [ext_resource type="Texture2D" uid="uid://6i22wt4e3bkp" path="res://images/minesweeperbutton.png" id="4_igs2m"]
 [ext_resource type="VideoStream" uid="uid://dydnf2d1yciai" path="res://videos/reversivideo.ogv" id="4_raimv"]
 [ext_resource type="Texture2D" uid="uid://mmnc5ihjb6kq" path="res://images/knucklebutton.png" id="5_3pujl"]
+[ext_resource type="Texture2D" uid="uid://b5ouqmdwqhx8o" path="res://images/infoMenu.png" id="5_pg2s2"]
 [ext_resource type="VideoStream" uid="uid://63445x6hmdmd" path="res://videos/minesweeperCB.ogv" id="5_qrn07"]
 [ext_resource type="Texture2D" uid="uid://d4kqp3hx684y5" path="res://images/battleshipbutton.png" id="6_7uvds"]
 [ext_resource type="Script" uid="uid://borsd3gvcsvvd" path="res://scripts/credits_button.gd" id="7_dihg0"]
@@ -19,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bgjc42v23jxa2" path="res://images/DaVinci_Resolve_Studio.png" id="14_f0ka0"]
 [ext_resource type="Texture2D" uid="uid://brwuytxs8qe02" path="res://images/GOLButton.png" id="15_f0ka0"]
 [ext_resource type="Texture2D" uid="uid://mloppk6j4pdd" path="res://images/Godot_icon.svg.png" id="15_lqdfc"]
+[ext_resource type="Texture2D" uid="uid://dkws2bydh3ixt" path="res://images/infoMenuDesc.png" id="20_hr4ih"]
 
 [sub_resource type="Gradient" id="Gradient_loy4s"]
 offsets = PackedFloat32Array(1)
@@ -29,6 +32,9 @@ gradient = SubResource("Gradient_loy4s")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uvds"]
 size = Vector2(481, 488)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmgyx"]
+size = Vector2(77, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at6rn"]
 size = Vector2(480, 479)
@@ -61,6 +67,22 @@ font_color = Color(0, 0, 0, 1)
 font_size = 50
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_xcgji"]
+font_names = PackedStringArray("Cambria")
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1hcs"]
+font = SubResource("SystemFont_xcgji")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_pg2s2"]
+font_names = PackedStringArray("Cambria")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmgyx"]
+font = SubResource("SystemFont_pg2s2")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
 [node name="Mainmenu" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -90,6 +112,18 @@ stream = ExtResource("9_mn2x1")
 autoplay = true
 loop = true
 
+[node name="Info" type="Area2D" parent="Knucklebones"]
+position = Vector2(199, -199)
+script = ExtResource("4_f1hcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Knucklebones/Info"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_pg2s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Knucklebones/Info"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xmgyx")
+
 [node name="Nonogram" type="Area2D" parent="."]
 position = Vector2(376, 281)
 script = ExtResource("1_wgsso")
@@ -110,6 +144,18 @@ offset_bottom = 256.0
 mouse_filter = 2
 stream = ExtResource("2_0y70q")
 loop = true
+
+[node name="Nonogram Info" type="Area2D" parent="Nonogram"]
+position = Vector2(199, -199)
+script = ExtResource("4_f1hcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Nonogram/Nonogram Info"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_pg2s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nonogram/Nonogram Info"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xmgyx")
 
 [node name="Reversi" type="Area2D" parent="."]
 position = Vector2(922, 279)
@@ -133,6 +179,18 @@ stream = ExtResource("4_raimv")
 autoplay = true
 loop = true
 
+[node name="Reversi Info" type="Area2D" parent="Reversi"]
+position = Vector2(199, -199)
+script = ExtResource("4_f1hcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Reversi/Reversi Info"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_pg2s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Reversi/Reversi Info"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xmgyx")
+
 [node name="Minesweeper" type="Area2D" parent="."]
 position = Vector2(921, 786)
 script = ExtResource("1_wgsso")
@@ -155,6 +213,18 @@ stream = ExtResource("5_qrn07")
 autoplay = true
 loop = true
 
+[node name="Minesweeper Info" type="Area2D" parent="Minesweeper"]
+position = Vector2(199, -199)
+script = ExtResource("4_f1hcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Minesweeper/Minesweeper Info"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_pg2s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minesweeper/Minesweeper Info"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xmgyx")
+
 [node name="Battleship" type="Area2D" parent="."]
 position = Vector2(1432, 280)
 script = ExtResource("1_wgsso")
@@ -176,6 +246,18 @@ mouse_filter = 2
 stream = ExtResource("4_raimv")
 autoplay = true
 loop = true
+
+[node name="Battleship Info" type="Area2D" parent="Battleship"]
+position = Vector2(199, -199)
+script = ExtResource("4_f1hcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Battleship/Battleship Info"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_pg2s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Battleship/Battleship Info"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xmgyx")
 
 [node name="Credits Button" type="Area2D" parent="."]
 position = Vector2(1813, 1026)
@@ -327,23 +409,72 @@ loop = true
 visible = false
 texture = ExtResource("15_f0ka0")
 
+[node name="GOL Info" type="Area2D" parent="GoL"]
+position = Vector2(199, -199)
+script = ExtResource("4_f1hcs")
+
+[node name="Sprite2D" type="Sprite2D" parent="GoL/GOL Info"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_pg2s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoL/GOL Info"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xmgyx")
+
+[node name="Info" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Info"]
+position = Vector2(370, -244.5)
+texture = ExtResource("20_hr4ih")
+
+[node name="Title" type="Label" parent="Info"]
+offset_left = 131.0
+offset_top = -472.5
+offset_right = 609.0
+offset_bottom = -412.5
+text = "Reversi"
+label_settings = SubResource("LabelSettings_f1hcs")
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="Info"]
+offset_left = 21.0
+offset_top = -380.5
+offset_right = 712.0
+offset_bottom = -28.5
+text = "This is a description. Hi me!! Hello World and whatnot!!
+skibidi"
+label_settings = SubResource("LabelSettings_xmgyx")
+autowrap_mode = 2
+
 [connection signal="input_event" from="Knucklebones" to="Knucklebones" method="_on_input_event"]
 [connection signal="mouse_entered" from="Knucklebones" to="Knucklebones" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Knucklebones" to="Knucklebones" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Knucklebones/Info" to="Knucklebones/Info" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Knucklebones/Info" to="Knucklebones/Info" method="_on_mouse_exited"]
 [connection signal="input_event" from="Nonogram" to="Nonogram" method="_on_input_event"]
 [connection signal="mouse_entered" from="Nonogram" to="Nonogram" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Nonogram" to="Nonogram" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Nonogram/Nonogram Info" to="Knucklebones/Info" method="_on_info_mouse_entered"]
+[connection signal="mouse_exited" from="Nonogram/Nonogram Info" to="Nonogram/Nonogram Info" method="_on_mouse_exited"]
 [connection signal="input_event" from="Reversi" to="Reversi" method="_on_input_event"]
 [connection signal="mouse_entered" from="Reversi" to="Reversi" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Reversi" to="Reversi" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Reversi/Reversi Info" to="Knucklebones/Info" method="_on_reversi_info_mouse_entered"]
+[connection signal="mouse_exited" from="Reversi/Reversi Info" to="Reversi/Reversi Info" method="_on_mouse_exited"]
 [connection signal="input_event" from="Minesweeper" to="Minesweeper" method="_on_input_event"]
 [connection signal="mouse_entered" from="Minesweeper" to="Minesweeper" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Minesweeper" to="Minesweeper" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Minesweeper/Minesweeper Info" to="Knucklebones/Info" method="_on_minesweeper_info_mouse_entered"]
+[connection signal="mouse_exited" from="Minesweeper/Minesweeper Info" to="Minesweeper/Minesweeper Info" method="_on_mouse_exited"]
 [connection signal="input_event" from="Battleship" to="Battleship" method="_on_input_event"]
 [connection signal="mouse_entered" from="Battleship" to="Battleship" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Battleship" to="Battleship" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Battleship/Battleship Info" to="Knucklebones/Info" method="_on_battleship_info_mouse_entered"]
+[connection signal="mouse_exited" from="Battleship/Battleship Info" to="Battleship/Battleship Info" method="_on_mouse_exited"]
 [connection signal="input_event" from="Credits Button" to="Credits Button" method="_on_input_event"]
 [connection signal="input_event" from="Credits/Back Button" to="Credits Button" method="_on_back_button_input_event"]
 [connection signal="input_event" from="GoL" to="GoL" method="_on_input_event"]
 [connection signal="mouse_entered" from="GoL" to="GoL" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="GoL" to="GoL" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="GoL/GOL Info" to="Knucklebones/Info" method="_on_gol_info_mouse_entered"]
+[connection signal="mouse_exited" from="GoL/GOL Info" to="GoL/GOL Info" method="_on_mouse_exited"]
