@@ -1,4 +1,4 @@
-extends Node
+extends Node # UNIVERSAL
 
 var loading_screen_packed = preload("res://loading.tscn")
 var loading_screen_instance = null

@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Sprite2D # MINESWEEPER
 
 var shipSelected = "None"
 
@@ -7,7 +7,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _input(event) -> void:
-	if event.is_action("export"):
+	if event.is_action("export"): # E key. Will rotate the ship
 		if event.pressed:
 			print(self.rotation_degrees)
 			if self.rotation_degrees == 0.0:

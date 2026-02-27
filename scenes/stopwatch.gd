@@ -1,4 +1,4 @@
-extends Label
+extends Label # MINESWEEPER
 var started = false
 var timeStarted: int
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +11,7 @@ func start():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if started:
+	if started: # Makes a simple stopwatch, keeping 0 places and maxing out at 999.
 		var finalTime = int(Time.get_unix_time_from_system()) - timeStarted
 		if len(str(finalTime)) > 3:
 			finalTime = int(999)

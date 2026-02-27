@@ -1,4 +1,4 @@
-extends FileDialog
+extends FileDialog # NONOGRAM
 var heyMan = false
 
 @onready var cb = get_node("../CreateBoard")

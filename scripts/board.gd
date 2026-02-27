@@ -1,4 +1,4 @@
-extends Node2D
+extends Node2D # REVERSI BOARD
 
 var array: Array
 var cellArray: Array
@@ -19,8 +19,8 @@ func _ready() -> void:
 	generateBoard()
 	pass # Replace with function body.
 
-func generateBoard():
-	for n in get_children():
+func generateBoard(): # Starts generating board
+	for n in get_children(): # Wipes every child, clears for new board
 		n.queue_free()
 	
 	for i in range(8):
@@ -58,7 +58,7 @@ func generateBoard():
 			self.position = Vector2(1920/2-50*4+25,1080/2-50*4+25)
 			
 	print(array)
-	for i in get_children():
+	for i in get_children(): # Will check each children if it can move
 		i.checkValidMovement()
 	
 	

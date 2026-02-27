@@ -1,4 +1,4 @@
-extends Area2D 
+extends Area2D # MINESWEEPER
 @onready var field = get_node("../../field")
 @onready var audioPlayer = get_node("../../AudioStreamPlayer2D")
 var unrevealed = preload("res://images/minesweeper/click.png")

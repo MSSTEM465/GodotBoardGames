@@ -1,5 +1,6 @@
-extends Sprite2D
+extends Sprite2D # BATTLESHIP
 
+# Honestly, could have integrated this into the main board, but decided this to make things easier for me.
 var horPos: int
 var verPos: int
 

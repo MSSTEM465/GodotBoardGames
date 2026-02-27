@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # NONOGRAM
 
 @onready var pb = get_node("../PlayBoard")
 @onready var oF = get_node("../OpenFile")

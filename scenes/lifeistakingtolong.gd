@@ -1,4 +1,4 @@
-extends ProgressBar
+extends ProgressBar # GOL
 @onready var board = get_node("../../theGame")
 
 # Called when the node enters the scene tree for the first time.

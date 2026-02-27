@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # GOL
 
 @onready var board = get_node("../../theGame")
 

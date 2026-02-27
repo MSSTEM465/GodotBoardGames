@@ -1,5 +1,5 @@
 extends Node2D
-
+# NONOGRAM
 var array: Array
 var labels = []
 var horLeng: int # horizontal length (left & right)

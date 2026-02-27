@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # NONOGRAMS
 
 @onready var CreateBoard = get_node("../CreateBoard")
 @onready var VerLeng = get_node("../VerLeng")

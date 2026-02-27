@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # REVERSI
 var dirs: Array
 var empty = preload("res://images/none.png")
 var grey = preload("res://images/grey.png")

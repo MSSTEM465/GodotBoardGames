@@ -1,4 +1,4 @@
-extends Control
+extends Control # NONOGRAM
 
 var stories = []
 var inGame = false

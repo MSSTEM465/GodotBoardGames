@@ -1,5 +1,5 @@
 extends VSlider
-
+# GOL
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
+# Camera zoom
 func _on_value_changed(value: float) -> void:
 	get_node("../../Camera2D").zoom.x = self.value
 	get_node("../../Camera2D").zoom.y = self.value

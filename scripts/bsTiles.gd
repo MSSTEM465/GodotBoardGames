@@ -1,5 +1,5 @@
 extends Area2D
-
+# BATTLESHIP
 var horiPos: int
 var vertPos: int
 var Ship := "None"
@@ -13,7 +13,7 @@ func _ready() -> void:
 	input_event.connect(_on_input_event)
 	pass # Replace with function body.
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(viewport, event, shape_idx): # Will check and place the ships if it has a ship selected
 	if event is InputEventMouseButton and event.pressed and sea.preStage:
 		if mS.shipSelected == "Cruiser":
 			if sea.checkValidity([vertPos,horiPos],mS.shipSelected,mS.rotation_degrees == 90):

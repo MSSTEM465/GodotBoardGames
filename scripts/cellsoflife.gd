@@ -1,5 +1,5 @@
 extends Area2D
-
+# GOL
 var horLeng: int
 var verLeng: int
 var on: bool

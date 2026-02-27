@@ -1,9 +1,9 @@
-extends Sprite2D
+extends Sprite2D # NONOGRAM
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if OS.get_name() == "Web":
+	if OS.get_name() == "Web": # Will disable play mode on Web release
 		self.show()
 	pass # Replace with function body.
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node2D # NONOGRAM
 
 var arraySolution: Array
 var arraySelected: Array

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node2D # KNUCKLEBONES
 var turn = 0
 var die = 1
 var array = []

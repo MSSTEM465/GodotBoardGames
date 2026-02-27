@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # MINESWEEPER
 @onready var easy = get_node("../Easy")
 @onready var medium = get_node("../Medium")
 @onready var hard = get_node("../Hard")

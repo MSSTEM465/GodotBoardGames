@@ -1,4 +1,4 @@
-extends Node2D
+extends Node2D # BATTLESHIP
 var list = ["A","B","C",'D','E',"F",'G','H','I',"J","K"]
 @onready var board = get_node("../Ship View")
 

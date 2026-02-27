@@ -1,4 +1,4 @@
-extends Node2D
+extends Node2D # BATTLESHIP
 
 var p1ShipArray: Array
 var p2ShipArray: Array

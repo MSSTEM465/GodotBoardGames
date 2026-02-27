@@ -1,10 +1,10 @@
 extends Area2D
-
-@onready var IB = get_node("../InfoButton")
-@onready var CB = get_node("../CreateButton")
-@onready var PB = get_node("../PlayButton")
-@onready var SB = get_node("../StoryButton")
-
+# NONOGRAM
+@onready var IB = get_node("../InfoButton") # Info
+@onready var CB = get_node("../CreateButton") # Create
+@onready var PB = get_node("../PlayButton") # Play
+@onready var SB = get_node("../StoryButton") # Story
+# Elements for certain pages
 @onready var ImEx = get_node("../Import and Export")
 @onready var ImExSprite = get_node("../Import and Export/ImExport")
 @onready var info = get_node("../Info")
@@ -17,7 +17,7 @@ extends Area2D
 @onready var Scroller = get_node("../Campaign")
 @onready var LevelInfo = get_node("../LevelInfo")
 @onready var Locked = get_node("../locked")
-
+# Boards used
 @onready var PlayBoard = get_node("../PlayBoard")
 @onready var CreateBoard = get_node("../CreateBoard")
 
@@ -30,7 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
+# Will toggle elements to show depending on the buttons pressed
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and not SettingsPage.visible:
 		ImEx.show()
@@ -89,7 +89,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			PlayBoard.hide()
 			ImEx.hide()
 			get_node("../Back").hide()
-			if Scroller.get_node("Control").inGame:
+			if Scroller.get_node("Control").inGame: # Will either show the back button or not depending if theres a game on
 				get_node("../Back").show()
 				PlayBoard.show()
 			else:

@@ -1,4 +1,4 @@
-extends Label
+extends Label # KNUNKLEBONES
 
 var col: int
 @onready var board = get_node("../../North Board")

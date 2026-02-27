@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # NONOGRAM
 
 @onready var af = get_tree().root.get_node("Node2D/SettingsPage/Autofill Button")
 @onready var playBoard = get_tree().root.get_node("Node2D/PlayBoard")

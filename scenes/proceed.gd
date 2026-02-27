@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # BATTLESHIP
 @onready var hider = get_node("../../Hider")
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed: # Just hides the hider
 		hider.hide()
 		

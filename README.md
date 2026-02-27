@@ -1,7 +1,7 @@
 ## Godot GridGames
 
 A collection of grid-based games on Godot.
-Currently avaliable games:
+List of games:
 - Nonograms
 - Minesweeper
 - Reversi

@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # BATTLESHIP
 @onready var hider = get_node("../Hider")
 @onready var board = get_node("../Ship View")
 @onready var peg = get_node("../peg")

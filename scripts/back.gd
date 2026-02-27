@@ -1,5 +1,5 @@
 extends Area2D
-
+# NONOGRAM
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed: # Will end the Play Mode puzzle
 		get_node("../PlayBoard").niceOneIdiot()
 		var Scroller = get_node("../Campaign")
 		var Controller = Scroller.get_node("Control")

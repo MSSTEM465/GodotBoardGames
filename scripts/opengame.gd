@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # MAIN MENU
 
 @onready var nonogram = get_node("../Nonogram")
 @onready var Reversi = get_node("../Reversi")

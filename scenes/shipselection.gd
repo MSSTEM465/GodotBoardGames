@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # BATTLESHIP
 
 @onready var s1 = get_node("../Cruiser")
 @onready var s2 = get_node("../Destroyer")

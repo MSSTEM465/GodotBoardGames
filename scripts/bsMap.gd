@@ -1,5 +1,5 @@
 extends Area2D
-
+# BATTLESHIP
 @onready var ships = get_node("../../Ship View")
 @onready var peg = get_node("../../peg")
 var horPos: int
@@ -10,7 +10,7 @@ func _ready() -> void:
 	input_event.connect(_on_input_event)
 	pass # Replace with function body.
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(viewport, event, shape_idx): # Will move and mark the peg depending if its time for that
 	if event is InputEventMouseButton and event.pressed:
 		if not ships.preStage:
 			if ships.turn == 0:

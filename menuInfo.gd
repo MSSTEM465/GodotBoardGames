@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # MENU
 @onready var infoBoard = get_node("../../Info")
 @onready var title = get_node("../../Info/Title")
 @onready var desc = get_node("../../Info/Desc")
