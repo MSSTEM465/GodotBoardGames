@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c6ymkc57nuvbm" path="res://images/stopwatch.png" id="12_graq4"]
 [ext_resource type="Texture2D" uid="uid://dmw2ok3fpocv1" path="res://images/flags.png" id="13_6s8j6"]
 [ext_resource type="Texture2D" uid="uid://vwgchtylt4c5" path="res://images/minesweeper/0.png" id="14_i64aw"]
-[ext_resource type="Script" uid="uid://dk25s265crgv6" path="res://scenes/anti_guess_indicator.gd" id="14_mhnbi"]
+[ext_resource type="Script" uid="uid://dk25s265crgv6" path="res://scripts/anti_guess_indicator.gd" id="14_mhnbi"]
 
 [sub_resource type="Gradient" id="Gradient_g8yvt"]
 offsets = PackedFloat32Array(1)

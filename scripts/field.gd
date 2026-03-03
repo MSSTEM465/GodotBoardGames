@@ -18,7 +18,7 @@ func _input(event) -> void:
 
 # size = [vertical length, horizontal length]
 func generateBoard(size, mines):
-	get_node("../Stopwatch").start()
+	#get_node("../Stopwatch").start()
 	array = []
 	areaArray = []
 	for i in get_children():

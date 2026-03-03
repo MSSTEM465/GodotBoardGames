@@ -56,6 +56,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				sprite.texture = load("res://images/minesweeper/flag.png")
 				flagged = not flagged
 		if event.is_action("fill"):
+			if not get_node("../../Stopwatch").started:
+				get_node("../../Stopwatch").start()
 			if not sprite.texture == unrevealed and not flagged:
 				revealAround()
 			else:
