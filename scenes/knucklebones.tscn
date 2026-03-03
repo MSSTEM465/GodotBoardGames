@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://dmjljpdc86wo5"]
 
-[ext_resource type="Script" uid="uid://bfucjvnuvevwq" path="res://scenes/north_board.gd" id="1_s8xw6"]
+[ext_resource type="Script" uid="uid://bfucjvnuvevwq" path="res://scripts/north_board.gd" id="1_s8xw6"]
 [ext_resource type="Texture2D" uid="uid://cxg00jbs24w3d" path="res://images/Dice/selection.png" id="1_si0yg"]
-[ext_resource type="Script" uid="uid://bv62swwb22d7s" path="res://scenes/south_board.gd" id="2_7uoed"]
-[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="2_pxeq0"]
+[ext_resource type="Script" uid="uid://bv62swwb22d7s" path="res://scripts/south_board.gd" id="2_7uoed"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scripts/exit_to_mm.gd" id="2_pxeq0"]
 [ext_resource type="Texture2D" uid="uid://dafinu553rd83" path="res://images/Dice/empty.png" id="2_w2nri"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="3_k4q0p"]
-[ext_resource type="Script" uid="uid://bubeo0kn3efcu" path="res://scenes/timer.gd" id="7_k4q0p"]
+[ext_resource type="Script" uid="uid://bubeo0kn3efcu" path="res://scripts/timer.gd" id="7_k4q0p"]
 
 [sub_resource type="Gradient" id="Gradient_w2nri"]
 offsets = PackedFloat32Array(1)

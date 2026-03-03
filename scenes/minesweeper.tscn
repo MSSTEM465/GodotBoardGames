@@ -1,16 +1,20 @@
-[gd_scene load_steps=28 format=3 uid="uid://jav0m5rc2321"]
+[gd_scene load_steps=34 format=3 uid="uid://jav0m5rc2321"]
 
-[ext_resource type="Script" uid="uid://lsibv8na6g3x" path="res://scenes/field.gd" id="1_hnafd"]
-[ext_resource type="Script" uid="uid://bbahoxystmr0o" path="res://scenes/difficultiesMine.gd" id="2_p5s82"]
+[ext_resource type="Script" uid="uid://lsibv8na6g3x" path="res://scripts/field.gd" id="1_hnafd"]
+[ext_resource type="Script" uid="uid://bbahoxystmr0o" path="res://scripts/difficultiesMine.gd" id="2_p5s82"]
 [ext_resource type="Texture2D" uid="uid://cwkpwyrse8qke" path="res://images/easy.png" id="3_2m5h3"]
 [ext_resource type="Texture2D" uid="uid://cunphb46y88hp" path="res://images/medium.png" id="4_f7qek"]
 [ext_resource type="Texture2D" uid="uid://edbj8md34vn4" path="res://images/hard.png" id="5_rm57e"]
 [ext_resource type="AudioStream" uid="uid://cf60olcmjhh0g" path="res://sounds/Boom11.wav" id="6_rm57e"]
-[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="7_n22ri"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scripts/exit_to_mm.gd" id="7_n22ri"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="8_iwuws"]
 [ext_resource type="FontFile" uid="uid://b6m7kdllydx0t" path="res://fonts/G7_Segment_7a.ttf" id="9_gdkew"]
-[ext_resource type="Script" uid="uid://cor31w87akdfq" path="res://scenes/flag_count.gd" id="9_iwuws"]
-[ext_resource type="Script" uid="uid://d2omcww42uy33" path="res://scenes/stopwatch.gd" id="11_oq8vg"]
+[ext_resource type="Script" uid="uid://cor31w87akdfq" path="res://scripts/flag_count.gd" id="9_iwuws"]
+[ext_resource type="Script" uid="uid://d2omcww42uy33" path="res://scripts/stopwatch.gd" id="11_oq8vg"]
+[ext_resource type="Texture2D" uid="uid://c6ymkc57nuvbm" path="res://images/stopwatch.png" id="12_graq4"]
+[ext_resource type="Texture2D" uid="uid://dmw2ok3fpocv1" path="res://images/flags.png" id="13_6s8j6"]
+[ext_resource type="Texture2D" uid="uid://vwgchtylt4c5" path="res://images/minesweeper/0.png" id="14_i64aw"]
+[ext_resource type="Script" uid="uid://dk25s265crgv6" path="res://scenes/anti_guess_indicator.gd" id="14_mhnbi"]
 
 [sub_resource type="Gradient" id="Gradient_g8yvt"]
 offsets = PackedFloat32Array(1)
@@ -77,6 +81,13 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0.80232567, -1), 0.0, 2.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhnbi"]
+size = Vector2(50, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wymbg"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
 [node name="Minesweeper" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -90,7 +101,7 @@ script = ExtResource("1_hnafd")
 [node name="Difficulty" type="Node2D" parent="."]
 
 [node name="Easy" type="Area2D" parent="Difficulty"]
-position = Vector2(509, 981)
+position = Vector2(710, 981)
 script = ExtResource("2_p5s82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Difficulty/Easy"]
@@ -100,7 +111,7 @@ shape = SubResource("RectangleShape2D_f7qek")
 texture = ExtResource("3_2m5h3")
 
 [node name="Medium" type="Area2D" parent="Difficulty"]
-position = Vector2(773, 981)
+position = Vector2(960, 981)
 script = ExtResource("2_p5s82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Difficulty/Medium"]
@@ -110,7 +121,7 @@ shape = SubResource("RectangleShape2D_f7qek")
 texture = ExtResource("4_f7qek")
 
 [node name="Hard" type="Area2D" parent="Difficulty"]
-position = Vector2(1030, 985)
+position = Vector2(1210, 981)
 script = ExtResource("2_p5s82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Difficulty/Hard"]
@@ -170,22 +181,22 @@ label_settings = SubResource("LabelSettings_gdkew")
 script = ExtResource("9_iwuws")
 
 [node name="7SegmentBlack2" type="Sprite2D" parent="."]
-position = Vector2(271, 62.5)
+position = Vector2(356, 62.5)
 scale = Vector2(2.46875, 1.265625)
 texture = SubResource("GradientTexture2D_graq4")
 
 [node name="Background2" type="Label" parent="."]
-offset_left = 195.0
+offset_left = 280.0
 offset_top = 13.0
-offset_right = 356.0
+offset_right = 441.0
 offset_bottom = 118.0
 text = "888"
 label_settings = SubResource("LabelSettings_6s8j6")
 
 [node name="Stopwatch" type="Label" parent="."]
-offset_left = 195.0
+offset_left = 280.0
 offset_top = 13.0
-offset_right = 356.0
+offset_right = 441.0
 offset_bottom = 118.0
 text = "000"
 label_settings = SubResource("LabelSettings_gdkew")
@@ -211,7 +222,37 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_i64aw")
 
+[node name="StopwatchSprite" type="Sprite2D" parent="."]
+position = Vector2(480.99997, 62)
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("12_graq4")
+
+[node name="Flags" type="Sprite2D" parent="."]
+position = Vector2(214, 61)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("13_6s8j6")
+
+[node name="Anti Guess Indicator" type="Area2D" parent="."]
+position = Vector2(46, 1035)
+script = ExtResource("14_mhnbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anti Guess Indicator"]
+shape = SubResource("RectangleShape2D_mhnbi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Anti Guess Indicator"]
+texture = ExtResource("14_i64aw")
+
+[node name="Label" type="Label" parent="Anti Guess Indicator"]
+offset_left = 32.0
+offset_top = -30.0
+offset_right = 549.0
+offset_bottom = 57.0
+text = "Indicate Empty Space 
+for First Press"
+label_settings = SubResource("LabelSettings_wymbg")
+
 [connection signal="input_event" from="Difficulty/Easy" to="Difficulty/Easy" method="_on_input_event"]
 [connection signal="input_event" from="Difficulty/Medium" to="Difficulty/Medium" method="_on_input_event"]
 [connection signal="input_event" from="Difficulty/Hard" to="Difficulty/Hard" method="_on_input_event"]
 [connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]
+[connection signal="input_event" from="Anti Guess Indicator" to="Anti Guess Indicator" method="_on_input_event"]

@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # I DONT REMEMBER
 
 var holdLeft = false
 var holdRight = false

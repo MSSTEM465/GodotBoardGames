@@ -1,5 +1,5 @@
 extends Area2D
-
+# NONOGRAM
 @onready var CreateBoard = get_node("../../CreateBoard")
 @onready var SaveFile = get_node("../../SaveFile")
 

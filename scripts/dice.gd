@@ -1,4 +1,4 @@
-extends Area2D
+extends Area2D # KNUCKLEBONES
 
 @onready var board = get_node("../../North Board")
 @onready var otherBoard = get_node("../../South Board")

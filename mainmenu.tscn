@@ -4,7 +4,7 @@
 [ext_resource type="VideoStream" uid="uid://t87u3owpaybk" path="res://videos/nonogrambuttonCompromise.ogv" id="2_0y70q"]
 [ext_resource type="Texture2D" uid="uid://bfyqum5t5hktb" path="res://images/nonogrambutton.png" id="2_y5i8j"]
 [ext_resource type="Texture2D" uid="uid://dk72lbd4jkxqj" path="res://images/reversibutton.png" id="3_3pujl"]
-[ext_resource type="Script" uid="uid://cema0fjgkl6lk" path="res://menuInfo.gd" id="4_f1hcs"]
+[ext_resource type="Script" uid="uid://cema0fjgkl6lk" path="res://scripts/menuInfo.gd" id="4_f1hcs"]
 [ext_resource type="Texture2D" uid="uid://6i22wt4e3bkp" path="res://images/minesweeperbutton.png" id="4_igs2m"]
 [ext_resource type="VideoStream" uid="uid://dydnf2d1yciai" path="res://videos/reversivideo.ogv" id="4_raimv"]
 [ext_resource type="Texture2D" uid="uid://mmnc5ihjb6kq" path="res://images/knucklebutton.png" id="5_3pujl"]

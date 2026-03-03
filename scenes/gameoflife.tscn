@@ -1,15 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://b5dhpre1xlntg"]
+[gd_scene load_steps=22 format=3 uid="uid://b5dhpre1xlntg"]
 
-[ext_resource type="Script" uid="uid://d15lidov0wnbg" path="res://scenes/cameramovement.gd" id="1_sg6o2"]
-[ext_resource type="Script" uid="uid://0kogyyh7vuw1" path="res://scenes/the_game_of_life.gd" id="2_ipdh0"]
-[ext_resource type="Script" uid="uid://bsv8khopknnn1" path="res://scenes/camerazoom.gd" id="3_bfx6i"]
-[ext_resource type="Script" uid="uid://dxua6oxqnduql" path="res://scenes/lifeistakingtolong.gd" id="4_3rgpa"]
-[ext_resource type="Script" uid="uid://dnfuey2ss1fne" path="res://scenes/fps_label.gd" id="5_3rgpa"]
-[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="6_wfiq1"]
+[ext_resource type="Script" uid="uid://d15lidov0wnbg" path="res://scripts/cameramovement.gd" id="1_sg6o2"]
+[ext_resource type="Script" uid="uid://0kogyyh7vuw1" path="res://scripts/the_game_of_life.gd" id="2_ipdh0"]
+[ext_resource type="Script" uid="uid://bsv8khopknnn1" path="res://scripts/camerazoom.gd" id="3_bfx6i"]
+[ext_resource type="Texture2D" uid="uid://btaoe7pefuuh5" path="res://images/magnglass.png" id="3_feepl"]
+[ext_resource type="Script" uid="uid://dxua6oxqnduql" path="res://scripts/lifeistakingtolong.gd" id="4_3rgpa"]
+[ext_resource type="Script" uid="uid://dnfuey2ss1fne" path="res://scripts/fps_label.gd" id="5_3rgpa"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scripts/exit_to_mm.gd" id="6_wfiq1"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="7_8nfmy"]
-[ext_resource type="Script" uid="uid://6em50vvtgc1e" path="res://scenes/sizing.gd" id="8_i1o2b"]
+[ext_resource type="Script" uid="uid://6em50vvtgc1e" path="res://scripts/sizing.gd" id="8_i1o2b"]
 [ext_resource type="Texture2D" uid="uid://diy7f5t53a4mc" path="res://images/life/smaller.png" id="9_sg6o2"]
-[ext_resource type="Script" uid="uid://cofs213dqg1vg" path="res://scenes/startsim.gd" id="10_8nfmy"]
+[ext_resource type="Script" uid="uid://cofs213dqg1vg" path="res://scripts/startsim.gd" id="10_8nfmy"]
 [ext_resource type="Texture2D" uid="uid://djrlexybofpjx" path="res://images/life/larger.png" id="10_feepl"]
 [ext_resource type="Texture2D" uid="uid://di45g1crgf8bn" path="res://images/life/start.png" id="12_1r6m1"]
 [ext_resource type="Texture2D" uid="uid://dib28v4jr2gbs" path="res://images/life/restart.png" id="13_sg6o2"]
@@ -55,6 +56,11 @@ script = ExtResource("2_ipdh0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1860, 303)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_feepl")
+
 [node name="VSlider" type="VSlider" parent="CanvasLayer"]
 offset_left = 1844.0
 offset_top = 332.0
@@ -95,7 +101,7 @@ shape = SubResource("RectangleShape2D_feepl")
 texture = ExtResource("7_8nfmy")
 
 [node name="Smaller" type="Area2D" parent="CanvasLayer"]
-position = Vector2(1089, 995)
+position = Vector2(835, 995)
 script = ExtResource("8_i1o2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Smaller"]
@@ -106,7 +112,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_1r6m1")
 
 [node name="Larger" type="Area2D" parent="CanvasLayer"]
-position = Vector2(1351, 990)
+position = Vector2(1085, 995)
 script = ExtResource("8_i1o2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Larger"]

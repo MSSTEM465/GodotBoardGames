@@ -352,48 +352,48 @@ func showP1():
 	for i in get_children():
 		i.queue_free()
 	for i in range(10):
+		await get_tree().process_frame
 		for j in range(10):
-			var area = Area2D.new()
-			var col = CollisionShape2D.new()
-			var shape = RectangleShape2D.new()
+			#var area = Area2D.new()
+			#var col = CollisionShape2D.new()
+			#var shape = RectangleShape2D.new()
 			var sprite = Sprite2D.new()
 			var ship = Sprite2D.new()
 			if p1ShipArray[i][j] == 2:
 				ship.texture = p1NamingArray[i][j]
 				ship.rotation_degrees = 0
-				area.add_child(ship)
+				sprite.add_child(ship)
 			if p1ShipArray[i][j] == 3:
 				ship.texture = p1NamingArray[i][j]
 				ship.rotation_degrees = 90
-				area.add_child(ship)
+				sprite.add_child(ship)
 			ship.z_index = 30
-			shape.size = Vector2(50,50)
-			col.shape = shape
+			#shape.size = Vector2(50,50)
+			#col.shape = shape
 			sprite.texture = load("res://images/battleship/tile.png")
-			area.add_child(col)
-			area.add_child(sprite)
+			#area.add_child(col)
+			#area.add_child(sprite)
 			#area.set_script(load("res://scripts/bsTiles.gd"))
 			#area.horiPos = j
 			#area.vertPos = i
-			area.position = Vector2(j*50,i*50)
+			sprite.position = Vector2(j*50,i*50)
 			if p2ShotArray[i][j] == 1:
 				var peg = Sprite2D.new()
 				peg.texture = load("res://images/battleship/whitePeg.png")
 				peg.z_index = 40
-				area.add_child(peg)
+				sprite.add_child(peg)
 			elif p2ShotArray[i][j] == 2:
 				var peg = Sprite2D.new()
 				peg.z_index = 40
 				peg.texture = load("res://images/battleship/redPeg.png")
-				area.add_child(peg)
-			self.add_child(area)
+				sprite.add_child(peg)
 			if i == 0:
 				var label = Label.new()
 				label.set_text(list[j])
 				label.add_theme_color_override("font_color", Color(0, 0, 0))
 				label.add_theme_font_size_override("font_size", 30)
 				label.position = Vector2(j-10,-70)
-				area.add_child(label)
+				sprite.add_child(label)
 			if j == 0:
 				var label = Label.new()
 				label.set_text(str(i+1))
@@ -401,7 +401,8 @@ func showP1():
 				label.add_theme_font_size_override("font_size", 30)
 				label.position = Vector2(-40,i-25)
 				label.grow_horizontal = 0
-				area.add_child(label)
+				sprite.add_child(label)
+			self.add_child(sprite)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

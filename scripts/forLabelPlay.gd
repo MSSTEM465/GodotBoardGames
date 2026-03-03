@@ -1,5 +1,5 @@
 extends Label
-
+# NONOGRAM
 @onready var PlayBoard = get_node("../../../PlayBoard")
 @onready var location: int
 @onready var ifVert: bool

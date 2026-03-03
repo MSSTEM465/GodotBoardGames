@@ -96,12 +96,18 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						board.p2ShotArray[peg.verPos][peg.horPos] = 1
 			board.generateWithInfo()
 			if board.checkWon():
-				board.showP1()
-				get_node("../Map").showP2()
+				get_node("../Wait").show()
 				get_node("../Hider").hide()
+				await get_tree().process_frame
+				get_node("../Hider").hide()
+				board.showP1()
+				await get_tree().process_frame
+				get_node("../Map").showP2()
+				await get_tree().process_frame
 				get_node("../Player").set_text("")
 				get_node("../Label").set_text("Player 1")
 				get_node("../Label2").set_text("Player 2")
+				get_node("../Wait").hide()
 				board.endGame = true
 				return
 		else:

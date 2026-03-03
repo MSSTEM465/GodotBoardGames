@@ -1,5 +1,5 @@
 extends Area2D
-
+# NONOGRAM
 var id: int
 @onready var Scroller = get_node("../../../Campaign") 
 @onready var Controller = get_node("../../Control")

@@ -1,7 +1,8 @@
-extends Node2D
+extends Node2D # MINESWEEPER
 var array: Array
 var areaArray: Array
 var siz: Array
+var antiGuess = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,23 +59,24 @@ func generateBoard(size, mines):
 	var nope = false
 	var dontContinue = false
 	var list = [[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1]]
-	for x in range(len(array)):
-		for h in range(len(array)):
-			nope = false
-			if array[x][h] == 0:
-				for i in range(8):
-					if (x + list[i][0] <= siz[0]-1 and h + list[i][1] <= siz[1]-1) and (x + list[i][0] >= 0 and h + list[i][1] >= 0):
-						if array[x + list[i][0]][h + list[i][1]] == 1:
-							#print("hauh")
-							nope = true
-			else:
-				nope = true
-			if not nope and not dontContinue:
-				#print("niodsvosnifd")
-				areaArray[x][h].sprite.texture = load("res://images/minesweeper/x.png")
-				nope = true
-				dontContinue = true
-				break
+	if antiGuess:
+		for x in range(len(array)):
+			for h in range(len(array)):
+				nope = false
+				if array[x][h] == 0:
+					for i in range(8):
+						if (x + list[i][0] <= siz[0]-1 and h + list[i][1] <= siz[1]-1) and (x + list[i][0] >= 0 and h + list[i][1] >= 0):
+							if array[x + list[i][0]][h + list[i][1]] == 1:
+								#print("hauh")
+								nope = true
+				else:
+					nope = true
+				if not nope and not dontContinue:
+					#print("niodsvosnifd")
+					areaArray[x][h].sprite.texture = load("res://images/minesweeper/x.png")
+					nope = true
+					dontContinue = true
+					break
 	get_node("../FlagCount").recount()
 	self.position = Vector2(1920/2-(50*size[1])/2,1080/2-(50*size[0])/2)
 	#while not sigh:

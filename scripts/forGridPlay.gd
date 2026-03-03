@@ -1,5 +1,5 @@
 extends Area2D
-
+# NONOGRAM
 @onready var PlayBoard = get_node("../../PlayBoard")
 @onready var warnings = get_node("../../Warnings")
 

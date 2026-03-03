@@ -1,6 +1,5 @@
-[gd_scene load_steps=52 format=3 uid="uid://upps4vm7qnwk"]
+[gd_scene load_steps=51 format=3 uid="uid://upps4vm7qnwk"]
 
-[ext_resource type="Script" uid="uid://cuggfwwpjxef6" path="res://scripts/backgroundPC.gd" id="1_rmy11"]
 [ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="2_i0nma"]
 [ext_resource type="Script" uid="uid://dktpjkwm7ofx6" path="res://scripts/open_file.gd" id="3_ywgr0"]
 [ext_resource type="Script" uid="uid://bybcnuyf12h3f" path="res://scripts/save_file.gd" id="4_n5sh3"]
@@ -25,9 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://di6hsoej8v4np" path="res://images/information/infoCrazy.png" id="23_ffasw"]
 [ext_resource type="Script" uid="uid://b5jtvouvxvedw" path="res://scripts/back.gd" id="24_lnjh5"]
 [ext_resource type="Texture2D" uid="uid://ctgm6ssbysyvb" path="res://images/back.png" id="25_6cjkq"]
-[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scenes/exit_to_mm.gd" id="26_vrqbj"]
+[ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scripts/exit_to_mm.gd" id="26_vrqbj"]
 [ext_resource type="Texture2D" uid="uid://0fw6i7cebj86" path="res://images/locked.png" id="27_jhs7r"]
-[ext_resource type="Script" uid="uid://dgjo280knwcad" path="res://scenes/locked.gd" id="28_28f34"]
+[ext_resource type="Script" uid="uid://dgjo280knwcad" path="res://scripts/locked.gd" id="28_28f34"]
 
 [sub_resource type="Gradient" id="Gradient_ej4tk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -115,7 +114,6 @@ size = Vector2(58, 64)
 position = Vector2(961.50006, 543.5)
 scale = Vector2(30.078127, 17.015625)
 texture = SubResource("GradientTexture2D_oe8ih")
-script = ExtResource("1_rmy11")
 
 [node name="Warnings" type="Label" parent="."]
 visible = false

@@ -1,5 +1,5 @@
 extends Label
-
+# MINESWEEPER
 @onready var field = get_node("../field")
 var mineCount = 0
 var flaggedCount = 0

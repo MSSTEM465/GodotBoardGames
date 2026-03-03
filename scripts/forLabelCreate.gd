@@ -1,5 +1,5 @@
 extends Label
-
+# NONOGRAM
 @onready var CreateBoard = get_node("../../../CreateBoard")
 @onready var location: int
 @onready var ifVert: bool
