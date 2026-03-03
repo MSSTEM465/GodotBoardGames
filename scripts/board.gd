@@ -59,7 +59,7 @@ func generateBoard(): # Starts generating board
 			
 	print(array)
 	for i in get_children(): # Will check each children if it can move
-		i.checkValidMovement()
+		i.checkBetterMovement()
 	
 	
 	

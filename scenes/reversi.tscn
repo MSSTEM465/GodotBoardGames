@@ -33,7 +33,6 @@ point_count = 2
 size = Vector2(58, 64)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pxsk5"]
-font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
@@ -99,10 +98,8 @@ shape = SubResource("RectangleShape2D_hatgk")
 texture = ExtResource("4_bkufs")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 23.0
-offset_top = 889.0
-offset_right = 129.0
-offset_bottom = 962.0
+offset_right = 40.0
+offset_bottom = 23.0
 text = "Current 
 Turn:"
 label_settings = SubResource("LabelSettings_pxsk5")

@@ -1,5 +1,7 @@
 extends Area2D # REVERSI
 var dirs: Array
+var betterDirs: Array
+var direcs = [[1,1],[1,0],[1,-1],[0,-1],[-1,-1],[-1,0],[-1,1],[0,1]]
 var empty = preload("res://images/none.png")
 var grey = preload("res://images/grey.png")
 var black = preload("res://images/black.png")
@@ -18,7 +20,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if selfSprite.texture == grey:
-				flippenTime()
+				betterFlip()
 				if board.turn == 1:
 					board.turn = 2
 					get_node("../../Turn").texture = black
@@ -27,7 +29,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					get_node("../../Turn").texture = white
 				board.moves = 0
 				for i in board.get_children():
-					i.checkValidMovement()
+					i.checkBetterMovement()
 				if board.moves == 0:
 					print("No moves detected. Skipping turn")
 					if board.turn == 2:
@@ -37,7 +39,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						board.turn = 2
 						get_node("../../Turn").texture = black
 					for i in board.get_children():
-						i.checkValidMovement()
+						i.checkBetterMovement()
 					if board.moves == 0:
 						print("Game over")
 						for i in board.get_children():
@@ -52,13 +54,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						if board.numOfWhite == board.numOfBlack:
 							get_node("../../blackWin").emitting = true
 							get_node("../../whiteWin").emitting = true
-			pass
-			#print("Manual press here:")
-			#print()
-			#print()
-			#checkValidMovement()
-		pass
-	pass
 
 func update():
 	if board.array[vertPos][horiPos] == 0:
@@ -68,6 +63,7 @@ func update():
 	if board.array[vertPos][horiPos] == 2:
 		selfSprite.texture = black
 
+# Atleast I thought of optimization using the dir directory. Subject for deletion
 func flippenTime():
 	var tempHori = 0
 	var tempVert = 0
@@ -146,8 +142,50 @@ func flippenTime():
 	for i in board.get_children():
 		i.update()
 
+func betterFlip():
+	var multiplier = 1
+	if selfSprite.texture == load("res://images/black.png") or selfSprite.texture == load("res://images/white.png"):
+		return
+	#print(betterDirs)
+	for i in betterDirs:
+		multiplier = 1
+		board.array[vertPos][horiPos] = board.turn
+		while (board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] == opposite(board.turn)):
+			board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] = board.turn
+			multiplier += 1
+	for i in board.get_children():
+		i.update()
 
+func opposite(data):
+	if data == 1:
+		return 2
+	elif data == 2:
+		return 1
+	else:
+		return 0
 
+func checkBetterMovement():
+	var multiplier = 1
+	betterDirs = []
+	if selfSprite.texture == load("res://images/black.png") or selfSprite.texture == load("res://images/white.png"):
+		return
+	for i in direcs:
+		if ((i[0]) + horiPos > 7) or ((i[1]) + vertPos > 7) or (horiPos + (i[0]) < 0) or (vertPos + (i[1]) < 0):
+			continue
+		if (board.array[vertPos + i[1]][horiPos + i[0]] == opposite(board.turn)):
+			multiplier = 1
+			board.moves += 1
+			while (board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] == opposite(board.turn)):
+				multiplier += 1
+				if ((i[0]*multiplier) + horiPos > 7) or ((i[1]*multiplier) + vertPos > 7) or (horiPos + (i[0]*multiplier) < 0) or (vertPos + (i[1]*multiplier) < 0):
+					break
+				if (board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] == board.turn):
+					betterDirs.append(i)
+					selfSprite.texture = load("res://images/grey.png")
+		#elif board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] == 0:
+		#	continue
+
+# What was I thinking? This is the worst code I've ever made. Subject for deletion
 func checkValidMovement():
 	dirs = []
 	var tempHori = 0
