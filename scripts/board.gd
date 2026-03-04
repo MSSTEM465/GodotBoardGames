@@ -14,6 +14,16 @@ var numOfWhite := 0
 # 1: White
 # 2: Black
 
+func startNew():
+	array = []
+	cellArray = []
+	moves = 0
+	numOfBlack = 0
+	numOfWhite = 0
+	turn = 2
+	get_node("../Turn").texture = black
+	generateBoard()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generateBoard()

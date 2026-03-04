@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cssmqoj4n7t2b"]
+[gd_scene load_steps=17 format=3 uid="uid://cssmqoj4n7t2b"]
 
 [ext_resource type="Script" uid="uid://cwank1r2xbhql" path="res://scripts/board.gd" id="1_i6p4b"]
 [ext_resource type="Texture2D" uid="uid://rj0vxlk8qhmr" path="res://images/black.png" id="2_mj47m"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scripts/exit_to_mm.gd" id="3_pxsk5"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="4_bkufs"]
+[ext_resource type="Script" uid="uid://ci8xq416igcsb" path="res://scripts/restart.gd" id="5_hatgk"]
+[ext_resource type="Texture2D" uid="uid://dib28v4jr2gbs" path="res://images/life/restart.png" id="6_2v8dl"]
 
 [sub_resource type="Gradient" id="Gradient_qegui"]
 offsets = PackedFloat32Array(1)
@@ -15,7 +17,7 @@ gradient = SubResource("Gradient_qegui")
 [sub_resource type="Gradient" id="Gradient_mj47m"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.18717697, 0.18717581, 0.18717608, 1)
+colors = PackedColorArray(0.61745614, 0.61745423, 0.61745465, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pph0o"]
 gradient = SubResource("Gradient_mj47m")
@@ -29,11 +31,24 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_hatgk"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.24477637, 0.2447764, 0.24477637, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2v8dl"]
+gradient = SubResource("Gradient_hatgk")
+width = 32
+height = 16
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hatgk"]
 size = Vector2(58, 64)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pxsk5"]
+font_size = 30
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56h7c"]
+size = Vector2(197, 96)
 
 [node name="Node2D" type="Node2D"]
 
@@ -73,7 +88,7 @@ position = Vector2(1902, 422)
 scale = Vector2(-1, 1)
 emitting = false
 amount = 50
-texture = SubResource("GradientTexture2D_pph0o")
+texture = SubResource("GradientTexture2D_2v8dl")
 lifetime = 6.0
 one_shot = true
 explosiveness = 0.87
@@ -98,11 +113,25 @@ shape = SubResource("RectangleShape2D_hatgk")
 texture = ExtResource("4_bkufs")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 18.0
+offset_top = 871.0
+offset_right = 138.0
+offset_bottom = 958.0
 text = "Current 
 Turn:"
 label_settings = SubResource("LabelSettings_pxsk5")
 horizontal_alignment = 1
 
+[node name="Restart" type="Area2D" parent="."]
+position = Vector2(960, 1025)
+script = ExtResource("5_hatgk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Restart"]
+texture = ExtResource("6_2v8dl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Restart"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_56h7c")
+
 [connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]
+[connection signal="input_event" from="Restart" to="Restart" method="_on_input_event"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://s4kgbsqth4k7"]
+[gd_scene load_steps=37 format=3 uid="uid://s4kgbsqth4k7"]
 
 [ext_resource type="Script" uid="uid://cbemro020ebd2" path="res://scripts/ship_view.gd" id="1_h2n8t"]
 [ext_resource type="Script" uid="uid://emf3beecip33" path="res://scripts/shipselection.gd" id="2_3o4bw"]
@@ -54,6 +54,10 @@ size = Vector2(183, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plav0"]
 size = Vector2(234, 36)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uunth"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e6oq"]
 size = Vector2(194, 95)
@@ -178,6 +182,14 @@ texture = ExtResource("6_3iosq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship Selection/Carrier"]
 position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_plav0")
+
+[node name="Label" type="Label" parent="Ship Selection"]
+offset_left = 53.0
+offset_top = 1022.0
+offset_right = 379.0
+offset_bottom = 1077.0
+text = "Press E to Rotate"
+label_settings = SubResource("LabelSettings_uunth")
 
 [node name="Mouse Ship" type="Sprite2D" parent="."]
 visible = false

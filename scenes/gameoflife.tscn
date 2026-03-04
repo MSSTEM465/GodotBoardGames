@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5dhpre1xlntg"]
+[gd_scene load_steps=23 format=3 uid="uid://b5dhpre1xlntg"]
 
 [ext_resource type="Script" uid="uid://d15lidov0wnbg" path="res://scripts/cameramovement.gd" id="1_sg6o2"]
 [ext_resource type="Script" uid="uid://0kogyyh7vuw1" path="res://scripts/the_game_of_life.gd" id="2_ipdh0"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://djrlexybofpjx" path="res://images/life/larger.png" id="10_feepl"]
 [ext_resource type="Texture2D" uid="uid://di45g1crgf8bn" path="res://images/life/start.png" id="12_1r6m1"]
 [ext_resource type="Texture2D" uid="uid://dib28v4jr2gbs" path="res://images/life/restart.png" id="13_sg6o2"]
+[ext_resource type="Texture2D" uid="uid://blf30kgg6gavx" path="res://images/moveCam.png" id="15_1r6m1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_feepl"]
 
@@ -142,6 +143,10 @@ shape = SubResource("RectangleShape2D_i1o2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Restart"]
 texture = ExtResource("13_sg6o2")
+
+[node name="Move Cam" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1806, 966)
+texture = ExtResource("15_1r6m1")
 
 [connection signal="value_changed" from="CanvasLayer/VSlider" to="CanvasLayer/VSlider" method="_on_value_changed"]
 [connection signal="input_event" from="CanvasLayer/exitToMM" to="CanvasLayer/exitToMM" method="_on_input_event"]

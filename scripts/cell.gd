@@ -174,13 +174,14 @@ func checkBetterMovement():
 			continue
 		if (board.array[vertPos + i[1]][horiPos + i[0]] == opposite(board.turn)):
 			multiplier = 1
-			board.moves += 1
+			#board.moves += 1
 			while (board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] == opposite(board.turn)):
 				multiplier += 1
 				if ((i[0]*multiplier) + horiPos > 7) or ((i[1]*multiplier) + vertPos > 7) or (horiPos + (i[0]*multiplier) < 0) or (vertPos + (i[1]*multiplier) < 0):
 					break
 				if (board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] == board.turn):
 					betterDirs.append(i)
+					board.moves += 1
 					selfSprite.texture = load("res://images/grey.png")
 		#elif board.array[vertPos + (i[1]*multiplier)][horiPos + (i[0]*multiplier)] == 0:
 		#	continue
