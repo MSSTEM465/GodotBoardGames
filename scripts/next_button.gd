@@ -53,7 +53,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				else:
 					print("What the hell did you do")
 		hider.show()
+		get_node("../HiderAnimation").play("slideIn")
 		if board.preStage and board.turn == 1:
+			get_node("../Ship Selection").hide()
 			board.preStage = false
 			stopper = true
 			get_node("../Hider/Warn").set_text("Time to shoot!")
@@ -65,10 +67,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		elif board.turn == 1:
 			board.turn = 0
 			get_node("../Player").set_text("Player 1")
-		peg.position = Vector2(9999,9999)
+		
 		if board.preStage == false:
-			get_node("../Map").generate()
-			get_node("../Ship Selection").hide()
+			#get_node("../Map").generate()
+			#get_node("../Ship Selection").hide()
 			if board.turn == 1:
 				if not board.p2ShipArray[peg.verPos][peg.horPos] == 0:
 					var text = board.list[peg.horPos] + str(peg.verPos + 1) + " was struck. HIT!"
@@ -94,7 +96,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 						var text = board.list[peg.horPos] + str(peg.verPos + 1) + " was struck. Miss!"
 						get_node("../Hider/Warn").set_text(text)
 						board.p2ShotArray[peg.verPos][peg.horPos] = 1
-			board.generateWithInfo()
+			#board.generateWithInfo()
 			if board.checkWon():
 				get_node("../Wait").show()
 				get_node("../Hider").hide()

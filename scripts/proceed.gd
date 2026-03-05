@@ -13,5 +13,11 @@ func _process(delta: float) -> void:
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed: # Just hides the hider
-		hider.hide()
-		
+		get_node("../../HiderAnimation").play("slideOut")
+		get_node("../../peg").position = Vector2(9999,9999)
+		if get_node("../../Ship View").preStage == false:
+			get_node("../../Map").generate()
+			get_node("../../Ship Selection").hide()
+			get_node("../../Ship View").generateWithInfo()
+		else:
+			get_node("../../Ship View").generate()
