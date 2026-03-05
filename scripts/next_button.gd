@@ -76,16 +76,19 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					var text = board.list[peg.horPos] + str(peg.verPos + 1) + " was struck. HIT!"
 					board.p1ShotArray[peg.verPos][peg.horPos] = 2
 					get_node("../Hider/Warn").set_text(text)
+					get_node("../hit").play()
 					if board.shipCheckSunk(peg.verPos,peg.horPos,1):
 						text = board.list[peg.horPos] + str(peg.verPos + 1) + " was HIT! SUNK!!!"
 						get_node("../Hider/Warn").set_text(text)
 				else:
+					get_node("../miss").play()
 					var text = board.list[peg.horPos] + str(peg.verPos + 1) + " was struck. Miss!"
 					board.p1ShotArray[peg.verPos][peg.horPos] = 1
 					get_node("../Hider/Warn").set_text(text)
 			else:
 				if not stopper:
 					if not board.p1ShipArray[peg.verPos][peg.horPos] == 0:
+						get_node("../hit").play()
 						var text = board.list[peg.horPos] + str(peg.verPos + 1) + " was struck. HIT!"
 						get_node("../Hider/Warn").set_text(text)
 						board.p2ShotArray[peg.verPos][peg.horPos] = 2
@@ -93,6 +96,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 							text = board.list[peg.horPos] + str(peg.verPos + 1) + " was HIT! SUNK!!!"
 							get_node("../Hider/Warn").set_text(text)
 					else:
+						get_node("../miss").play()
 						var text = board.list[peg.horPos] + str(peg.verPos + 1) + " was struck. Miss!"
 						get_node("../Hider/Warn").set_text(text)
 						board.p2ShotArray[peg.verPos][peg.horPos] = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://s4kgbsqth4k7"]
+[gd_scene load_steps=42 format=3 uid="uid://s4kgbsqth4k7"]
 
 [ext_resource type="Script" uid="uid://cbemro020ebd2" path="res://scripts/ship_view.gd" id="1_h2n8t"]
 [ext_resource type="Texture2D" uid="uid://draqwtveyhm52" path="res://images/ocean.png" id="1_plav0"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://decokmn1xjls6" path="res://scripts/peg.gd" id="15_qqthi"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scripts/exit_to_mm.gd" id="16_plav0"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="17_esnww"]
+[ext_resource type="AudioStream" uid="uid://csir4rykducm5" path="res://sounds/hitBS.mp3" id="18_8e6oq"]
+[ext_resource type="AudioStream" uid="uid://ctvk3vbfsyvfi" path="res://sounds/missBS.wav" id="19_uunth"]
 
 [sub_resource type="SystemFont" id="SystemFont_jfsxd"]
 font_names = PackedStringArray("Georgia")
@@ -380,6 +382,12 @@ reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_esnww")
 }
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_8e6oq")
+
+[node name="miss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_uunth")
 
 [connection signal="input_event" from="Ship Selection/Cruiser" to="Ship Selection/Cruiser" method="_on_input_event"]
 [connection signal="input_event" from="Ship Selection/Destroyer" to="Ship Selection/Destroyer" method="_on_input_event"]
