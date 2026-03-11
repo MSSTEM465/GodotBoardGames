@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://clpsgko82odrx"]
+[gd_scene load_steps=41 format=3 uid="uid://clpsgko82odrx"]
 
 [ext_resource type="Script" uid="uid://br674xi31r4nq" path="res://scripts/opengame.gd" id="1_wgsso"]
 [ext_resource type="VideoStream" uid="uid://t87u3owpaybk" path="res://videos/nonogrambuttonCompromise.ogv" id="2_0y70q"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cpbai3s34beqk" path="res://images/icon.png" id="10_qrn07"]
 [ext_resource type="Texture2D" uid="uid://ctgm6ssbysyvb" path="res://images/back.png" id="12_cpamr"]
 [ext_resource type="VideoStream" uid="uid://d0q7f83a6mlij" path="res://videos/GOBvid.ogv" id="12_lidg2"]
+[ext_resource type="VideoStream" uid="uid://d0ar0xsfmmruw" path="res://videos/battleshipogv.ogv" id="13_pg2s2"]
 [ext_resource type="Texture2D" uid="uid://bgjc42v23jxa2" path="res://images/DaVinci_Resolve_Studio.png" id="14_f0ka0"]
 [ext_resource type="Texture2D" uid="uid://brwuytxs8qe02" path="res://images/GOLButton.png" id="15_f0ka0"]
 [ext_resource type="Texture2D" uid="uid://mloppk6j4pdd" path="res://images/Godot_icon.svg.png" id="15_lqdfc"]
@@ -230,6 +231,7 @@ position = Vector2(1432, 280)
 script = ExtResource("1_wgsso")
 
 [node name="Sprite2D" type="Sprite2D" parent="Battleship"]
+visible = false
 texture = ExtResource("6_7uvds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Battleship"]
@@ -237,13 +239,12 @@ position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_dihg0")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Battleship"]
-visible = false
 offset_left = -256.0
 offset_top = -256.0
 offset_right = 256.0
 offset_bottom = 256.0
 mouse_filter = 2
-stream = ExtResource("4_raimv")
+stream = ExtResource("13_pg2s2")
 autoplay = true
 loop = true
 

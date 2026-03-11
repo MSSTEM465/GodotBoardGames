@@ -104,12 +104,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if board.checkWon():
 				get_node("../Wait").show()
 				get_node("../Hider").hide()
+				board.hide()
+				get_node("../Map").hide()
 				await get_tree().process_frame
 				get_node("../Hider").hide()
 				board.showP1()
-				await get_tree().process_frame
 				get_node("../Map").showP2()
 				await get_tree().process_frame
+				get_node("../Map").show()
+				board.show()
 				get_node("../Player").set_text("")
 				get_node("../Label").set_text("Player 1")
 				get_node("../Label2").set_text("Player 2")

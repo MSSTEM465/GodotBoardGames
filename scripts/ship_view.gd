@@ -351,6 +351,7 @@ func showP1():
 	print(Time.get_unix_time_from_system())
 	for i in get_children():
 		i.queue_free()
+	await get_tree().process_frame
 	for i in range(10):
 		await get_tree().process_frame
 		for j in range(10):
