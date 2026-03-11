@@ -7,7 +7,8 @@ var horiPos: int
 var sprite: Sprite2D
 var revealed := false
 var flagged := false
-
+var emptySpace = true
+var checked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,6 +65,16 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				reveal()
 		get_node("../../FlagCount").recount()
 	pass
+	
+func checkAround():
+	if emptySpace and not checked:
+		checked = true
+		field.emptyCount += 1
+		var list = [[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1]]
+		for i in range(8):
+			if (vertPos + list[i][0] <= field.siz[0]-1 and horiPos + list[i][1] <= field.siz[1]-1) and (vertPos + list[i][0] >= 0 and horiPos + list[i][1] >= 0):
+				field.areaArray[vertPos + list[i][0]][horiPos + list[i][1]].checkAround()
+				#print([vertPos + list[i][0]],[horiPos + list[i][1]])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

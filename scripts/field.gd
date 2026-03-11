@@ -3,7 +3,7 @@ var array: Array
 var areaArray: Array
 var siz: Array
 var antiGuess = false
-
+var emptyCount: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#generateBoard([20,20],50)
@@ -56,27 +56,60 @@ func generateBoard(size, mines):
 			array[rand1][rand2] = 1
 			count += 1
 
-	var nope = false
-	var dontContinue = false
+	#var nope = false
+	#var dontContinue = false
 	var list = [[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1]]
+	#if antiGuess:
+		#for x in range(len(array)):
+			#for h in range(len(array)):
+				#nope = false
+				#if array[x][h] == 0:
+					#for i in range(8):
+						#if (x + list[i][0] <= siz[0]-1 and h + list[i][1] <= siz[1]-1) and (x + list[i][0] >= 0 and h + list[i][1] >= 0):
+							#if array[x + list[i][0]][h + list[i][1]] == 1:
+								##print("hauh")
+								#nope = true
+				#else:
+					#nope = true
+				#if not nope and not dontContinue:
+					##print("niodsvosnifd")
+					##areaArray[x][h].sprite.texture = load("res://images/minesweeper/x.png")
+					#nope = true
+					#dontContinue = true
+					#break
+					
 	if antiGuess:
+		var data = []
 		for x in range(len(array)):
-			for h in range(len(array)):
-				nope = false
-				if array[x][h] == 0:
+			for y in range(len(array[x])):
+				if array[x][y] == 0:
 					for i in range(8):
-						if (x + list[i][0] <= siz[0]-1 and h + list[i][1] <= siz[1]-1) and (x + list[i][0] >= 0 and h + list[i][1] >= 0):
-							if array[x + list[i][0]][h + list[i][1]] == 1:
+						if (x + list[i][0] <= siz[0]-1 and y + list[i][1] <= siz[1]-1) and (x + list[i][0] >= 0 and y + list[i][1] >= 0):
+							if array[x + list[i][0]][y + list[i][1]] == 1:
 								#print("hauh")
-								nope = true
+								areaArray[x][y].emptySpace = false
 				else:
-					nope = true
-				if not nope and not dontContinue:
-					#print("niodsvosnifd")
-					areaArray[x][h].sprite.texture = load("res://images/minesweeper/x.png")
-					nope = true
-					dontContinue = true
-					break
+					areaArray[x][y].emptySpace = false
+		for x in range(len(array)):
+			for y in range(len(array[x])):
+				emptyCount = 0
+				if areaArray[x][y].emptySpace and not areaArray[x][y].checked:
+					areaArray[x][y].checked = true
+					for i in range(8):
+						if (x + list[i][0] <= siz[0]-1 and y + list[i][1] <= siz[1]-1) and (x + list[i][0] >= 0 and y + list[i][1] >= 0):
+							areaArray[x + list[i][0]][y + list[i][1]].checkAround()
+					data.append([x,y,emptyCount])
+		print(data)
+		var dataCount = -1
+		var dataSelect = []
+		var previousData = 0
+		for i in data:
+			dataCount += 1
+			if i[2] > previousData:
+				previousData = i[2]
+				dataSelect = i
+		areaArray[dataSelect[0]][dataSelect[1]].sprite.texture = load("res://images/minesweeper/x.png")
+	
 	get_node("../FlagCount").recount()
 	self.position = Vector2(1920/2-(50*size[1])/2,1080/2-(50*size[0])/2)
 	#while not sigh:
