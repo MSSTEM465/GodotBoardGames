@@ -107,9 +107,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				board.hide()
 				get_node("../Map").hide()
 				await get_tree().process_frame
-				get_node("../Hider").hide()
+				await get_tree().process_frame
 				board.showP1()
+				await get_tree().process_frame
+				await get_tree().process_frame
 				get_node("../Map").showP2()
+				await get_tree().process_frame
 				await get_tree().process_frame
 				get_node("../Map").show()
 				board.show()

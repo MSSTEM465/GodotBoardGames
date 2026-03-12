@@ -96,7 +96,7 @@ scale = Vector2(30.671875, 17.671875)
 texture = SubResource("GradientTexture2D_cmhrf")
 
 [node name="Knucklebones" type="Area2D" parent="."]
-position = Vector2(376, 782)
+position = Vector2(382, 796)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knucklebones"]
@@ -134,7 +134,7 @@ stream = ExtResource("6_wrxld")
 volume_db = -5.0
 
 [node name="Nonogram" type="Area2D" parent="."]
-position = Vector2(376, 281)
+position = Vector2(382, 284)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nonogram"]
@@ -170,7 +170,7 @@ shape = SubResource("RectangleShape2D_xmgyx")
 stream = ExtResource("8_xmgyx")
 
 [node name="Reversi" type="Area2D" parent="."]
-position = Vector2(922, 279)
+position = Vector2(894, 284)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reversi"]
@@ -208,7 +208,7 @@ stream = ExtResource("6_wrxld")
 volume_db = -5.0
 
 [node name="Minesweeper" type="Area2D" parent="."]
-position = Vector2(921, 786)
+position = Vector2(894, 796)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minesweeper"]
@@ -245,7 +245,7 @@ shape = SubResource("RectangleShape2D_xmgyx")
 stream = ExtResource("14_bhvcy")
 
 [node name="Battleship" type="Area2D" parent="."]
-position = Vector2(1432, 280)
+position = Vector2(1406, 284)
 script = ExtResource("1_wgsso")
 
 [node name="Sprite2D" type="Sprite2D" parent="Battleship"]
@@ -410,7 +410,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("15_lqdfc")
 
 [node name="GoL" type="Area2D" parent="."]
-position = Vector2(1432, 787)
+position = Vector2(1406, 796)
 script = ExtResource("1_wgsso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoL"]

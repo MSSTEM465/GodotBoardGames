@@ -1,6 +1,9 @@
 extends Node2D # BATTLESHIP
 var list = ["A","B","C",'D','E',"F",'G','H','I',"J","K"]
 @onready var board = get_node("../Ship View")
+@onready var tile = preload("res://images/battleship/tile.png")
+@onready var pegRed = preload("res://images/battleship/redPeg.png")
+@onready var pegWhite = preload("res://images/battleship/whitePeg.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -82,7 +85,7 @@ func showP2():
 			ship.z_index = 30
 			#shape.size = Vector2(50,50)
 			#col.shape = shape
-			sprite.texture = load("res://images/battleship/tile.png")
+			sprite.texture = tile
 			#area.add_child(col)
 			#area.add_child(sprite)
 			#area.set_script(load("res://scripts/bsTiles.gd"))
@@ -92,12 +95,12 @@ func showP2():
 			if board.p1ShotArray[i][j] == 1:
 				var peg = Sprite2D.new()
 				peg.z_index = 40
-				peg.texture = load("res://images/battleship/whitePeg.png")
+				peg.texture = pegWhite
 				sprite.add_child(peg)
 			elif board.p1ShotArray[i][j] == 2:
 				var peg = Sprite2D.new()
 				peg.z_index = 40
-				peg.texture = load("res://images/battleship/redPeg.png")
+				peg.texture = pegRed
 				sprite.add_child(peg)
 			self.add_child(sprite)
 			if i == 0:

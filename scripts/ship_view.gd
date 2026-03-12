@@ -14,6 +14,9 @@ var bs = preload("res://images/battleship/battleship.png")
 var sm = preload("res://images/battleship/submarine.png")
 var dt = preload("res://images/battleship/destroyer.png")
 var cs = preload("res://images/battleship/cruiser.png")
+var tile = preload("res://images/battleship/tile.png")
+var whitePeg = preload("res://images/battleship/whitePeg.png")
+var redPeg = preload("res://images/battleship/redPeg.png")
 var endGame = false
 
 # Called when the node enters the scene tree for the first time.
@@ -371,7 +374,7 @@ func showP1():
 			ship.z_index = 30
 			#shape.size = Vector2(50,50)
 			#col.shape = shape
-			sprite.texture = load("res://images/battleship/tile.png")
+			sprite.texture = tile
 			#area.add_child(col)
 			#area.add_child(sprite)
 			#area.set_script(load("res://scripts/bsTiles.gd"))
@@ -380,13 +383,13 @@ func showP1():
 			sprite.position = Vector2(j*50,i*50)
 			if p2ShotArray[i][j] == 1:
 				var peg = Sprite2D.new()
-				peg.texture = load("res://images/battleship/whitePeg.png")
+				peg.texture = whitePeg
 				peg.z_index = 40
 				sprite.add_child(peg)
 			elif p2ShotArray[i][j] == 2:
 				var peg = Sprite2D.new()
 				peg.z_index = 40
-				peg.texture = load("res://images/battleship/redPeg.png")
+				peg.texture = redPeg
 				sprite.add_child(peg)
 			if i == 0:
 				var label = Label.new()

@@ -5,6 +5,11 @@ var timeStarted: int
 func _ready() -> void:
 	pass # Replace with function body.
 
+func reset():
+	started = false
+	timeStarted = 0
+	set_text("000")
+
 func start():
 	started = true
 	timeStarted = int(Time.get_unix_time_from_system())
