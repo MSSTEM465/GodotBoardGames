@@ -86,6 +86,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 func calFinalScore():
 	var northScore = 0
 	var southScore = 0
+	get_node("../../Win").play()
 	for i in get_node("../../South Score").get_children():
 		southScore += int(i.get_text())
 	for i in get_node("../../North Score").get_children():

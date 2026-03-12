@@ -27,6 +27,8 @@ func selection():
 	get_node("../Selection").position = self.position + Vector2(-43,-245)
 
 func getNewDie():
+	get_node("../Roll").pitch_scale = randf_range(0.8,1.2)
+	get_node("../Roll").play()
 	die = int(round(randf_range(1,6)))
 	get_node("../Die").texture = load("res://images/Dice/" + str(die) + ".png")
 

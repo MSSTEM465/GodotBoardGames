@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://clpsgko82odrx"]
+[gd_scene load_steps=45 format=3 uid="uid://clpsgko82odrx"]
 
 [ext_resource type="Script" uid="uid://br674xi31r4nq" path="res://scripts/opengame.gd" id="1_wgsso"]
 [ext_resource type="VideoStream" uid="uid://t87u3owpaybk" path="res://videos/nonogrambuttonCompromise.ogv" id="2_0y70q"]
@@ -11,17 +11,21 @@
 [ext_resource type="Texture2D" uid="uid://b5ouqmdwqhx8o" path="res://images/infoMenu.png" id="5_pg2s2"]
 [ext_resource type="VideoStream" uid="uid://63445x6hmdmd" path="res://videos/minesweeperCB.ogv" id="5_qrn07"]
 [ext_resource type="Texture2D" uid="uid://d4kqp3hx684y5" path="res://images/battleshipbutton.png" id="6_7uvds"]
+[ext_resource type="AudioStream" uid="uid://567bndojfl51" path="res://sounds/diceRoll.mp3" id="6_wrxld"]
 [ext_resource type="Script" uid="uid://borsd3gvcsvvd" path="res://scripts/credits_button.gd" id="7_dihg0"]
 [ext_resource type="Texture2D" uid="uid://coe5h4dfnpvjx" path="res://images/Credits.png" id="8_0y70q"]
+[ext_resource type="AudioStream" uid="uid://c0eg8b7f0k5g6" path="res://sounds/scribble.wav" id="8_xmgyx"]
 [ext_resource type="Texture2D" uid="uid://cfwrxu2vvk5mh" path="res://images/affinity.png" id="9_0y70q"]
 [ext_resource type="VideoStream" uid="uid://b25pusqwewnvp" path="res://videos/knucklevid.ogv" id="9_mn2x1"]
 [ext_resource type="Texture2D" uid="uid://cpbai3s34beqk" path="res://images/icon.png" id="10_qrn07"]
 [ext_resource type="Texture2D" uid="uid://ctgm6ssbysyvb" path="res://images/back.png" id="12_cpamr"]
 [ext_resource type="VideoStream" uid="uid://d0q7f83a6mlij" path="res://videos/GOBvid.ogv" id="12_lidg2"]
 [ext_resource type="VideoStream" uid="uid://d0ar0xsfmmruw" path="res://videos/battleshipogv.ogv" id="13_pg2s2"]
+[ext_resource type="AudioStream" uid="uid://qyuehfot2y5o" path="res://sounds/flagged.wav" id="14_bhvcy"]
 [ext_resource type="Texture2D" uid="uid://bgjc42v23jxa2" path="res://images/DaVinci_Resolve_Studio.png" id="14_f0ka0"]
 [ext_resource type="Texture2D" uid="uid://brwuytxs8qe02" path="res://images/GOLButton.png" id="15_f0ka0"]
 [ext_resource type="Texture2D" uid="uid://mloppk6j4pdd" path="res://images/Godot_icon.svg.png" id="15_lqdfc"]
+[ext_resource type="AudioStream" uid="uid://csir4rykducm5" path="res://sounds/hitBS.mp3" id="17_wrxld"]
 [ext_resource type="Texture2D" uid="uid://dkws2bydh3ixt" path="res://images/infoMenuDesc.png" id="20_hr4ih"]
 
 [sub_resource type="Gradient" id="Gradient_loy4s"]
@@ -125,6 +129,10 @@ texture = ExtResource("5_pg2s2")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xmgyx")
 
+[node name="Audio" type="AudioStreamPlayer2D" parent="Knucklebones"]
+stream = ExtResource("6_wrxld")
+volume_db = -5.0
+
 [node name="Nonogram" type="Area2D" parent="."]
 position = Vector2(376, 281)
 script = ExtResource("1_wgsso")
@@ -157,6 +165,9 @@ texture = ExtResource("5_pg2s2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nonogram/Nonogram Info"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xmgyx")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Nonogram"]
+stream = ExtResource("8_xmgyx")
 
 [node name="Reversi" type="Area2D" parent="."]
 position = Vector2(922, 279)
@@ -192,6 +203,10 @@ texture = ExtResource("5_pg2s2")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xmgyx")
 
+[node name="Audio" type="AudioStreamPlayer2D" parent="Reversi"]
+stream = ExtResource("6_wrxld")
+volume_db = -5.0
+
 [node name="Minesweeper" type="Area2D" parent="."]
 position = Vector2(921, 786)
 script = ExtResource("1_wgsso")
@@ -226,6 +241,9 @@ texture = ExtResource("5_pg2s2")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xmgyx")
 
+[node name="Audio" type="AudioStreamPlayer2D" parent="Minesweeper"]
+stream = ExtResource("14_bhvcy")
+
 [node name="Battleship" type="Area2D" parent="."]
 position = Vector2(1432, 280)
 script = ExtResource("1_wgsso")
@@ -259,6 +277,9 @@ texture = ExtResource("5_pg2s2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Battleship/Battleship Info"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xmgyx")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Battleship"]
+stream = ExtResource("17_wrxld")
 
 [node name="Credits Button" type="Area2D" parent="."]
 position = Vector2(1813, 1026)
@@ -421,6 +442,8 @@ texture = ExtResource("5_pg2s2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoL/GOL Info"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xmgyx")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="GoL"]
 
 [node name="Info" type="Node2D" parent="."]
 

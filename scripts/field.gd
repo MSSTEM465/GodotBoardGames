@@ -80,6 +80,7 @@ func generateBoard(size, mines):
 					
 	if antiGuess:
 		var data = []
+		# Defining which cells are empty
 		for x in range(len(array)):
 			for y in range(len(array[x])):
 				if array[x][y] == 0:
@@ -90,6 +91,7 @@ func generateBoard(size, mines):
 								areaArray[x][y].emptySpace = false
 				else:
 					areaArray[x][y].emptySpace = false
+		#Count the size of an area
 		for x in range(len(array)):
 			for y in range(len(array[x])):
 				emptyCount = 0
@@ -99,6 +101,7 @@ func generateBoard(size, mines):
 						if (x + list[i][0] <= siz[0]-1 and y + list[i][1] <= siz[1]-1) and (x + list[i][0] >= 0 and y + list[i][1] >= 0):
 							areaArray[x + list[i][0]][y + list[i][1]].checkAround()
 					data.append([x,y,emptyCount])
+		# Find the largest area from the data set
 		print(data)
 		var dataCount = -1
 		var dataSelect = []

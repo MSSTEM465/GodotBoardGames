@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://jav0m5rc2321"]
+[gd_scene load_steps=36 format=3 uid="uid://jav0m5rc2321"]
 
 [ext_resource type="Script" uid="uid://lsibv8na6g3x" path="res://scripts/field.gd" id="1_hnafd"]
 [ext_resource type="Script" uid="uid://bbahoxystmr0o" path="res://scripts/difficultiesMine.gd" id="2_p5s82"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dmw2ok3fpocv1" path="res://images/flags.png" id="13_6s8j6"]
 [ext_resource type="Texture2D" uid="uid://vwgchtylt4c5" path="res://images/minesweeper/0.png" id="14_i64aw"]
 [ext_resource type="Script" uid="uid://dk25s265crgv6" path="res://scripts/anti_guess_indicator.gd" id="14_mhnbi"]
+[ext_resource type="AudioStream" uid="uid://qyuehfot2y5o" path="res://sounds/flagged.wav" id="16_l20l4"]
+[ext_resource type="AudioStream" uid="uid://ibu080qyq3nc" path="res://sounds/celebration.mp3" id="17_w8y73"]
 
 [sub_resource type="Gradient" id="Gradient_g8yvt"]
 offsets = PackedFloat32Array(1)
@@ -250,6 +252,12 @@ offset_bottom = 57.0
 text = "Indicate Empty Space 
 for First Press"
 label_settings = SubResource("LabelSettings_wymbg")
+
+[node name="Flagged" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_l20l4")
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_w8y73")
 
 [connection signal="input_event" from="Difficulty/Easy" to="Difficulty/Easy" method="_on_input_event"]
 [connection signal="input_event" from="Difficulty/Medium" to="Difficulty/Medium" method="_on_input_event"]

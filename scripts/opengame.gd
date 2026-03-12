@@ -41,6 +41,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 
 func _on_mouse_entered() -> void:
+	get_node("Audio").play()
 	get_node("VideoStreamPlayer").play()
 	pass # Replace with function body.
 

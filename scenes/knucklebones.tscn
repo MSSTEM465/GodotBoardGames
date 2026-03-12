@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmjljpdc86wo5"]
+[gd_scene load_steps=16 format=3 uid="uid://dmjljpdc86wo5"]
 
 [ext_resource type="Script" uid="uid://bfucjvnuvevwq" path="res://scripts/north_board.gd" id="1_s8xw6"]
 [ext_resource type="Texture2D" uid="uid://cxg00jbs24w3d" path="res://images/Dice/selection.png" id="1_si0yg"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dafinu553rd83" path="res://images/Dice/empty.png" id="2_w2nri"]
 [ext_resource type="Texture2D" uid="uid://cn4musff4okqy" path="res://images/exit.png" id="3_k4q0p"]
 [ext_resource type="Script" uid="uid://bubeo0kn3efcu" path="res://scripts/timer.gd" id="7_k4q0p"]
+[ext_resource type="AudioStream" uid="uid://ibu080qyq3nc" path="res://sounds/celebration.mp3" id="8_gh6j0"]
+[ext_resource type="AudioStream" uid="uid://567bndojfl51" path="res://sounds/diceRoll.mp3" id="9_vmmpj"]
 
 [sub_resource type="Gradient" id="Gradient_w2nri"]
 offsets = PackedFloat32Array(1)
@@ -114,6 +116,13 @@ hue_variation_curve = SubResource("Curve_xyage")
 wait_time = 3.0
 one_shot = true
 script = ExtResource("7_k4q0p")
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_gh6j0")
+
+[node name="Roll" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_vmmpj")
+volume_db = -3.1
 
 [connection signal="input_event" from="exitToMM" to="exitToMM" method="_on_input_event"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

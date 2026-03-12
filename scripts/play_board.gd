@@ -30,6 +30,7 @@ func openAndGenerate(path):
 	for n in get_children():
 		n.queue_free()
 	completed = false
+	lives = 5
 	get_node("../Warnings").set_text("")
 	var json
 	var file = FileAccess.open(path, FileAccess.READ)
@@ -106,6 +107,8 @@ func openAndGenerate(path):
 			collision.shape = shape
 			collision.position = sprite.position
 			area.add_child(collision)
+	for i in get_children():
+		i.letsCheck()
 	for l in labels:
 		l.update()
 	var finalPosition = Vector2(get_viewport().size.x/2,get_viewport().size.y/2) - Vector2((horLeng*50/2),(verLeng*50/2))

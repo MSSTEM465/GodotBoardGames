@@ -82,6 +82,7 @@ func _on_input_event(viewport, event, shape_idx):
 				
 				if not PlayBoard.arraySelected[vert][hori] == PlayBoard.arraySolution[vert][hori]:
 					if not corrected:
+						get_node("../../Penalize").play()
 						warnings.set_text("Incorrect!")
 						if PlayBoard.penalize:
 							PlayBoard.lives -= 1
@@ -123,11 +124,40 @@ func _on_input_event(viewport, event, shape_idx):
 			else:
 				PlayBoard.completed = true
 				warnings.set_text("You win!")
+				get_node("../../Win").play()
 				var confL = get_node("../../ConfetLeft")
 				var confR = get_node("../../ConfetRight")
 				confR.emitting = true
 				confL.emitting = true
 	#print(CreateBoard.array)
+
+func letsCheck(): # Called on generation to fill lanes that are already empty.
+	if PlayBoard.autofill:
+			if PlayBoard.arraySelected[vert] == PlayBoard.arraySolution[vert]:
+				for i in PlayBoard.get_children():
+					if i.vert == vert and i.sprite.texture == empty:
+						i.sprite.texture = nope
+						i.corrected = true
+			var columnLaneSol = []
+			var columnLaneSel = []
+			for row in PlayBoard.arraySolution:
+				if hori >= 0 and hori < PlayBoard.arraySolution[0].size():
+					columnLaneSol.append(row[hori])
+				else:
+					break
+					
+			for row in PlayBoard.arraySelected:
+				if hori >= 0 and hori < PlayBoard.arraySelected[0].size():
+					columnLaneSel.append(row[hori])
+				else:
+					break
+					
+			if columnLaneSol == columnLaneSel:
+				for h in PlayBoard.get_children():
+					if h.hori == hori and h.sprite.texture == empty:
+						h.sprite.texture = nope
+						h.corrected = true
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -30,6 +30,7 @@ func recount():
 	if (mineCount - flaggedCount) == 0:
 		if checkCompletion():
 			print("Win")
+			get_node("../Win").play()
 			get_node("../winner").emitting = true
 			get_node("../Stopwatch").started = false
 	var result: String
