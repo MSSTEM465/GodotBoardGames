@@ -1,0 +1,38 @@
+{
+    "boardArray": [
+        [
+            1
+        ]
+    ],
+    "boardData": [
+        {
+            "boardW": 1
+        },
+        {
+            "boardH": 1
+        },
+        {
+            "autofill": false
+        },
+        {
+            "correction": false
+        },
+        {
+            "penalize": false
+        }
+    ],
+    "info": [
+        {
+            "title": "Hardest Level Ever"
+        },
+        {
+            "diff": 99
+        },
+        {
+            "desc": "This was ranked HARDEST LEVEL EVER by Nonogram Experts, stumping all of them. Only one person was able to solve this level. To this day, we do not know his real name, other than the fact he calls himself John Nonogram. The creator of the puzzle is still unknown to this day."
+        },
+        {
+            "locked": 10
+        }
+    ]
+}

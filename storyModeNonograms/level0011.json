@@ -1,0 +1,70 @@
+{
+    "boardArray": [
+        [
+            1,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            1,
+            1,
+            0,
+            0,
+            0
+        ],
+        [
+            1,
+            1,
+            1,
+            0,
+            0
+        ],
+        [
+            1,
+            1,
+            1,
+            1,
+            0
+        ],
+        [
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    ],
+    "boardData": [
+        {
+            "boardW": 5
+        },
+        {
+            "boardH": 5
+        },
+        {
+            "autofill": false
+        },
+        {
+            "correction": false
+        },
+        {
+            "penalize": false
+        }
+    ],
+    "info": [
+        {
+            "title": "Staircase"
+        },
+        {
+            "diff": 1
+        },
+        {
+            "desc": "Up, up, and away!"
+        },
+        {
+            "locked": -1
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "boardArray": [
+        [
+            0,
+            1,
+            0,
+            1,
+            0
+        ],
+        [
+            1,
+            0,
+            1,
+            0,
+            1
+        ],
+        [
+            0,
+            1,
+            0,
+            1,
+            0
+        ],
+        [
+            1,
+            0,
+            1,
+            0,
+            1
+        ],
+        [
+            0,
+            1,
+            0,
+            1,
+            0
+        ]
+    ],
+    "boardData": [
+        {
+            "boardW": 5
+        },
+        {
+            "boardH": 5
+        },
+        {
+            "autofill": true
+        },
+        {
+            "correction": false
+        },
+        {
+            "penalize": false
+        }
+    ],
+    "info": [
+        {
+            "title": "Checkerboard"
+        },
+        {
+            "diff": 2
+        },
+        {
+            "desc": "Usually, this precedes a chess game that I would get absolutely dunked on."
+        },
+        {
+            "locked": -1
+        }
+    ]
+}

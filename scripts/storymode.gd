@@ -52,9 +52,11 @@ func generateStories():
 		area.sprite = sprite
 		area.id = i
 		label.set_text(str(i+1))
+		label.grow_vertical = 0
+		label.grow_horizontal = 0
 		label.add_theme_font_size_override("font_size",30)
 		label.add_theme_color_override("font_color", "black")
-		label.global_position = sprite.position - Vector2(9,20)
+		label.global_position = sprite.position
 		colli.global_position = sprite.position
 		area.global_position = Vector2(get_viewport().size.x/2,i*200+200)
 		#get_node("../../ScrollContainer").set_v_scroll(area.global_position.y + 100)

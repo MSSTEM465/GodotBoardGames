@@ -107,6 +107,7 @@ func openAndGenerate(path):
 			collision.shape = shape
 			collision.position = sprite.position
 			area.add_child(collision)
+	await get_tree().process_frame
 	for i in get_children():
 		i.letsCheck()
 	for l in labels:

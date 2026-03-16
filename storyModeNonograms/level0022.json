@@ -1,0 +1,98 @@
+{
+    "boardArray": [
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+        ],
+        [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    ],
+    "boardData": [
+        {
+            "boardW": 7
+        },
+        {
+            "boardH": 7
+        },
+        {
+            "autofill": true
+        },
+        {
+            "correction": false
+        },
+        {
+            "penalize": false
+        }
+    ],
+    "info": [
+        {
+            "title": "Arrow"
+        },
+        {
+            "diff": 4
+        },
+        {
+            "desc": "Right there! Look! Its over there! I'm pointing to it!"
+        },
+        {
+            "locked": -1
+        }
+    ]
+}

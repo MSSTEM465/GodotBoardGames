@@ -1,0 +1,70 @@
+{
+    "boardArray": [
+        [
+            2,
+            1,
+            1,
+            1,
+            2
+        ],
+        [
+            1,
+            0,
+            0,
+            0,
+            1
+        ],
+        [
+            1,
+            0,
+            1,
+            0,
+            1
+        ],
+        [
+            1,
+            0,
+            0,
+            0,
+            1
+        ],
+        [
+            2,
+            1,
+            1,
+            1,
+            2
+        ]
+    ],
+    "boardData": [
+        {
+            "boardW": 5
+        },
+        {
+            "boardH": 5
+        },
+        {
+            "autofill": true
+        },
+        {
+            "correction": true
+        },
+        {
+            "penalize": false
+        }
+    ],
+    "info": [
+        {
+            "title": "Target"
+        },
+        {
+            "diff": 2
+        },
+        {
+            "desc": "Make sure not to miss!"
+        },
+        {
+            "locked": -1
+        }
+    ]
+}

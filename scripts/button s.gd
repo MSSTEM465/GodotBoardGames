@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and not SettingsPage.visible:
 		ImEx.show()
+		get_node("../GoToStory").hide()
 		if self == CB and not Locked.visible:
 			LevelInfo.hide()
 			info.hide()
@@ -58,6 +59,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			CreateBoard.hide()
 			if Scroller.get_node("Control").inGame:
 				ImEx.hide()
+				warnings.hide()
+				PlayBoard.hide()
+				get_node("../GoToStory").show()
 				pass # Replace with warning or sfx
 			else:
 				PlayBoard.show()
@@ -92,6 +96,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if Scroller.get_node("Control").inGame: # Will either show the back button or not depending if theres a game on
 				get_node("../Back").show()
 				PlayBoard.show()
+				warnings.show()
 			else:
 				if not Scroller.get_node("Control").data.get_value("Progress","Complete") == []:
 					ImEx.show()

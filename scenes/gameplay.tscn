@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://upps4vm7qnwk"]
+[gd_scene load_steps=55 format=3 uid="uid://upps4vm7qnwk"]
 
 [ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="2_i0nma"]
 [ext_resource type="Script" uid="uid://dktpjkwm7ofx6" path="res://scripts/open_file.gd" id="3_ywgr0"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d2hkp5l527vpi" path="res://images/generate.png" id="20_vqglb"]
 [ext_resource type="Texture2D" uid="uid://cay3x6kxtsn45" path="res://images/nonograminfo.png" id="21_5wmju"]
 [ext_resource type="Texture2D" uid="uid://cor0cbmwlu006" path="res://images/sotry.png" id="22_65fht"]
+[ext_resource type="Texture2D" uid="uid://uxawet0kh1ta" path="res://images/huhwha.png" id="23_3v6uj"]
 [ext_resource type="Texture2D" uid="uid://di6hsoej8v4np" path="res://images/information/infoCrazy.png" id="23_ffasw"]
 [ext_resource type="Script" uid="uid://b5jtvouvxvedw" path="res://scripts/back.gd" id="24_lnjh5"]
 [ext_resource type="Texture2D" uid="uid://ctgm6ssbysyvb" path="res://images/back.png" id="25_6cjkq"]
@@ -109,6 +110,10 @@ size = Vector2(44, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm2mb"]
 size = Vector2(58, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_28f34"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -436,6 +441,12 @@ offset_bottom = 481.5
 text = "14"
 label_settings = SubResource("LabelSettings_ip4p6")
 
+[node name="meme" type="Sprite2D" parent="LevelInfo"]
+visible = false
+position = Vector2(367.00003, 256.00003)
+scale = Vector2(0.576, 0.576)
+texture = ExtResource("23_3v6uj")
+
 [node name="Back" type="Area2D" parent="."]
 visible = false
 position = Vector2(46, 46)
@@ -470,6 +481,20 @@ stream = ExtResource("28_3v6uj")
 
 [node name="Penalize" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("29_rqnht")
+
+[node name="GoToStory" type="Label" parent="."]
+visible = false
+offset_left = 480.0
+offset_top = 196.0
+offset_right = 1440.0
+offset_bottom = 553.0
+text = "Woops! You are current in the middle
+of a Story Mode game. Please
+select Story mode and finish
+the puzzle, or end it with the
+back button."
+label_settings = SubResource("LabelSettings_28f34")
+horizontal_alignment = 1
 
 [connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
 [connection signal="about_to_popup" from="SaveFile" to="SaveFile" method="_on_about_to_popup"]

@@ -35,6 +35,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_input_event(viewport, event, shape_idx):
+	LevelInfo.get_node("meme").hide()
 	if event is InputEventMouseButton and event.pressed and not sprite.texture == load("res://images/nodelocked.png"):
 		get_node("../../../Import and Export").hide()
 		print("woah")
@@ -45,6 +46,7 @@ func _on_input_event(viewport, event, shape_idx):
 		PlayBoard.show()
 		Scroller.hide()
 		LevelInfo.hide()
+		get_node("../../../Warnings").show()
 		get_node("../../../Back").show()
 	else:
 		LevelInfo.show()
@@ -52,6 +54,8 @@ func _on_input_event(viewport, event, shape_idx):
 		LevelInfo.position = self.global_position + Vector2(50,0)
 		LevelInfo.get_node("Title").set_text(title)
 		LevelInfo.get_node("Description").set_text(desc)
+		if desc == "huh.. wha?":
+			LevelInfo.get_node("meme").show()
 		LevelInfo.get_node("Difficulty").set_text(str(diff))
 		if diff >= 0 and diff < 4:
 			infoSprite.texture = load("res://images/information/infoEasy.png")
