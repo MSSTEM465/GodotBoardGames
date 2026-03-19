@@ -36,6 +36,8 @@ func _ready() -> void:
 
 func _on_input_event(viewport, event, shape_idx):
 	LevelInfo.get_node("meme").hide()
+	if (not len(Controller.data.get_value("Progress","Complete")) >= 30) and Controller.stories[id] == "031.json":
+		return
 	if event is InputEventMouseButton and event.pressed and not sprite.texture == load("res://images/nodelocked.png"):
 		get_node("../../../Import and Export").hide()
 		print("woah")
@@ -56,7 +58,11 @@ func _on_input_event(viewport, event, shape_idx):
 		LevelInfo.get_node("Description").set_text(desc)
 		if desc == "huh.. wha?":
 			LevelInfo.get_node("meme").show()
+			LevelInfo.get_node("meme").texture = load("res://images/huhwha.png")
 		LevelInfo.get_node("Difficulty").set_text(str(diff))
+		if desc == "":
+			LevelInfo.get_node("meme").show()
+			LevelInfo.get_node("meme").texture = load("res://images/cat-thumbs-up.png")
 		if diff >= 0 and diff < 4:
 			infoSprite.texture = load("res://images/information/infoEasy.png")
 		if diff > 3 and diff < 7:
@@ -77,6 +83,11 @@ func _on_input_event(viewport, event, shape_idx):
 		
 		
 func update():
+	if Controller.stories[id] == "031.json":
+		if (not len(Controller.data.get_value("Progress","Complete")) >= 30):
+			hide()
+		else:
+			show()
 	if Controller.stories[id] in Controller.completedStories:
 		sprite.texture = load("res://images/nodecomplete.png")
 		Controller.data.set_value("Progress","Complete",Controller.completedStories)

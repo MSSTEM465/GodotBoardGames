@@ -132,7 +132,6 @@ func _on_input_event(viewport, event, shape_idx):
 	#print(CreateBoard.array)
 
 func letsCheck(): # Called on generation to fill lanes that are already empty.
-	if PlayBoard.autofill:
 			if PlayBoard.arraySelected[vert] == PlayBoard.arraySolution[vert]:
 				for i in PlayBoard.get_children():
 					if i.vert == vert and i.sprite.texture == empty:

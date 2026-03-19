@@ -34,6 +34,12 @@ func _ready() -> void:
 func generateStories():
 	#self.global_position = Vector2i(get_viewport().size.x/2,get_viewport().size.y/2)
 	for i in range(len(stories)):
+		#if stories[i] == "031.json":
+			#if len(data.get_value("Progress","Complete")) >= 30:
+				#print("Secret Level Unlocked")
+			#else:
+				#continue
+			
 		var area = Area2D.new()
 		var colli = CollisionShape2D.new()
 		var sizeC = RectangleShape2D.new()
