@@ -28,5 +28,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if cP.visible:
 			var control = cP.get_node("Control")
 			control.wipeData()
+			get_tree().root.get_node("congrats").hide()
 			self.hide()
 				

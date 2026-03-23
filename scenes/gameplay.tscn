@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://upps4vm7qnwk"]
+[gd_scene load_steps=56 format=3 uid="uid://upps4vm7qnwk"]
 
 [ext_resource type="Script" uid="uid://ddeghb68s8q4h" path="res://scripts/create_board.gd" id="2_i0nma"]
 [ext_resource type="Script" uid="uid://dktpjkwm7ofx6" path="res://scripts/open_file.gd" id="3_ywgr0"]
@@ -112,6 +112,10 @@ size = Vector2(44, 47)
 size = Vector2(58, 64)
 
 [sub_resource type="LabelSettings" id="LabelSettings_28f34"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3v6uj"]
 font_size = 50
 font_color = Color(0, 0, 0, 1)
 
@@ -495,6 +499,17 @@ the puzzle, or end it with the
 back button."
 label_settings = SubResource("LabelSettings_28f34")
 horizontal_alignment = 1
+
+[node name="congrats" type="Label" parent="."]
+visible = false
+offset_left = 18.0
+offset_top = 856.0
+offset_right = 687.0
+offset_bottom = 1069.0
+text = "Congratulations for beating Story Mode!
+Thank you for playing."
+label_settings = SubResource("LabelSettings_3v6uj")
+autowrap_mode = 2
 
 [connection signal="file_selected" from="OpenFile" to="OpenFile" method="_on_file_selected"]
 [connection signal="about_to_popup" from="SaveFile" to="SaveFile" method="_on_about_to_popup"]

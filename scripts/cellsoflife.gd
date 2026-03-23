@@ -38,6 +38,7 @@ func imOffandMyFriendsAreOn():
 	if count == 3:
 		board.newBoard[verLeng][horLeng] = true
 		on = true
+		board.on.append(self)
 	updateImage()
 
 func calculateChange():
@@ -55,13 +56,16 @@ func calculateChange():
 		if count < 2:
 			board.newBoard[verLeng][horLeng] = false
 			on = false
+			board.on.erase(self)
 		elif count > 3:
 			board.newBoard[verLeng][horLeng] = false
 			on = false
+			board.on.erase(self)
 	else:
 		if count == 3:
 			board.newBoard[verLeng][horLeng] = true
 			on = true
+			board.on.append(self)
 	updateImage()
 
 func updateImage():
@@ -73,6 +77,10 @@ func updateImage():
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and not board.simulating:
 		on = not on
+		if on:
+			board.on.append(self)
+		else:
+			board.on.erase(self)
 		board.board[verLeng][horLeng] = on
 		board.newBoard[verLeng][horLeng] = on
 		updateImage()

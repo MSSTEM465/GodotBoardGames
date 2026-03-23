@@ -8,6 +8,7 @@ var yes = preload("res://images/life/yes.png")
 var no = preload("res://images/life/no.png")
 var theScript = preload("res://scripts/cellsoflife.gd")
 var size: int
+var on = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +18,7 @@ func _ready() -> void:
 func create(s1,s2):
 	size = s1
 	self.hide()
+	on = []
 	board = []
 	newBoard = []
 	objectBoard = []
@@ -63,9 +65,11 @@ func create(s1,s2):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if simulating:
-		for i in get_children(): # This is a stupid idea LOL
-			if i.on:
-				i.calculateChange()
+		for i in on.duplicate():
+			i.calculateChange()
+		#for i in get_children(): # Loops through every children, and check if its on.
+			#if i.on:
+				#i.calculateChange()
 		for i in range(len(board)):
 			for j in range(len(board[i])):
 				board[i][j] = newBoard[i][j]

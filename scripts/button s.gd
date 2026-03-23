@@ -20,6 +20,7 @@ extends Area2D
 # Boards used
 @onready var PlayBoard = get_node("../PlayBoard")
 @onready var CreateBoard = get_node("../CreateBoard")
+@onready var congrats = get_node("../congrats")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and not SettingsPage.visible:
 		ImEx.show()
+		congrats.hide()
 		get_node("../GoToStory").hide()
 		if self == CB and not Locked.visible:
 			LevelInfo.hide()
@@ -93,6 +95,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			PlayBoard.hide()
 			ImEx.hide()
 			get_node("../Back").hide()
+			if len(Scroller.get_node("Control").data.get_value("Progress","Complete")) >= 31:
+				congrats.show()
+			
 			if Scroller.get_node("Control").inGame: # Will either show the back button or not depending if theres a game on
 				get_node("../Back").show()
 				PlayBoard.show()
