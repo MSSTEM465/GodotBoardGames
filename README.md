@@ -1,4 +1,4 @@
-![GridGames Logo](https://github.com/MSSTEM465/GodotBoardGames/blob/main/images/github%20Exclusives/gridgameLogo.png)
+![GridGames Logo](https://github.com/MSSTEM465/GodotBoardGames/blob/main/images/github%20Exclusives/gridgameLogo512.png)
 # GridGames
 
 A collection of 6 grid-based games on **Godot 4.5.1**.
