@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://clpsgko82odrx"]
+[gd_scene load_steps=44 format=3 uid="uid://clpsgko82odrx"]
 
 [ext_resource type="Script" uid="uid://br674xi31r4nq" path="res://scripts/opengame.gd" id="1_wgsso"]
 [ext_resource type="VideoStream" uid="uid://t87u3owpaybk" path="res://videos/nonogrambuttonCompromise.ogv" id="2_0y70q"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://mloppk6j4pdd" path="res://images/Godot_icon.svg.png" id="15_lqdfc"]
 [ext_resource type="AudioStream" uid="uid://csir4rykducm5" path="res://sounds/hitBS.mp3" id="17_wrxld"]
 [ext_resource type="Texture2D" uid="uid://dkws2bydh3ixt" path="res://images/infoMenuDesc.png" id="20_hr4ih"]
+[ext_resource type="Texture2D" uid="uid://ydqvegqiwlya" path="res://images/github Exclusives/gridgameLogo.png" id="25_bhvcy"]
 
 [sub_resource type="Gradient" id="Gradient_loy4s"]
 offsets = PackedFloat32Array(1)
@@ -52,13 +53,6 @@ size = Vector2(196, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrn07"]
 size = Vector2(198, 95)
-
-[sub_resource type="SystemFont" id="SystemFont_dihg0"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_rqglp"]
-font = SubResource("SystemFont_dihg0")
-font_size = 40
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y70q"]
 font_size = 28
@@ -306,98 +300,104 @@ shape = SubResource("RectangleShape2D_qrn07")
 scale = Vector2(2, 2)
 texture = ExtResource("12_cpamr")
 
-[node name="Label" type="Label" parent="Credits"]
-offset_left = 155.0
-offset_top = 13.0
-offset_right = 380.0
-offset_bottom = 68.0
-text = "Grid Games"
-label_settings = SubResource("LabelSettings_rqglp")
-
 [node name="Label2" type="Label" parent="Credits"]
-offset_left = 159.0
-offset_top = 66.0
-offset_right = 576.0
-offset_bottom = 147.0
+offset_left = 721.0
+offset_top = 234.0
+offset_right = 1187.0
+offset_bottom = 315.0
 text = "       Made with Godot Engine v4.5.1
 An AP CSP Create Task Project"
 label_settings = SubResource("LabelSettings_0y70q")
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Credits"]
-offset_left = 21.0
-offset_top = 179.0
-offset_right = 334.0
-offset_bottom = 234.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 803.5
+offset_top = 353.0
+offset_right = 1116.5
+offset_bottom = 408.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Programming and Art"
 label_settings = SubResource("LabelSettings_qrn07")
+horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="Credits"]
-offset_left = 19.0
-offset_top = 208.0
-offset_right = 490.0
-offset_bottom = 277.0
+offset_left = 734.0
+offset_top = 384.0
+offset_right = 1205.0
+offset_bottom = 453.0
 text = "Maximillian Siewior"
 label_settings = SubResource("LabelSettings_lidg2")
 
 [node name="Label5" type="Label" parent="Credits"]
-offset_left = 19.0
-offset_top = 302.0
-offset_right = 332.0
-offset_bottom = 357.0
+offset_left = 803.5
+offset_top = 507.0
+offset_right = 1116.5
+offset_bottom = 562.0
 text = "Keyboard Clipart"
 label_settings = SubResource("LabelSettings_qrn07")
+horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Credits"]
-offset_left = 18.0
-offset_top = 330.0
-offset_right = 489.0
-offset_bottom = 399.0
+offset_left = 733.0
+offset_top = 535.0
+offset_right = 1204.0
+offset_bottom = 604.0
 text = "techonthenet.com"
 label_settings = SubResource("LabelSettings_lidg2")
+horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Credits"]
-offset_left = 22.0
-offset_top = 422.0
-offset_right = 335.0
-offset_bottom = 477.0
+offset_left = 803.5
+offset_top = 627.0
+offset_right = 1116.5
+offset_bottom = 682.0
 text = "Mouse Clipart"
 label_settings = SubResource("LabelSettings_qrn07")
+horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="Credits"]
-offset_left = 22.0
-offset_top = 456.0
-offset_right = 493.0
-offset_bottom = 525.0
+offset_left = 728.0
+offset_top = 653.0
+offset_right = 1199.0
+offset_bottom = 722.0
 text = "vecteezy.com"
 label_settings = SubResource("LabelSettings_lidg2")
+horizontal_alignment = 1
 
 [node name="Affinity" type="Sprite2D" parent="Credits"]
-position = Vector2(131, 942)
+position = Vector2(715, 942)
 scale = Vector2(0.14296874, 0.14296874)
 texture = ExtResource("9_0y70q")
 
 [node name="Label9" type="Label" parent="Credits"]
-offset_left = 38.0
+offset_left = 563.0
 offset_top = 760.0
-offset_right = 351.0
+offset_right = 876.0
 offset_bottom = 847.0
 text = "Art done with 
 Affinity Photo"
 label_settings = SubResource("LabelSettings_qrn07")
+horizontal_alignment = 1
 
 [node name="Icon" type="Sprite2D" parent="Credits"]
 position = Vector2(79, 81)
 texture = ExtResource("10_qrn07")
 
 [node name="Sprite2D" type="Sprite2D" parent="Credits"]
-position = Vector2(502, 940.99994)
+position = Vector2(1212, 940.99994)
 scale = Vector2(0.22265625, 0.22265625)
 texture = ExtResource("14_f0ka0")
 
 [node name="Label10" type="Label" parent="Credits"]
-offset_left = 356.0
+offset_left = 1066.0
 offset_top = 757.0
-offset_right = 669.0
+offset_right = 1379.0
 offset_bottom = 844.0
 text = "Videos done with 
 Davinci Resolve"
@@ -405,9 +405,14 @@ label_settings = SubResource("LabelSettings_qrn07")
 horizontal_alignment = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="Credits"]
-position = Vector2(180, 81)
+position = Vector2(741.99994, 248.99998)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("15_lqdfc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Credits"]
+position = Vector2(960, 122)
+scale = Vector2(0.34432718, 0.34432718)
+texture = ExtResource("25_bhvcy")
 
 [node name="GoL" type="Area2D" parent="."]
 position = Vector2(1406, 796)

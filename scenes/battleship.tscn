@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://s4kgbsqth4k7"]
+[gd_scene load_steps=43 format=3 uid="uid://s4kgbsqth4k7"]
 
 [ext_resource type="Script" uid="uid://cbemro020ebd2" path="res://scripts/ship_view.gd" id="1_h2n8t"]
 [ext_resource type="Texture2D" uid="uid://draqwtveyhm52" path="res://images/ocean.png" id="1_plav0"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cp23q1b8qd2au" path="res://scripts/next_button.gd" id="10_q78e7"]
 [ext_resource type="Script" uid="uid://cdo2gk6uwg78o" path="res://scripts/proceed.gd" id="11_q78e7"]
 [ext_resource type="Texture2D" uid="uid://dfqq5s5njuaej" path="res://images/next.png" id="11_qqthi"]
+[ext_resource type="Texture2D" uid="uid://bb7pkp84kxkgl" path="res://images/battleship/hider.png" id="13_uunth"]
 [ext_resource type="Texture2D" uid="uid://jh8tbjlgvvoq" path="res://images/battleship/whitePeg.png" id="14_jfsxd"]
 [ext_resource type="Script" uid="uid://decokmn1xjls6" path="res://scripts/peg.gd" id="15_qqthi"]
 [ext_resource type="Script" uid="uid://cw2wsrj2685o2" path="res://scripts/exit_to_mm.gd" id="16_plav0"]
@@ -314,7 +315,13 @@ texture = ExtResource("11_qqthi")
 [node name="Hider" type="Node2D" parent="."]
 visible = false
 
+[node name="Sprite2D2" type="Sprite2D" parent="Hider"]
+z_index = 50
+position = Vector2(960, 540)
+texture = ExtResource("13_uunth")
+
 [node name="Sprite2D" type="Sprite2D" parent="Hider"]
+visible = false
 z_index = 50
 position = Vector2(957.5, 529)
 scale = Vector2(30.921875, 17.53125)
