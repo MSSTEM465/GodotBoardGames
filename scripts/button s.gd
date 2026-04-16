@@ -102,6 +102,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				get_node("../Back").show()
 				PlayBoard.show()
 				warnings.show()
+				congrats.hide()
 			else:
 				if not Scroller.get_node("Control").data.get_value("Progress","Complete") == []:
 					ImEx.show()

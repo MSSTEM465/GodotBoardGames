@@ -17,3 +17,11 @@ List of games:
 	- A game of luck and educated guessing! Hope you strike the right tile, or you might sacrifice a ship..
 - John Conway's Game of Life
 	- A 0 player game, set up a board and watch as the cells grow and adapt!
+
+
+MAC INSTALL INSTRUCTIONS:
+	
+If opening the app doesn't give the malware warning, press open packages on it and go to Contents/MacOS and open terminal there.
+Then run this command:
+chmod -X GridGames
+If its icon changed, open the application and proceed with bypassing Gatekeeper.
