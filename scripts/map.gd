@@ -10,6 +10,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func generate():
+	for i in get_children():
+		i.queue_free()
 	for i in range(10):
 		for j in range(10):
 			var area = Area2D.new()

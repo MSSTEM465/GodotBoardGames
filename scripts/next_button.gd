@@ -21,13 +21,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			board.endGame = false
 			board.initialize()
 			board.turn = 0
+			peg.position = Vector2(9999,9999)
+			hider.get_node("Warn").set_text("Prestage! Create your board")
 			get_node("../Ship Selection").show()
 			get_node("../Map").generate()
 			get_node("../Label").set_text("Your Board")
 			get_node("../Label2").set_text("Enemy Map")
 			get_node("../Player").set_text("Player 1")
 			return
-		if board.preStage:
+		elif board.preStage:
 			if board.turn == 0:
 				var count = 0
 				for i in board.p1ShipArray:
